@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/blocs/bloc/auth_bloc.dart';
+import 'package:login/blocs/auth/auth_bloc.dart';
+import 'package:login/blocs/role/role_bloc.dart';
 import 'package:login/presentation/auth_screen/loginscreen.dart';
 
 void main() {
@@ -14,10 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(
-        create: (context) => AuthBloc(),
-        child: Container(),
-      )],
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => RoleBloc(),
+        )
+      ],
       child: const MaterialApp(
         title: "Design Start",
         home: Loginscreen(),

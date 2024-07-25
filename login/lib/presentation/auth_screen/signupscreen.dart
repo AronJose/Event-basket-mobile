@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/blocs/bloc/auth_bloc.dart';
+import 'package:login/blocs/auth/auth_bloc.dart';
+import 'package:login/blocs/role/role_bloc.dart';
 import 'package:login/presentation/auth_screen/loginscreen.dart';
 import 'package:login/presentation/auth_screen/roles_screen.dart';
 
@@ -16,6 +17,12 @@ class Signupscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //useEffect polathe sathanam ,InitState (stateFullwidgets) kittu
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        context.read<RoleBloc>().add(const RoleListGet());
+      },
+    );
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.loading) {
@@ -28,10 +35,6 @@ class Signupscreen extends StatelessWidget {
         } else if (state.error != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.error!)),
-          );
-        } else if (state.data != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Sign up successful!")),
           );
         }
       },

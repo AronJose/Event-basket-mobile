@@ -10,4 +10,6 @@ class AuthEvent with _$AuthEvent {
     required String role,
     required String password,
   }) = SignUpEvent;
+
+
 }

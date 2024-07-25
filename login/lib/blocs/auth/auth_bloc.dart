@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/models/auth.dart';
-import 'package:login/services/auth.dart';
+import 'package:login/services/auth_service.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -15,7 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpEvent>((event, emit) async {
       emit(state.copyWith(loading: true, error: null));
       try {
-        final data = await authService.signUp({
+        await authService.signUp({
           'first_name': event.firstName,
           'last_name': event.lastName,
           'email': event.email,
@@ -23,9 +23,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           'role': event.role,
           'password': event.password,
         });
-        emit(state.copyWith(data: data, loading: false, error: null));
+        emit(state.copyWith(loading: false, error: null));
       } catch (e) {
-        emit(state.copyWith(data: null, loading: false, error: e.toString()));
+        emit(state.copyWith(loading: false, error: e.toString()));
       }
     });
   }

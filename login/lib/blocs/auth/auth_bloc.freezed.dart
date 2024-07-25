@@ -354,7 +354,6 @@ abstract class SignUpEvent implements AuthEvent {
 
 /// @nodoc
 mixin _$AuthState {
-  AuthModel? get data => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
@@ -368,7 +367,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({AuthModel? data, bool loading, String? error});
+  $Res call({bool loading, String? error});
 }
 
 /// @nodoc
@@ -384,15 +383,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? loading = null,
     Object? error = freezed,
   }) {
     return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as AuthModel?,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -413,7 +407,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AuthModel? data, bool loading, String? error});
+  $Res call({bool loading, String? error});
 }
 
 /// @nodoc
@@ -427,15 +421,10 @@ class __$$InitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? loading = null,
     Object? error = freezed,
   }) {
     return _then(_$InitialImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as AuthModel?,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -451,11 +440,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
-  const _$InitialImpl(
-      {required this.data, required this.loading, required this.error});
+  const _$InitialImpl({required this.loading, required this.error});
 
-  @override
-  final AuthModel? data;
   @override
   final bool loading;
   @override
@@ -463,7 +449,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState(data: $data, loading: $loading, error: $error)';
+    return 'AuthState(loading: $loading, error: $error)';
   }
 
   @override
@@ -471,7 +457,6 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AuthState'))
-      ..add(DiagnosticsProperty('data', data))
       ..add(DiagnosticsProperty('loading', loading))
       ..add(DiagnosticsProperty('error', error));
   }
@@ -481,13 +466,12 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            (identical(other.data, data) || other.data == data) &&
             (identical(other.loading, loading) || other.loading == loading) &&
             (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data, loading, error);
+  int get hashCode => Object.hash(runtimeType, loading, error);
 
   @JsonKey(ignore: true)
   @override
@@ -498,12 +482,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 
 abstract class _Initial implements AuthState {
   const factory _Initial(
-      {required final AuthModel? data,
-      required final bool loading,
+      {required final bool loading,
       required final String? error}) = _$InitialImpl;
 
-  @override
-  AuthModel? get data;
   @override
   bool get loading;
   @override

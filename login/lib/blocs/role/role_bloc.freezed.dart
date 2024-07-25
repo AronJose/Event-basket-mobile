@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RoleEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getRolesEvent,
+    required TResult Function() roleListGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getRolesEvent,
+    TResult? Function()? roleListGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getRolesEvent,
+    TResult Function()? roleListGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetRolesEvent value) getRolesEvent,
+    required TResult Function(RoleListGet value) roleListGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetRolesEvent value)? getRolesEvent,
+    TResult? Function(RoleListGet value)? roleListGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetRolesEvent value)? getRolesEvent,
+    TResult Function(RoleListGet value)? roleListGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,35 +68,41 @@ class _$RoleEventCopyWithImpl<$Res, $Val extends RoleEvent>
 }
 
 /// @nodoc
-abstract class _$$GetRolesEventImplCopyWith<$Res> {
-  factory _$$GetRolesEventImplCopyWith(
-          _$GetRolesEventImpl value, $Res Function(_$GetRolesEventImpl) then) =
-      __$$GetRolesEventImplCopyWithImpl<$Res>;
+abstract class _$$RoleListGetImplCopyWith<$Res> {
+  factory _$$RoleListGetImplCopyWith(
+          _$RoleListGetImpl value, $Res Function(_$RoleListGetImpl) then) =
+      __$$RoleListGetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GetRolesEventImplCopyWithImpl<$Res>
-    extends _$RoleEventCopyWithImpl<$Res, _$GetRolesEventImpl>
-    implements _$$GetRolesEventImplCopyWith<$Res> {
-  __$$GetRolesEventImplCopyWithImpl(
-      _$GetRolesEventImpl _value, $Res Function(_$GetRolesEventImpl) _then)
+class __$$RoleListGetImplCopyWithImpl<$Res>
+    extends _$RoleEventCopyWithImpl<$Res, _$RoleListGetImpl>
+    implements _$$RoleListGetImplCopyWith<$Res> {
+  __$$RoleListGetImplCopyWithImpl(
+      _$RoleListGetImpl _value, $Res Function(_$RoleListGetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GetRolesEventImpl implements GetRolesEvent {
-  const _$GetRolesEventImpl();
+class _$RoleListGetImpl with DiagnosticableTreeMixin implements RoleListGet {
+  const _$RoleListGetImpl();
 
   @override
-  String toString() {
-    return 'RoleEvent.getRolesEvent()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RoleEvent.roleListGet()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RoleEvent.roleListGet'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetRolesEventImpl);
+        (other.runtimeType == runtimeType && other is _$RoleListGetImpl);
   }
 
   @override
@@ -105,27 +111,27 @@ class _$GetRolesEventImpl implements GetRolesEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getRolesEvent,
+    required TResult Function() roleListGet,
   }) {
-    return getRolesEvent();
+    return roleListGet();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getRolesEvent,
+    TResult? Function()? roleListGet,
   }) {
-    return getRolesEvent?.call();
+    return roleListGet?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getRolesEvent,
+    TResult Function()? roleListGet,
     required TResult orElse(),
   }) {
-    if (getRolesEvent != null) {
-      return getRolesEvent();
+    if (roleListGet != null) {
+      return roleListGet();
     }
     return orElse();
   }
@@ -133,41 +139,41 @@ class _$GetRolesEventImpl implements GetRolesEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetRolesEvent value) getRolesEvent,
+    required TResult Function(RoleListGet value) roleListGet,
   }) {
-    return getRolesEvent(this);
+    return roleListGet(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetRolesEvent value)? getRolesEvent,
+    TResult? Function(RoleListGet value)? roleListGet,
   }) {
-    return getRolesEvent?.call(this);
+    return roleListGet?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetRolesEvent value)? getRolesEvent,
+    TResult Function(RoleListGet value)? roleListGet,
     required TResult orElse(),
   }) {
-    if (getRolesEvent != null) {
-      return getRolesEvent(this);
+    if (roleListGet != null) {
+      return roleListGet(this);
     }
     return orElse();
   }
 }
 
-abstract class GetRolesEvent implements RoleEvent {
-  const factory GetRolesEvent() = _$GetRolesEventImpl;
+abstract class RoleListGet implements RoleEvent {
+  const factory RoleListGet() = _$RoleListGetImpl;
 }
 
 /// @nodoc
 mixin _$RoleState {
-  RolesModel? get data => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  List<RolesModel> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RoleStateCopyWith<RoleState> get copyWith =>
@@ -179,7 +185,7 @@ abstract class $RoleStateCopyWith<$Res> {
   factory $RoleStateCopyWith(RoleState value, $Res Function(RoleState) then) =
       _$RoleStateCopyWithImpl<$Res, RoleState>;
   @useResult
-  $Res call({RolesModel? data, bool loading, String? error});
+  $Res call({bool loading, String? error, List<RolesModel> data});
 }
 
 /// @nodoc
@@ -195,15 +201,11 @@ class _$RoleStateCopyWithImpl<$Res, $Val extends RoleState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? loading = null,
     Object? error = freezed,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RolesModel?,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -212,41 +214,41 @@ class _$RoleStateCopyWithImpl<$Res, $Val extends RoleState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<RolesModel>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$initialImplCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $RoleStateCopyWith<$Res> {
-  factory _$$initialImplCopyWith(
-          _$initialImpl value, $Res Function(_$initialImpl) then) =
-      __$$initialImplCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RolesModel? data, bool loading, String? error});
+  $Res call({bool loading, String? error, List<RolesModel> data});
 }
 
 /// @nodoc
-class __$$initialImplCopyWithImpl<$Res>
-    extends _$RoleStateCopyWithImpl<$Res, _$initialImpl>
-    implements _$$initialImplCopyWith<$Res> {
-  __$$initialImplCopyWithImpl(
-      _$initialImpl _value, $Res Function(_$initialImpl) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$RoleStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
     Object? loading = null,
     Object? error = freezed,
+    Object? data = null,
   }) {
-    return _then(_$initialImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RolesModel?,
+    return _then(_$InitialImpl(
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -255,62 +257,85 @@ class __$$initialImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<RolesModel>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$initialImpl implements initial {
-  const _$initialImpl(
-      {required this.data, required this.loading, required this.error});
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
+  const _$InitialImpl(
+      {required this.loading,
+      required this.error,
+      required final List<RolesModel> data})
+      : _data = data;
 
-  @override
-  final RolesModel? data;
   @override
   final bool loading;
   @override
   final String? error;
+  final List<RolesModel> _data;
+  @override
+  List<RolesModel> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
-  String toString() {
-    return 'RoleState(data: $data, loading: $loading, error: $error)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RoleState(loading: $loading, error: $error, data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RoleState'))
+      ..add(DiagnosticsProperty('loading', loading))
+      ..add(DiagnosticsProperty('error', error))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$initialImpl &&
-            (identical(other.data, data) || other.data == data) &&
+            other is _$InitialImpl &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data, loading, error);
+  int get hashCode => Object.hash(
+      runtimeType, loading, error, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$initialImplCopyWith<_$initialImpl> get copyWith =>
-      __$$initialImplCopyWithImpl<_$initialImpl>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
-abstract class initial implements RoleState {
-  const factory initial(
-      {required final RolesModel? data,
-      required final bool loading,
-      required final String? error}) = _$initialImpl;
+abstract class _Initial implements RoleState {
+  const factory _Initial(
+      {required final bool loading,
+      required final String? error,
+      required final List<RolesModel> data}) = _$InitialImpl;
 
-  @override
-  RolesModel? get data;
   @override
   bool get loading;
   @override
   String? get error;
   @override
+  List<RolesModel> get data;
+  @override
   @JsonKey(ignore: true)
-  _$$initialImplCopyWith<_$initialImpl> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
