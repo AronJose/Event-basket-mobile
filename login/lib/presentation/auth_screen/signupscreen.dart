@@ -5,15 +5,27 @@ import 'package:login/blocs/role/role_bloc.dart';
 import 'package:login/presentation/auth_screen/loginscreen.dart';
 import 'package:login/presentation/auth_screen/roles_screen.dart';
 
-class Signupscreen extends StatelessWidget {
-  Signupscreen({super.key});
+class Signupscreen extends StatefulWidget {
+  const Signupscreen({super.key});
 
+  @override
+  State<Signupscreen> createState() => _SignupscreenState();
+}
+
+class _SignupscreenState extends State<Signupscreen> {
   final TextEditingController firstNameController = TextEditingController();
+
   final TextEditingController lastNameController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController contactController = TextEditingController();
+
   final TextEditingController roleController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
+  String selectedRole = '';
 
   @override
   Widget build(BuildContext context) {
@@ -148,21 +160,18 @@ class Signupscreen extends StatelessWidget {
                           const SizedBox(
                             height: 20,
                           ),
-                          TextField(
-                            controller: roleController,
-                            decoration: InputDecoration(
-                              hintText: "Enter your Role",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 117, 183, 236),
-                                  width: 2,
+                          SizedBox(
+                            width: 350,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text("Role : "),
+                                RoleRadioButton(
+                                  onRoleSelected: (role) {
+                                    selectedRole = role;
+                                  },
                                 ),
-                              ),
+                              ],
                             ),
                           ),
                           const SizedBox(
@@ -204,13 +213,13 @@ class Signupscreen extends StatelessWidget {
                                     lastName: lastNameController.text,
                                     email: emailController.text,
                                     contact: contactController.text,
-                                    role: roleController.text,
+                                    role: selectedRole,
                                     password: passwordController.text,
                                   ));
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Home(),
+                                  builder: (context) => const Loginscreen(),
                                 ),
                               );
                             },
@@ -249,5 +258,16 @@ class Signupscreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+    contactController.dispose();
+    roleController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }

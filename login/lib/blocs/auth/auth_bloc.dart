@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:login/models/auth.dart';
 import 'package:login/services/auth_service.dart';
 
 part 'auth_event.dart';

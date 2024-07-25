@@ -15,7 +15,17 @@ class RoleService {
       }
       return rolesList;
     } catch (e) {
-      print(e);
+      rethrow;
+    }
+  }
+
+  Future<RolesModel> getRoleById(String id) async {
+    try {
+      final res =
+          await dio.get("/api/roles/:id", queryParameters: {"role_id": id});
+      final data = res.data;
+      return data;
+    } catch (e) {
       rethrow;
     }
   }

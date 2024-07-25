@@ -9,5 +9,5 @@ class RoleState with _$RoleState {
   }) = _Initial;
 
   factory RoleState.initial() =>
-   const  RoleState(loading: true, error: null, data: []);
+      const RoleState(loading: true, error: null, data: []);
 }

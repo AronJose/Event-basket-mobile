@@ -13,10 +13,11 @@ class RoleBloc extends Bloc<RoleEvent, RoleState> {
   RoleBloc() : super(RoleState.initial()) {
     on<RoleListGet>((event, emit) async {
       try {
+        emit(state.copyWith(loading: true, error: null));
         final data = await roleService.getRoles();
-        print(data);
+        emit(state.copyWith(loading: false, data: data));
       } catch (e) {
-        print(e);
+        emit(state.copyWith(loading: false, error: e.toString()));
       }
     });
   }
