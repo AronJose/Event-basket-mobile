@@ -19,19 +19,19 @@ mixin _$RoleEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() roleListGet,
-    required TResult Function() roleByIdGet,
+    required TResult Function(String id) roleByIdGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? roleListGet,
-    TResult? Function()? roleByIdGet,
+    TResult? Function(String id)? roleByIdGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? roleListGet,
-    TResult Function()? roleByIdGet,
+    TResult Function(String id)? roleByIdGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -118,7 +118,7 @@ class _$RoleListGetImpl with DiagnosticableTreeMixin implements RoleListGet {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() roleListGet,
-    required TResult Function() roleByIdGet,
+    required TResult Function(String id) roleByIdGet,
   }) {
     return roleListGet();
   }
@@ -127,7 +127,7 @@ class _$RoleListGetImpl with DiagnosticableTreeMixin implements RoleListGet {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? roleListGet,
-    TResult? Function()? roleByIdGet,
+    TResult? Function(String id)? roleByIdGet,
   }) {
     return roleListGet?.call();
   }
@@ -136,7 +136,7 @@ class _$RoleListGetImpl with DiagnosticableTreeMixin implements RoleListGet {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? roleListGet,
-    TResult Function()? roleByIdGet,
+    TResult Function(String id)? roleByIdGet,
     required TResult orElse(),
   }) {
     if (roleListGet != null) {
@@ -186,6 +186,8 @@ abstract class _$$RoleByIdGetImplCopyWith<$Res> {
   factory _$$RoleByIdGetImplCopyWith(
           _$RoleByIdGetImpl value, $Res Function(_$RoleByIdGetImpl) then) =
       __$$RoleByIdGetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -195,60 +197,86 @@ class __$$RoleByIdGetImplCopyWithImpl<$Res>
   __$$RoleByIdGetImplCopyWithImpl(
       _$RoleByIdGetImpl _value, $Res Function(_$RoleByIdGetImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$RoleByIdGetImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$RoleByIdGetImpl with DiagnosticableTreeMixin implements RoleByIdGet {
-  const _$RoleByIdGetImpl();
+  const _$RoleByIdGetImpl({required this.id});
+
+  @override
+  final String id;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RoleEvent.roleByIdGet()';
+    return 'RoleEvent.roleByIdGet(id: $id)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'RoleEvent.roleByIdGet'));
+    properties
+      ..add(DiagnosticsProperty('type', 'RoleEvent.roleByIdGet'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RoleByIdGetImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$RoleByIdGetImpl &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RoleByIdGetImplCopyWith<_$RoleByIdGetImpl> get copyWith =>
+      __$$RoleByIdGetImplCopyWithImpl<_$RoleByIdGetImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() roleListGet,
-    required TResult Function() roleByIdGet,
+    required TResult Function(String id) roleByIdGet,
   }) {
-    return roleByIdGet();
+    return roleByIdGet(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? roleListGet,
-    TResult? Function()? roleByIdGet,
+    TResult? Function(String id)? roleByIdGet,
   }) {
-    return roleByIdGet?.call();
+    return roleByIdGet?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? roleListGet,
-    TResult Function()? roleByIdGet,
+    TResult Function(String id)? roleByIdGet,
     required TResult orElse(),
   }) {
     if (roleByIdGet != null) {
-      return roleByIdGet();
+      return roleByIdGet(id);
     }
     return orElse();
   }
@@ -286,14 +314,19 @@ class _$RoleByIdGetImpl with DiagnosticableTreeMixin implements RoleByIdGet {
 }
 
 abstract class RoleByIdGet implements RoleEvent {
-  const factory RoleByIdGet() = _$RoleByIdGetImpl;
+  const factory RoleByIdGet({required final String id}) = _$RoleByIdGetImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$RoleByIdGetImplCopyWith<_$RoleByIdGetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$RoleState {
   bool get loading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
-  Object? get data => throw _privateConstructorUsedError;
+  List<RolesModel> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RoleStateCopyWith<RoleState> get copyWith =>
@@ -305,7 +338,7 @@ abstract class $RoleStateCopyWith<$Res> {
   factory $RoleStateCopyWith(RoleState value, $Res Function(RoleState) then) =
       _$RoleStateCopyWithImpl<$Res, RoleState>;
   @useResult
-  $Res call({bool loading, String error});
+  $Res call({bool loading, String? error, List<RolesModel> data});
 }
 
 /// @nodoc
@@ -322,17 +355,22 @@ class _$RoleStateCopyWithImpl<$Res, $Val extends RoleState>
   @override
   $Res call({
     Object? loading = null,
-    Object? error = null,
+    Object? error = freezed,
+    Object? data = null,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: null == error
-          ? _value.error!
+      error: freezed == error
+          ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<RolesModel>,
     ) as $Val);
   }
 }
@@ -452,114 +490,5 @@ abstract class _Initial implements RoleState {
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SingleRoleImplCopyWith<$Res>
-    implements $RoleStateCopyWith<$Res> {
-  factory _$$SingleRoleImplCopyWith(
-          _$SingleRoleImpl value, $Res Function(_$SingleRoleImpl) then) =
-      __$$SingleRoleImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool loading, String error, RolesModel? data});
-}
-
-/// @nodoc
-class __$$SingleRoleImplCopyWithImpl<$Res>
-    extends _$RoleStateCopyWithImpl<$Res, _$SingleRoleImpl>
-    implements _$$SingleRoleImplCopyWith<$Res> {
-  __$$SingleRoleImplCopyWithImpl(
-      _$SingleRoleImpl _value, $Res Function(_$SingleRoleImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? loading = null,
-    Object? error = null,
-    Object? data = freezed,
-  }) {
-    return _then(_$SingleRoleImpl(
-      loading: null == loading
-          ? _value.loading
-          : loading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as RolesModel?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SingleRoleImpl with DiagnosticableTreeMixin implements _SingleRole {
-  const _$SingleRoleImpl(
-      {required this.loading, required this.error, required this.data});
-
-  @override
-  final bool loading;
-  @override
-  final String error;
-  @override
-  final RolesModel? data;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RoleState(loading: $loading, error: $error, data: $data)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RoleState'))
-      ..add(DiagnosticsProperty('loading', loading))
-      ..add(DiagnosticsProperty('error', error))
-      ..add(DiagnosticsProperty('data', data));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SingleRoleImpl &&
-            (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.error, error) || other.error == error) &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, loading, error, data);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SingleRoleImplCopyWith<_$SingleRoleImpl> get copyWith =>
-      __$$SingleRoleImplCopyWithImpl<_$SingleRoleImpl>(this, _$identity);
-}
-
-abstract class _SingleRole implements RoleState {
-  const factory _SingleRole(
-      {required final bool loading,
-      required final String error,
-      required final RolesModel? data}) = _$SingleRoleImpl;
-
-  @override
-  bool get loading;
-  @override
-  String get error;
-  @override
-  RolesModel? get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$SingleRoleImplCopyWith<_$SingleRoleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -7,9 +7,9 @@ class AuthEvent with _$AuthEvent {
     required String lastName,
     required String email,
     required String contact,
-    required String role,
+    required String image,
     required String password,
   }) = SignUpEvent;
 
-
+ const factory AuthEvent.uploadImageEvent(File filepath) = UploadImageEvent;
 }

@@ -20,16 +20,17 @@ class AuthModel {
 }
 
 class Saved {
-    String? firstName;
-    String? lastName;
-    String? email;
-    String? contact;
-    dynamic image;
-    String? status;
-    String? password;
-    String? passwordSalt;
-    String? role;
-    String? id;
+    String firstName;
+    String lastName;
+    String email;
+    String contact;
+    String image;
+    String status;
+    String password;
+    String passwordSalt;
+    String id;
+    String role;
+    int v;
 
     Saved({
         required this.firstName,
@@ -40,8 +41,9 @@ class Saved {
         required this.status,
         required this.password,
         required this.passwordSalt,
-        required this.role,
         required this.id,
+        required this.role,
+        required this.v,
     });
 
     factory Saved.fromJson(Map<String, dynamic> json) => Saved(
@@ -53,8 +55,9 @@ class Saved {
         status: json["status"],
         password: json["password"],
         passwordSalt: json["password_salt"],
-        role: json["role"],
         id: json["_id"],
+        role: json["role"],
+        v: json["__v"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -66,7 +69,8 @@ class Saved {
         "status": status,
         "password": password,
         "password_salt": passwordSalt,
-        "role": role,
         "_id": id,
+        "role": role,
+        "__v": v,
     };
 }

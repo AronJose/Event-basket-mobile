@@ -22,7 +22,7 @@ class RoleService {
   Future<RolesModel> getRoleById(String id) async {
     try {
       final res =
-          await dio.get("/api/roles/:id", queryParameters: {"role_id": id});
+          await dio.get("/api/roles/", queryParameters: {"role_id": id});
       final data = res.data;
       return data;
     } catch (e) {

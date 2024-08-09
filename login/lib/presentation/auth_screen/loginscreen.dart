@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/presentation/auth_screen/signupscreen.dart';
 
 class Loginscreen extends StatefulWidget {
@@ -23,34 +24,37 @@ class _LoginscreenState extends State<Loginscreen> {
         child: Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: EdgeInsets.all(16.w),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
+                  borderRadius: BorderRadius.circular(100.r),
                   child: SizedBox(
-                      width: 200,
-                      height: 200,
+                      width: 150.w,
+                      height: 150.h,
                       child: Image.asset('images/signUp.png')),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 Container(
-                  margin: const EdgeInsets.only(bottom: 20),
+                  margin: EdgeInsets.only(bottom: 20.h),
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Email",
-                      hintStyle: const TextStyle(
-                          color: Color.fromARGB(255, 163, 162, 162)),
+                      hintStyle: TextStyle(
+                        color: const Color.fromARGB(255, 163, 162, 162),
+                        fontSize: 20.spMin,
+                      ),
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30)),
+                          borderRadius: BorderRadius.circular(30.r)),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 108, 186, 250),
-                              width: 2)),
+                        borderRadius: BorderRadius.circular(30.r),
+                        borderSide: BorderSide(
+                            color: const Color.fromARGB(255, 108, 186, 250),
+                            width: 2.w),
+                      ),
                     ),
                   ),
                 ),
@@ -59,14 +63,16 @@ class _LoginscreenState extends State<Loginscreen> {
                   keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                       hintText: "Password",
-                      hintStyle: const TextStyle(color: Colors.grey),
+                      hintStyle: TextStyle(
+                          color: const Color.fromARGB(255, 163, 162, 162),
+                          fontSize: 20.spMin),
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30)),
+                          borderRadius: BorderRadius.circular(30.r)),
                       focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                              color: Color.fromARGB(255, 106, 180, 240),
-                              width: 2)),
+                          borderRadius: BorderRadius.circular(30.r),
+                          borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 106, 180, 240),
+                              width: 2.w)),
                       suffixIcon: IconButton(
                         icon: Icon(passwordVisible
                             ? Icons.visibility
@@ -74,40 +80,44 @@ class _LoginscreenState extends State<Loginscreen> {
                         onPressed: passwordVisibleButton,
                       )),
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 50.h,
                 ),
                 ElevatedButton(
                     style: ButtonStyle(
-                      minimumSize: const WidgetStatePropertyAll(Size(130, 55)),
+                      minimumSize: WidgetStatePropertyAll(Size(110.w, 55.h)),
                       backgroundColor: WidgetStateProperty.all(
                           const Color.fromARGB(255, 134, 194, 243)),
                     ),
                     onPressed: () {},
-                    child: const Text(
+                    child: Text(
                       "Log In",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 17,
+                          fontSize: 17.spMax,
                           fontWeight: FontWeight.bold),
                     )),
-                const SizedBox(height: 30),
-                const Text(
+                SizedBox(height: 30.h),
+                Text(
                   "Forgot  Password",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.grey),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      fontSize: 15.spMin  ),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: 10.h),
                 TextButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  const Signupscreen()));
+                              builder: (context) => const Signupscreen()));
                     },
-                    child: const Text("Not a member? Sign up now",
+                    child: Text("Not a member? Sign up now",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey)))
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                            fontSize: 15.spMin)))
               ],
             ),
           ),
