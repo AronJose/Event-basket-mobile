@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/presentation/auth_screen/signupscreen.dart';
+import 'package:login/presentation/screens/event_creation.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
@@ -84,26 +85,34 @@ class _LoginscreenState extends State<Loginscreen> {
                   height: 50.h,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                      minimumSize: WidgetStatePropertyAll(Size(110.w, 55.h)),
-                      backgroundColor: WidgetStateProperty.all(
-                          const Color.fromARGB(255, 134, 194, 243)),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Log In",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17.spMax,
-                          fontWeight: FontWeight.bold),
-                    )),
+                  style: ButtonStyle(
+                    minimumSize: WidgetStatePropertyAll(Size(110.w, 55.h)),
+                    backgroundColor: WidgetStateProperty.all(
+                        const Color.fromARGB(255, 134, 194, 243)),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>const CreateEvent(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Log In",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17.spMax,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
                 SizedBox(height: 30.h),
                 Text(
                   "Forgot  Password",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
-                      fontSize: 15.spMin  ),
+                      fontSize: 15.spMin),
                 ),
                 SizedBox(height: 10.h),
                 TextButton(

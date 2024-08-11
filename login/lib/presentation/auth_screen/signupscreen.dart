@@ -4,10 +4,10 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/blocs/auth/auth_bloc.dart';
-// import 'package:login/blocs/role/role_bloc.dart';
-import 'package:login/helper/input_text_field.dart';
+import 'package:login/helper/elevated_button_form.dart';
 import 'package:login/presentation/auth_screen/loginscreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/presentation/auth_screen/signup_form.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});
@@ -28,12 +28,6 @@ class _SignupscreenState extends State<Signupscreen> {
 
   @override
   Widget build(BuildContext context) {
-    //useEffect polathe sathanam ,InitState (stateFullwidgets) kittu
-    // WidgetsBinding.instance.addPostFrameCallback(
-    //   (timeStamp) {
-    //     context.read<RoleBloc>().add(const RoleListGet());
-    //   },
-    // );
     return ScreenUtilInit(
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -92,140 +86,43 @@ class _SignupscreenState extends State<Signupscreen> {
                                 ),
                               ),
                             ),
-
                             SizedBox(height: 40.h),
-                            Form(
-                              key: _formKey,
-                              child: Column(
-                                children: [
-                                  InputFieldTexts(
-                                    controller: firstNameController,
-                                    placeholderValue: "Enter your first name",
-                                    errorvalue: 'Please enter first text',
-                                  ),
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  InputFieldTexts(
-                                    controller: lastNameController,
-                                    placeholderValue: "Enter your last name",
-                                    errorvalue: 'Please enter last text',
-                                  ),
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  InputFieldTexts(
-                                    controller: emailController,
-                                    placeholderValue: "Enter your Email",
-                                    keyboardType: TextInputType.emailAddress,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter your email';
-                                      } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
-                                          .hasMatch(value)) {
-                                        return 'Please enter a valid email';
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  InputFieldTexts(
-                                    controller: contactController,
-                                    placeholderValue: "Enter your Phone Number",
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter your phone number';
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  SizedBox(
-                                    height: 20.h,
-                                  ),
-                                  InputFieldTexts(
-                                    controller: passwordController,
-                                    placeholderValue: "Enter your Password",
-                                    obscureText: true,
-                                    validator: (value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter your password';
-                                      } else if (value.length < 6) {
-                                        return 'Password must be at least 6 characters long';
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  SizedBox(
-                                    height: 30.h,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 16.dg),
-                                    child: ElevatedButton(
-                                      style: ButtonStyle(
-                                        minimumSize: WidgetStatePropertyAll(
-                                            Size(130.w, 55.h)),
-                                        backgroundColor:
-                                            WidgetStateProperty.all(
-                                          const Color.fromARGB(
-                                              255, 107, 166, 214),
-                                        ),
-                                      ),
-                                      onPressed: () {
-                                        if (_formKey.currentState!.validate()) {
-                                          context
-                                              .read<AuthBloc>()
-                                              .add(AuthEvent.signUpEvent(
-                                                firstName:
-                                                    firstNameController.text,
-                                                lastName:
-                                                    lastNameController.text,
-                                                email: emailController.text,
-                                                contact: contactController.text,
-                                                image: imagePath ?? '',
-                                                password:
-                                                    passwordController.text,
-                                              ));
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const Loginscreen(),
-                                            ),
-                                          );
-                                        }
-                                      },
-                                      child: Text(
-                                        "Sign Up",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17.spMax,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            SignUpForm(
+                              firstNameController: firstNameController,
+                              lastNameController: lastNameController,
+                              emailController: emailController,
+                              contactController: contactController,
+                              passwordController: passwordController,
+                              formKey: _formKey,
                             ),
-                            // SizedBox(
-                            //   width: 350,
-                            //   child: Column(
-                            //     crossAxisAlignment: CrossAxisAlignment.start,
-                            //     children: [
-                            //       const Text("Role : "),
-                            //       RoleRadioButton(
-                            //         onRoleSelected: (role) {
-                            //           selectedRole = role;
-                            //         },
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
-                            // const SizedBox(
-                            //   height: 20,
-                            // ),
+                            SizedBox(height: 30.h),
+                            ElevatedButtonForms(
+                              formKey: _formKey,
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  context
+                                      .read<AuthBloc>()
+                                      .add(AuthEvent.signUpEvent(
+                                        firstName: firstNameController.text,
+                                        lastName: lastNameController.text,
+                                        email: emailController.text,
+                                        contact: contactController.text,
+                                        image: imagePath ?? '',
+                                        password: passwordController.text,
+                                      ));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Loginscreen(),
+                                    ),
+                                  );
+                                }
+                              },
+                              buttonText: "Sign Up",
+                              sizeButton: Size(130.w, 55.h),
+                              colorButton:
+                                 const Color.fromARGB(255, 0, 105, 202),
+                            ),
                             TextButton(
                               onPressed: () {
                                 Navigator.push(

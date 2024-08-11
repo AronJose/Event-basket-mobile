@@ -14,14 +14,13 @@ class AuthService {
         img = await MultipartFile.fromFile(body["image"]);
       }
       FormData formData = FormData.fromMap({
-        "first_name": body["firstName"],
-        "last_name": body["lastName"],
+        "first_name": body["first_name"],
+        "last_name": body["last_name"],
         "email": body["email"],
         "contact": body["contact"],
         "password": body["password"],
-        "image": img,
+        if (img != null) "image": img,
       });
-
       await dio.post("/api/users/signup", data: formData);
     } catch (e) {
       rethrow;

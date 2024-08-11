@@ -3,7 +3,7 @@ part of 'auth_bloc.dart';
 @freezed
 class AuthEvent with _$AuthEvent {
   const factory AuthEvent.signUpEvent({
-     required String firstName,
+    required String firstName,
     required String lastName,
     required String email,
     required String contact,
@@ -11,5 +11,5 @@ class AuthEvent with _$AuthEvent {
     required String password,
   }) = SignUpEvent;
 
- const factory AuthEvent.uploadImageEvent(File filepath) = UploadImageEvent;
+  const factory AuthEvent.uploadImageEvent(File filepath) = UploadImageEvent;
 }
