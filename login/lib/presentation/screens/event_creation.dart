@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/helper/check_box.dart';
 import 'package:login/helper/elevated_button_form.dart';
 import 'package:login/helper/input_text_field.dart';
 import 'package:login/helper/multiline_text_field.dart';
+import 'package:login/helper/rounded_check_box.dart';
+import 'package:login/presentation/screens/event_creation_image_upload.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -11,11 +14,18 @@ class CreateEvent extends StatefulWidget {
   State<CreateEvent> createState() => _CreateEventState();
 }
 
+enum SingingCharacter { lafayette, jefferson }
+
 class _CreateEventState extends State<CreateEvent> {
   final TextEditingController eventNameController = TextEditingController();
   final TextEditingController placeController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController descController = TextEditingController();
+
+  final List<String> categoryOptions = ["Basic", "Medium", "Premium"];
+  Set<String> selectedCategories = {};
+  final List<String> namesOptions = ["Basic", "Medium", "Premium"];
+  Set<String> selectedNames = {};
 
   final _eventKey = GlobalKey<FormState>();
 
@@ -34,7 +44,7 @@ class _CreateEventState extends State<CreateEvent> {
             backgroundColor: Colors.green,
           ),
           body: Padding(
-            padding: EdgeInsets.only(left: 10.dg, right: 10.dg),
+            padding: EdgeInsets.all(10.dm),
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
@@ -46,7 +56,7 @@ class _CreateEventState extends State<CreateEvent> {
                           fontSize: 25.spMin, fontWeight: FontWeight.w900),
                     ),
                     SizedBox(
-                      height: 30.dg,
+                      height: 20.h,
                     ),
                     Form(
                       key: _eventKey,
@@ -81,7 +91,41 @@ class _CreateEventState extends State<CreateEvent> {
                                 'Enter the Description about on the Events',
                           ),
                           SizedBox(
-                            height: 20.h,
+                            height: 10.h,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: namesOptions.map((name) {
+                              return RoundedCheckbox(
+                                label: name,
+                                isSelected: selectedNames.contains(name),
+                                onChanged: (bool isSelected) {
+                                  setState(() {
+                                    if (isSelected) {
+                                      selectedNames.add(name);
+                                    } else {
+                                      selectedNames.remove(name);
+                                    }
+                                  });
+                                },
+                              );
+                            }).toList(),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          MultiSelectCheckBox(
+                            title: 'Category',
+                            options: categoryOptions,
+                            selectedValues: selectedCategories.toList(),
+                            onChanged: (List<String> value) {
+                              setState(() {
+                                selectedCategories = value.toSet();
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            height: 10.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +143,14 @@ class _CreateEventState extends State<CreateEvent> {
                               ),
                               ElevatedButtonForms(
                                 formKey: _eventKey,
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const EventImages()),
+                                  );
+                                },
                                 buttonText: 'Next',
                                 sizeButton: Size(70.w, 40.h),
                                 colorButton:
