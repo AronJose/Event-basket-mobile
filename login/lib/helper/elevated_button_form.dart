@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ElevatedButtonForms extends StatelessWidget {
-  final GlobalKey<FormState> formKey;
+  final GlobalKey<FormState>? formKey;
   final VoidCallback onPressed;
   final String buttonText;
   final Color colorButton;
@@ -10,7 +10,7 @@ class ElevatedButtonForms extends StatelessWidget {
 
   const ElevatedButtonForms(
       {super.key,
-      required this.formKey,
+       this.formKey,
       required this.onPressed,
       required this.buttonText,
       required this.sizeButton,

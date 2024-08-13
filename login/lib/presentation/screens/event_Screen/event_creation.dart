@@ -5,7 +5,8 @@ import 'package:login/helper/elevated_button_form.dart';
 import 'package:login/helper/input_text_field.dart';
 import 'package:login/helper/multiline_text_field.dart';
 import 'package:login/helper/rounded_check_box.dart';
-import 'package:login/presentation/screens/event_creation_image_upload.dart';
+import 'package:login/presentation/screens/event_Screen/event_creation_image_upload.dart';
+import 'package:login/presentation/screens/home_screen.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -41,7 +42,7 @@ class _CreateEventState extends State<CreateEvent> {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w900),
             ),
-            backgroundColor: Colors.green,
+            backgroundColor: const Color.fromARGB(255, 0, 56, 2),
           ),
           body: Padding(
             padding: EdgeInsets.all(10.dm),
@@ -132,7 +133,13 @@ class _CreateEventState extends State<CreateEvent> {
                             children: [
                               ElevatedButtonForms(
                                 formKey: _eventKey,
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const HomeScreen()));
+                                },
                                 buttonText: 'Cancel',
                                 sizeButton: Size(70.w, 40.h),
                                 colorButton:

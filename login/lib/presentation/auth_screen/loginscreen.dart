@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/presentation/auth_screen/signupscreen.dart';
-import 'package:login/presentation/screens/event_creation.dart';
+import 'package:login/presentation/screens/home_screen.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
@@ -94,7 +94,7 @@ class _LoginscreenState extends State<Loginscreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>const CreateEvent(),
+                        builder: (context) =>const HomeScreen(),
                       ),
                     );
                   },
