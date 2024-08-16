@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/helper/check_box.dart';
-import 'package:login/helper/elevated_button_form.dart';
-import 'package:login/helper/input_text_field.dart';
-import 'package:login/helper/multiline_text_field.dart';
-import 'package:login/helper/rounded_check_box.dart';
-import 'package:login/presentation/screens/event_Screen/event_creation_image_upload.dart';
-import 'package:login/presentation/screens/home_screen.dart';
+import 'package:login/common/helper/check_box.dart';
+import 'package:login/common/helper/elevated_button_form.dart';
+import 'package:login/common/helper/input_text_field.dart';
+import 'package:login/common/helper/multiline_text_field.dart';
+import 'package:login/common/helper/rounded_check_box.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
+import 'package:login/features/presentation/screens/event_Screen/event_creation_image_upload.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -37,6 +37,13 @@ class _CreateEventState extends State<CreateEvent> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
+            automaticallyImplyLeading: false,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
             title: const Text(
               "EventBasket",
               style:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/blocs/role/role_bloc.dart';
+import 'package:login/common/blocs/role/role_bloc.dart';
 
 class RoleRadioButton extends StatefulWidget {
   final ValueChanged<String> onRoleSelected;

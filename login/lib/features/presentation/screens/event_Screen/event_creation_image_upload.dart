@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/helper/elevated_button_form.dart';
+import 'package:login/common/helper/elevated_button_form.dart';
 
 class EventImages extends StatelessWidget {
   const EventImages({super.key});
@@ -10,6 +10,13 @@ class EventImages extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
           title: const Text(
             "EventBasket",
             style: TextStyle(
@@ -17,7 +24,7 @@ class EventImages extends StatelessWidget {
               fontWeight: FontWeight.w900,
             ),
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: const Color.fromARGB(255, 0, 58, 2),
         ),
         body: Padding(
           padding: EdgeInsets.all(10.w),

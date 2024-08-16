@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/blocs/auth/auth_bloc.dart';
-import 'package:login/blocs/role/role_bloc.dart';
-import 'package:login/presentation/auth_screen/loginscreen.dart';
+import 'package:login/common/blocs/auth/auth_bloc.dart';
+import 'package:login/common/blocs/role/role_bloc.dart';
+import 'package:login/common/helper/bottom_body_screen.dart';
+import 'package:login/features/presentation/auth_screen/loginscreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/features/presentation/auth_screen/signupscreen.dart';
+import 'package:login/features/presentation/main_screens.dart/favorite_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/play_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/profile_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
@@ -35,11 +42,20 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.blue,
               // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             ),
-            home: child,
+            initialRoute: '/',
+            routes: {
+              '/': (context) => const Loginscreen(),
+              '/signup': (context) => const Signupscreen(),
+              '/body':(context)=>const BottomBodyScreen(),
+              '/home': (context) => const HomeScreen(),
+              '/video': (context) => const PlayScreen(),
+              '/favorite': (context) => const FavoriteScreen(),
+              '/profile': (context) => const ProfileScreen(),
+            },
+            // home: child,
           ),
         );
       },
-      child: const Loginscreen(),
     );
   }
 }

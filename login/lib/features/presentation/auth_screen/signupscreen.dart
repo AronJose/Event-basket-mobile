@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/blocs/auth/auth_bloc.dart';
-import 'package:login/helper/elevated_button_form.dart';
-import 'package:login/presentation/auth_screen/loginscreen.dart';
+import 'package:login/common/blocs/auth/auth_bloc.dart';
+import 'package:login/common/helper/elevated_button_form.dart';
+import 'package:login/features/presentation/auth_screen/loginscreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/presentation/auth_screen/signup_form.dart';
+import 'package:login/features/presentation/auth_screen/signup_form.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({super.key});

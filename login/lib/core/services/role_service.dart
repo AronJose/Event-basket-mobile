@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:login/constants/api_enpoints.dart';
-import 'package:login/models/roles.dart';
+import 'package:login/common/constants/api_enpoints.dart';
+import 'package:login/core/models/roles.dart';
 
 class RoleService {
   Dio dio = Dio(BaseOptions(baseUrl: ApiEnpoints.baseURL));

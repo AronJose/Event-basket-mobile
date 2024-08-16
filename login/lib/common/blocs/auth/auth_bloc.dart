@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:login/constants/api_enpoints.dart';
-import 'package:login/services/auth_service.dart';
+import 'package:login/common/constants/api_enpoints.dart';
+import 'package:login/core/services/auth_service.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';

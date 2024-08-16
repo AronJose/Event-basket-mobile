@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/presentation/auth_screen/signupscreen.dart';
-import 'package:login/presentation/screens/home_screen.dart';
+import 'package:login/features/presentation/auth_screen/signupscreen.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
@@ -91,12 +90,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         const Color.fromARGB(255, 134, 194, 243)),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>const HomeScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/body');
                   },
                   child: Text(
                     "Log In",
