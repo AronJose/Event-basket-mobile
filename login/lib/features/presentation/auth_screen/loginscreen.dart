@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/common/helper/elevated_button_form.dart';
 import 'package:login/features/presentation/auth_screen/signupscreen.dart';
 
 class Loginscreen extends StatefulWidget {
@@ -83,23 +84,13 @@ class _LoginscreenState extends State<Loginscreen> {
                 SizedBox(
                   height: 50.h,
                 ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    minimumSize: WidgetStatePropertyAll(Size(110.w, 55.h)),
-                    backgroundColor: WidgetStateProperty.all(
-                        const Color.fromARGB(255, 134, 194, 243)),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/body');
-                  },
-                  child: Text(
-                    "Log In",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17.spMax,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                ElevatedButtonForms(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/body');
+                    },
+                    buttonText: "Log In",
+                    sizeButton: Size(110.w, 55.h),
+                    colorButton:const Color.fromARGB(255, 0, 105, 202)),
                 SizedBox(height: 30.h),
                 Text(
                   "Forgot  Password",
