@@ -33,16 +33,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
 
-   on<UploadImageEvent>((event, emit) async {
-      emit(state.copyWith(loading: true, error: null));
-      try {
-        await authService.uploadProfileImage(event.filepath);
-        emit(state.copyWith(loading: false, error: null));
-      } catch (e) {
-        emit(state.copyWith(loading: false, error: e.toString()));
-      }
-    });
+    //  on<UploadImageEvent>((event, emit) async {
+    //     emit(state.copyWith(loading: true, error: null));
+    //     try {
+    //       await authService.uploadProfileImage(event.filepath);
+    //       emit(state.copyWith(loading: false, error: null));
+    //     } catch (e) {
+    //       emit(state.copyWith(loading: false, error: e.toString()));
+    //     }
+    //   });
   }
 }
-
-

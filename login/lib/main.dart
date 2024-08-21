@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/common/blocs/auth/auth_bloc.dart';
+import 'package:login/common/blocs/event/events_bloc.dart';
 import 'package:login/common/blocs/role/role_bloc.dart';
 import 'package:login/common/helper/bottom_body_screen.dart';
 import 'package:login/features/presentation/auth_screen/loginscreen.dart';
@@ -34,19 +35,23 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => RoleBloc(),
+            ),
+            BlocProvider(
+              create: (context) => EventsBloc(),
             )
           ],
           child: MaterialApp(
             title: "Design Start",
             theme: ThemeData(
               primarySwatch: Colors.blue,
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)
               // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             ),
             initialRoute: '/',
             routes: {
               '/': (context) => const Loginscreen(),
               '/signup': (context) => const Signupscreen(),
-              '/body':(context)=>const BottomBodyScreen(),
+              '/body': (context) => const BottomBodyScreen(),
               '/home': (context) => const HomeScreen(),
               '/video': (context) => const PlayScreen(),
               '/favorite': (context) => const FavoriteScreen(),

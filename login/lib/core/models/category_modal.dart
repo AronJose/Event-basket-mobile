@@ -1,16 +1,16 @@
 
-class Category {
+class CaterogyModel {
     String id;
     String categoryName;
     int v;
 
-    Category({
+    CaterogyModel({
         required this.id,
         required this.categoryName,
         required this.v,
     });
 
-    factory Category.fromJson(Map<String, dynamic> json) => Category(
+    factory CaterogyModel.fromJson(Map<String, dynamic> json) => CaterogyModel(
         id: json["_id"],
         categoryName: json["category_name"],
         v: json["__v"],

@@ -10,7 +10,7 @@ class RoundedCheckbox extends StatelessWidget {
     super.key,
     required this.label,
     required this.isSelected,
-    required this.onChanged,
+    required this.onChanged, 
   });
 
   @override

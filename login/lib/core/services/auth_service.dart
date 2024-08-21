@@ -1,4 +1,4 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:dio/dio.dart';
 
@@ -27,15 +27,17 @@ class AuthService {
     }
   }
 
-  Future<void> uploadProfileImage(File filepath) async {
-    try {
-      FormData formData = FormData.fromMap({
-        'file': await MultipartFile.fromFile(filepath.path,
-            filename: filepath.path.split('/').last),
-      });
-      await dio.post('/api/users/profileImage', data: formData);
-    } catch (e) {
-      rethrow;
-    }
-  }
+  // Future<void> uploadProfileImage(File filepath) async {
+  //   try {
+  //     FormData formData = FormData.fromMap({
+  //       'file': await MultipartFile.fromFile(filepath.path,
+  //           filename: filepath.path.split('/').last),
+  //     });
+  //     await dio.post('/api/users/profileImage', data: formData);
+  //   } catch (e) {
+  //     rethrow;
+  //   }
+  // }
+
+  
 }
