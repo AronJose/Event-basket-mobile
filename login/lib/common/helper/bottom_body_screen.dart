@@ -4,7 +4,7 @@ import 'package:login/common/helper/bottom_app_bar.dart';
 import 'package:login/common/helper/second_app_bar_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/favorite_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
-import 'package:login/features/presentation/main_screens.dart/play_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/multi_vedio.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen.dart';
 
 class BottomBodyScreen extends StatelessWidget {
@@ -24,7 +24,7 @@ class BottomBodyScreen extends StatelessWidget {
                   Expanded(
                       child: [
                     const HomeScreen(),
-                    const PlayScreen(),
+                    const MultipleVedio(),
                     const FavoriteScreen(),
                     const ProfileScreen(),
                   ][index])
