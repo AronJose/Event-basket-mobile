@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
+import 'package:login/common/helper/bottom_body_screen.dart';
 import 'package:login/common/helper/elevated_button_form.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
 
@@ -185,10 +186,14 @@ class _EventImagesState extends State<EventImages> {
                                 address: widget.eventData.address,
                                 services: widget.eventData.services,
                                 category: widget.eventData.category,
-
                               ),
                             );
-                        Navigator.pop(context, '/home');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BottomBodyScreen(),
+                          ),
+                        );
                       },
                       buttonText: "Save",
                       sizeButton: Size(100.w, 50.h),
