@@ -43,10 +43,10 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
             title: "Design Start",
             theme: ThemeData(
-              primarySwatch: Colors.blue,
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)
-              // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-            ),
+                primarySwatch: Colors.blue,
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.green)
+                // textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+                ),
             initialRoute: '/',
             routes: {
               '/': (context) => const Loginscreen(),
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
               '/video': (context) => const PlayScreen(),
               '/favorite': (context) => const FavoriteScreen(),
               '/profile': (context) => const ProfileScreen(),
+              // '/event-image': (context) =>  EventImages(eventData: eventData)
             },
             // home: child,
           ),

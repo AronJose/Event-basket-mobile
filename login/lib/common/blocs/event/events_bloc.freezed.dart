@@ -20,18 +20,30 @@ mixin _$EventsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() categoryList,
     required TResult Function() servicesLIst,
+    required TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? categoryList,
     TResult? Function()? servicesLIst,
+    TResult? Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? categoryList,
     TResult Function()? servicesLIst,
+    TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +51,24 @@ mixin _$EventsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryList value) categoryList,
     required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategoryList value)? categoryList,
     TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryList value)? categoryList,
     TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +138,10 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult when<TResult extends Object?>({
     required TResult Function() categoryList,
     required TResult Function() servicesLIst,
+    required TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
   }) {
     return categoryList();
   }
@@ -129,6 +151,10 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? categoryList,
     TResult? Function()? servicesLIst,
+    TResult? Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
   }) {
     return categoryList?.call();
   }
@@ -138,6 +164,10 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? categoryList,
     TResult Function()? servicesLIst,
+    TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
     required TResult orElse(),
   }) {
     if (categoryList != null) {
@@ -151,6 +181,8 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryList value) categoryList,
     required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
     return categoryList(this);
   }
@@ -160,6 +192,8 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategoryList value)? categoryList,
     TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
     return categoryList?.call(this);
   }
@@ -169,6 +203,8 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryList value)? categoryList,
     TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
   }) {
     if (categoryList != null) {
@@ -228,6 +264,10 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult when<TResult extends Object?>({
     required TResult Function() categoryList,
     required TResult Function() servicesLIst,
+    required TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
   }) {
     return servicesLIst();
   }
@@ -237,6 +277,10 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? categoryList,
     TResult? Function()? servicesLIst,
+    TResult? Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
   }) {
     return servicesLIst?.call();
   }
@@ -246,6 +290,10 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? categoryList,
     TResult Function()? servicesLIst,
+    TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
     required TResult orElse(),
   }) {
     if (servicesLIst != null) {
@@ -259,6 +307,8 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult map<TResult extends Object?>({
     required TResult Function(CategoryList value) categoryList,
     required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
     return servicesLIst(this);
   }
@@ -268,6 +318,8 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CategoryList value)? categoryList,
     TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
     return servicesLIst?.call(this);
   }
@@ -277,6 +329,8 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CategoryList value)? categoryList,
     TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
   }) {
     if (servicesLIst != null) {
@@ -291,11 +345,438 @@ abstract class ServicesList implements EventsEvent {
 }
 
 /// @nodoc
+abstract class _$$CreateEventsEventImplCopyWith<$Res> {
+  factory _$$CreateEventsEventImplCopyWith(_$CreateEventsEventImpl value,
+          $Res Function(_$CreateEventsEventImpl) then) =
+      __$$CreateEventsEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String Event_name,
+      String place,
+      String desc,
+      String address,
+      List<String> services,
+      List<String> category});
+}
+
+/// @nodoc
+class __$$CreateEventsEventImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$CreateEventsEventImpl>
+    implements _$$CreateEventsEventImplCopyWith<$Res> {
+  __$$CreateEventsEventImplCopyWithImpl(_$CreateEventsEventImpl _value,
+      $Res Function(_$CreateEventsEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? Event_name = null,
+    Object? place = null,
+    Object? desc = null,
+    Object? address = null,
+    Object? services = null,
+    Object? category = null,
+  }) {
+    return _then(_$CreateEventsEventImpl(
+      Event_name: null == Event_name
+          ? _value.Event_name
+          : Event_name // ignore: cast_nullable_to_non_nullable
+              as String,
+      place: null == place
+          ? _value.place
+          : place // ignore: cast_nullable_to_non_nullable
+              as String,
+      desc: null == desc
+          ? _value.desc
+          : desc // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
+      services: null == services
+          ? _value._services
+          : services // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      category: null == category
+          ? _value._category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateEventsEventImpl
+    with DiagnosticableTreeMixin
+    implements CreateEventsEvent {
+  const _$CreateEventsEventImpl(
+      {required this.Event_name,
+      required this.place,
+      required this.desc,
+      required this.address,
+      required final List<String> services,
+      required final List<String> category})
+      : _services = services,
+        _category = category;
+
+  @override
+  final String Event_name;
+  @override
+  final String place;
+  @override
+  final String desc;
+  @override
+  final String address;
+  final List<String> _services;
+  @override
+  List<String> get services {
+    if (_services is EqualUnmodifiableListView) return _services;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_services);
+  }
+
+  final List<String> _category;
+  @override
+  List<String> get category {
+    if (_category is EqualUnmodifiableListView) return _category;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_category);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EventsEvent.createEventsEvent(Event_name: $Event_name, place: $place, desc: $desc, address: $address, services: $services, category: $category)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'EventsEvent.createEventsEvent'))
+      ..add(DiagnosticsProperty('Event_name', Event_name))
+      ..add(DiagnosticsProperty('place', place))
+      ..add(DiagnosticsProperty('desc', desc))
+      ..add(DiagnosticsProperty('address', address))
+      ..add(DiagnosticsProperty('services', services))
+      ..add(DiagnosticsProperty('category', category));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateEventsEventImpl &&
+            (identical(other.Event_name, Event_name) ||
+                other.Event_name == Event_name) &&
+            (identical(other.place, place) || other.place == place) &&
+            (identical(other.desc, desc) || other.desc == desc) &&
+            (identical(other.address, address) || other.address == address) &&
+            const DeepCollectionEquality().equals(other._services, _services) &&
+            const DeepCollectionEquality().equals(other._category, _category));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      Event_name,
+      place,
+      desc,
+      address,
+      const DeepCollectionEquality().hash(_services),
+      const DeepCollectionEquality().hash(_category));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateEventsEventImplCopyWith<_$CreateEventsEventImpl> get copyWith =>
+      __$$CreateEventsEventImplCopyWithImpl<_$CreateEventsEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() categoryList,
+    required TResult Function() servicesLIst,
+    required TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
+  }) {
+    return createEventsEvent(
+        Event_name, place, desc, address, services, category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? categoryList,
+    TResult? Function()? servicesLIst,
+    TResult? Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
+  }) {
+    return createEventsEvent?.call(
+        Event_name, place, desc, address, services, category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? categoryList,
+    TResult Function()? servicesLIst,
+    TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (createEventsEvent != null) {
+      return createEventsEvent(
+          Event_name, place, desc, address, services, category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryList value) categoryList,
+    required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
+  }) {
+    return createEventsEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryList value)? categoryList,
+    TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
+  }) {
+    return createEventsEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryList value)? categoryList,
+    TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (createEventsEvent != null) {
+      return createEventsEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateEventsEvent implements EventsEvent {
+  const factory CreateEventsEvent(
+      {required final String Event_name,
+      required final String place,
+      required final String desc,
+      required final String address,
+      required final List<String> services,
+      required final List<String> category}) = _$CreateEventsEventImpl;
+
+  String get Event_name;
+  String get place;
+  String get desc;
+  String get address;
+  List<String> get services;
+  List<String> get category;
+  @JsonKey(ignore: true)
+  _$$CreateEventsEventImplCopyWith<_$CreateEventsEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MultipleImgUploadImplCopyWith<$Res> {
+  factory _$$MultipleImgUploadImplCopyWith(_$MultipleImgUploadImpl value,
+          $Res Function(_$MultipleImgUploadImpl) then) =
+      __$$MultipleImgUploadImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String?> filepaths});
+}
+
+/// @nodoc
+class __$$MultipleImgUploadImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$MultipleImgUploadImpl>
+    implements _$$MultipleImgUploadImplCopyWith<$Res> {
+  __$$MultipleImgUploadImplCopyWithImpl(_$MultipleImgUploadImpl _value,
+      $Res Function(_$MultipleImgUploadImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filepaths = null,
+  }) {
+    return _then(_$MultipleImgUploadImpl(
+      filepaths: null == filepaths
+          ? _value._filepaths
+          : filepaths // ignore: cast_nullable_to_non_nullable
+              as List<String?>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MultipleImgUploadImpl
+    with DiagnosticableTreeMixin
+    implements MultipleImgUpload {
+  const _$MultipleImgUploadImpl({required final List<String?> filepaths})
+      : _filepaths = filepaths;
+
+  final List<String?> _filepaths;
+  @override
+  List<String?> get filepaths {
+    if (_filepaths is EqualUnmodifiableListView) return _filepaths;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filepaths);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EventsEvent.multipleImgUpload(filepaths: $filepaths)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'EventsEvent.multipleImgUpload'))
+      ..add(DiagnosticsProperty('filepaths', filepaths));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MultipleImgUploadImpl &&
+            const DeepCollectionEquality()
+                .equals(other._filepaths, _filepaths));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_filepaths));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MultipleImgUploadImplCopyWith<_$MultipleImgUploadImpl> get copyWith =>
+      __$$MultipleImgUploadImplCopyWithImpl<_$MultipleImgUploadImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() categoryList,
+    required TResult Function() servicesLIst,
+    required TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
+  }) {
+    return multipleImgUpload(filepaths);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? categoryList,
+    TResult? Function()? servicesLIst,
+    TResult? Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
+  }) {
+    return multipleImgUpload?.call(filepaths);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? categoryList,
+    TResult Function()? servicesLIst,
+    TResult Function(String Event_name, String place, String desc,
+            String address, List<String> services, List<String> category)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (multipleImgUpload != null) {
+      return multipleImgUpload(filepaths);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryList value) categoryList,
+    required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
+  }) {
+    return multipleImgUpload(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryList value)? categoryList,
+    TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
+  }) {
+    return multipleImgUpload?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryList value)? categoryList,
+    TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (multipleImgUpload != null) {
+      return multipleImgUpload(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MultipleImgUpload implements EventsEvent {
+  const factory MultipleImgUpload({required final List<String?> filepaths}) =
+      _$MultipleImgUploadImpl;
+
+  List<String?> get filepaths;
+  @JsonKey(ignore: true)
+  _$$MultipleImgUploadImplCopyWith<_$MultipleImgUploadImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$EventsState {
   bool get loading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   List<CaterogyModel> get categoryData => throw _privateConstructorUsedError;
   List<Services> get servicesData => throw _privateConstructorUsedError;
+  List<MultipleImageUploadModal> get multipleImgData =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventsStateCopyWith<EventsState> get copyWith =>
@@ -312,7 +793,8 @@ abstract class $EventsStateCopyWith<$Res> {
       {bool loading,
       String? error,
       List<CaterogyModel> categoryData,
-      List<Services> servicesData});
+      List<Services> servicesData,
+      List<MultipleImageUploadModal> multipleImgData});
 }
 
 /// @nodoc
@@ -332,6 +814,7 @@ class _$EventsStateCopyWithImpl<$Res, $Val extends EventsState>
     Object? error = freezed,
     Object? categoryData = null,
     Object? servicesData = null,
+    Object? multipleImgData = null,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -350,6 +833,10 @@ class _$EventsStateCopyWithImpl<$Res, $Val extends EventsState>
           ? _value.servicesData
           : servicesData // ignore: cast_nullable_to_non_nullable
               as List<Services>,
+      multipleImgData: null == multipleImgData
+          ? _value.multipleImgData
+          : multipleImgData // ignore: cast_nullable_to_non_nullable
+              as List<MultipleImageUploadModal>,
     ) as $Val);
   }
 }
@@ -366,7 +853,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       {bool loading,
       String? error,
       List<CaterogyModel> categoryData,
-      List<Services> servicesData});
+      List<Services> servicesData,
+      List<MultipleImageUploadModal> multipleImgData});
 }
 
 /// @nodoc
@@ -384,6 +872,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? error = freezed,
     Object? categoryData = null,
     Object? servicesData = null,
+    Object? multipleImgData = null,
   }) {
     return _then(_$InitialImpl(
       loading: null == loading
@@ -402,6 +891,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value._servicesData
           : servicesData // ignore: cast_nullable_to_non_nullable
               as List<Services>,
+      multipleImgData: null == multipleImgData
+          ? _value._multipleImgData
+          : multipleImgData // ignore: cast_nullable_to_non_nullable
+              as List<MultipleImageUploadModal>,
     ));
   }
 }
@@ -413,9 +906,11 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       {required this.loading,
       required this.error,
       required final List<CaterogyModel> categoryData,
-      required final List<Services> servicesData})
+      required final List<Services> servicesData,
+      required final List<MultipleImageUploadModal> multipleImgData})
       : _categoryData = categoryData,
-        _servicesData = servicesData;
+        _servicesData = servicesData,
+        _multipleImgData = multipleImgData;
 
   @override
   final bool loading;
@@ -437,9 +932,17 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     return EqualUnmodifiableListView(_servicesData);
   }
 
+  final List<MultipleImageUploadModal> _multipleImgData;
+  @override
+  List<MultipleImageUploadModal> get multipleImgData {
+    if (_multipleImgData is EqualUnmodifiableListView) return _multipleImgData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_multipleImgData);
+  }
+
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EventsState(loading: $loading, error: $error, categoryData: $categoryData, servicesData: $servicesData)';
+    return 'EventsState(loading: $loading, error: $error, categoryData: $categoryData, servicesData: $servicesData, multipleImgData: $multipleImgData)';
   }
 
   @override
@@ -450,7 +953,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('loading', loading))
       ..add(DiagnosticsProperty('error', error))
       ..add(DiagnosticsProperty('categoryData', categoryData))
-      ..add(DiagnosticsProperty('servicesData', servicesData));
+      ..add(DiagnosticsProperty('servicesData', servicesData))
+      ..add(DiagnosticsProperty('multipleImgData', multipleImgData));
   }
 
   @override
@@ -463,7 +967,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
             const DeepCollectionEquality()
                 .equals(other._categoryData, _categoryData) &&
             const DeepCollectionEquality()
-                .equals(other._servicesData, _servicesData));
+                .equals(other._servicesData, _servicesData) &&
+            const DeepCollectionEquality()
+                .equals(other._multipleImgData, _multipleImgData));
   }
 
   @override
@@ -472,7 +978,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       loading,
       error,
       const DeepCollectionEquality().hash(_categoryData),
-      const DeepCollectionEquality().hash(_servicesData));
+      const DeepCollectionEquality().hash(_servicesData),
+      const DeepCollectionEquality().hash(_multipleImgData));
 
   @JsonKey(ignore: true)
   @override
@@ -483,10 +990,12 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 
 abstract class _Initial implements EventsState {
   const factory _Initial(
-      {required final bool loading,
-      required final String? error,
-      required final List<CaterogyModel> categoryData,
-      required final List<Services> servicesData}) = _$InitialImpl;
+          {required final bool loading,
+          required final String? error,
+          required final List<CaterogyModel> categoryData,
+          required final List<Services> servicesData,
+          required final List<MultipleImageUploadModal> multipleImgData}) =
+      _$InitialImpl;
 
   @override
   bool get loading;
@@ -496,6 +1005,8 @@ abstract class _Initial implements EventsState {
   List<CaterogyModel> get categoryData;
   @override
   List<Services> get servicesData;
+  @override
+  List<MultipleImageUploadModal> get multipleImgData;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

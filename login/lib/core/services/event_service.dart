@@ -33,4 +33,41 @@ class EventService {
       rethrow;
     }
   }
+
+// Event Creation
+  Future<void> createEvent(Map<String, dynamic> body) async {
+    try {
+      await dio.post(
+        "/api/events/addEvent",
+        data: body,
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+//Multiple Image Upload
+  Future<void> multipleImageUpload(List<String?> filepaths) async {
+    try {
+      FormData formData = FormData();
+
+      for (int i = 0; i < filepaths.length; i++) {
+        if (filepaths[i] != null) {
+          formData.files.addAll([
+            MapEntry(
+              'images',
+              await MultipartFile.fromFile(
+                filepaths[i]!,
+                filename: filepaths[i]?.split('/').last,
+              ),
+            )
+          ]);
+        }
+      }
+
+      await dio.post('/api/events/imgM', data: formData);
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
