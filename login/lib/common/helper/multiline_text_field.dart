@@ -9,7 +9,7 @@ class MultiLineInputTextFiled extends StatefulWidget {
     this.validator,
     this.keyboardType,
     this.obscureText = false,
-    this.errorvalue,
+    required this.errorvalue,
   });
 
   final TextEditingController controller;

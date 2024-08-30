@@ -121,7 +121,7 @@ class _SignupscreenState extends State<Signupscreen> {
                               buttonText: "Sign Up",
                               sizeButton: Size(130.w, 55.h),
                               colorButton:
-                                 const Color.fromARGB(255, 0, 105, 202),
+                                  const Color.fromARGB(255, 0, 105, 202),
                             ),
                             TextButton(
                               onPressed: () {

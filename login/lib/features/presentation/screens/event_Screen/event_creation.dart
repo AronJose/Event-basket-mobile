@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +7,6 @@ import 'package:login/common/helper/elevated_button_form.dart';
 import 'package:login/common/helper/input_text_field.dart';
 import 'package:login/common/helper/multiline_text_field.dart';
 import 'package:login/common/helper/rounded_check_box.dart';
-import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_creation_image_upload.dart';
 
 class CreateEvent extends StatefulWidget {
@@ -55,18 +52,14 @@ class _CreateEventState extends State<CreateEvent> {
         if (state.categoryData.isNotEmpty) {
           categoryOptions.clear();
           categoryOptions.addAll(
-            state.categoryData.map(
-              (e) => e.categoryName,
-            ),
+            state.categoryData.map((e) => e.categoryName),
           );
         }
 
         if (state.servicesData.isNotEmpty) {
           namesOptions.clear();
           namesOptions.addAll(
-            state.servicesData.map(
-              (e) => e.services,
-            ),
+            state.servicesData.map((e) => e.services),
           );
         }
         return SafeArea(
@@ -86,7 +79,7 @@ class _CreateEventState extends State<CreateEvent> {
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w900),
                 ),
-                backgroundColor:  const Color.fromARGB(255, 54, 54, 54),
+                backgroundColor: const Color.fromARGB(255, 54, 54, 54),
               ),
               body: Padding(
                 padding: EdgeInsets.all(10.dm),
@@ -109,7 +102,7 @@ class _CreateEventState extends State<CreateEvent> {
                             children: [
                               InputFieldTexts(
                                 controller: eventNameController,
-                                placeholderValue: "Enter the Eevent name",
+                                placeholderValue: "Enter the Event name",
                                 errorvalue: 'Please enter the Event Name ',
                               ),
                               SizedBox(
@@ -126,6 +119,7 @@ class _CreateEventState extends State<CreateEvent> {
                               MultiLineInputTextFiled(
                                 controller: addressController,
                                 placeholderValue: 'Enter the Address',
+                                errorvalue: 'please enter the Address',
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -133,7 +127,8 @@ class _CreateEventState extends State<CreateEvent> {
                               MultiLineInputTextFiled(
                                 controller: descController,
                                 placeholderValue:
-                                    'Enter the Description about on the Events',
+                                    'Enter the Description about the Event',
+                                errorvalue: 'please enter the description',
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -144,7 +139,8 @@ class _CreateEventState extends State<CreateEvent> {
                                 children: categoryOptions.map((name) {
                                   return RoundedCheckbox(
                                     label: name,
-                                    isSelected: selectedCategories.contains(name),
+                                    isSelected:
+                                        selectedCategories.contains(name),
                                     onChanged: (bool isSelected) {
                                       setState(() {
                                         if (isSelected) {
@@ -161,7 +157,7 @@ class _CreateEventState extends State<CreateEvent> {
                                 height: 10.h,
                               ),
                               MultiSelectCheckBox(
-                                title: 'Category',
+                                title: 'Services',
                                 options: namesOptions,
                                 selectedValues: selectedNames.toList(),
                                 onChanged: (List<String> value) {
@@ -179,11 +175,7 @@ class _CreateEventState extends State<CreateEvent> {
                                   ElevatedButtonForms(
                                     formKey: _eventKey,
                                     onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const HomeScreen()));
+                                      Navigator.pop(context, '/home');
                                     },
                                     buttonText: 'Cancel',
                                     sizeButton: Size(70.w, 40.h),
@@ -196,12 +188,37 @@ class _CreateEventState extends State<CreateEvent> {
                                   ElevatedButtonForms(
                                     formKey: _eventKey,
                                     onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
+                                      if (_eventKey.currentState!.validate()) {
+                                        context.read<EventsBloc>().add(
+                                              EventsEvent.createEventsEvent(
+                                                Event_name:
+                                                    eventNameController.text,
+                                                place: placeController.text,
+                                                desc: descController.text,
+                                                address: addressController.text,
+                                                services:
+                                                    selectedNames.toList(),
+                                                category:
+                                                    selectedCategories.toList(),
+                                              ),
+                                            );
+                                        // EventCreationData eventData =
+                                        //     EventCreationData(
+                                        //   Event_name: eventNameController.text,
+                                        //   place: placeController.text,
+                                        //   desc: descController.text,
+                                        //   address: addressController.text,
+                                        //   services: selectedNames.toList(),
+                                        //   category: selectedCategories.toList(),
+                                        // );
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
                                             builder: (context) =>
-                                                const EventImages()),
-                                      );
+                                                const EventImages(),
+                                          ),
+                                        );
+                                      }
                                     },
                                     buttonText: 'Next',
                                     sizeButton: Size(70.w, 40.h),
@@ -225,3 +242,21 @@ class _CreateEventState extends State<CreateEvent> {
     );
   }
 }
+
+// class EventCreationData {
+//   final String Event_name;
+//   final String place;
+//   final String address;
+//   final String desc;
+//   final List<String> services;
+//   final List<String> category;
+
+//   EventCreationData({
+//     required this.Event_name,
+//     required this.place,
+//     required this.address,
+//     required this.desc,
+//     required this.services,
+//     required this.category,
+//   });
+// }
