@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/features/presentation/auth_screen/signupscreen.dart';
 import 'package:login/features/presentation/main_screens.dart/favorite_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
-import 'package:login/features/presentation/main_screens.dart/play_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen.dart';
 
 void main() async {
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
               '/signup': (context) => const Signupscreen(),
               '/body': (context) => const BottomBodyScreen(),
               '/home': (context) => const HomeScreen(),
-              '/video': (context) => const PlayScreen(),
+              // '/video': (context) => const PlayScreen(),
               '/favorite': (context) => const FavoriteScreen(),
               '/profile': (context) => const ProfileScreen(),
               // '/event-image': (context) =>  EventImages(eventData: eventData)
