@@ -47,7 +47,7 @@ class EventService {
   }
 
 //Multiple Image Upload
-  Future<void> multipleImageUpload(List<String?> filepaths) async {
+  Future<List<dynamic>?> multipleImageUpload(List<String?> filepaths) async {
     try {
       FormData formData = FormData();
 
@@ -65,7 +65,9 @@ class EventService {
         }
       }
 
-      await dio.post('/api/events/imgM', data: formData);
+      final res = await dio.post('/api/events/imgM', data: formData);
+      final imageNames = res.data['filepaths'] ;
+      return imageNames;
     } catch (e) {
       rethrow;
     }

@@ -8,6 +8,7 @@ import 'package:login/common/helper/input_text_field.dart';
 import 'package:login/common/helper/multiline_text_field.dart';
 import 'package:login/common/helper/rounded_check_box.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_creation_image_upload.dart';
+import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});
@@ -189,33 +190,33 @@ class _CreateEventState extends State<CreateEvent> {
                                     formKey: _eventKey,
                                     onPressed: () {
                                       if (_eventKey.currentState!.validate()) {
-                                        context.read<EventsBloc>().add(
-                                              EventsEvent.createEventsEvent(
-                                                Event_name:
-                                                    eventNameController.text,
-                                                place: placeController.text,
-                                                desc: descController.text,
-                                                address: addressController.text,
-                                                services:
-                                                    selectedNames.toList(),
-                                                category:
-                                                    selectedCategories.toList(),
-                                              ),
-                                            );
-                                        // EventCreationData eventData =
-                                        //     EventCreationData(
-                                        //   Event_name: eventNameController.text,
-                                        //   place: placeController.text,
-                                        //   desc: descController.text,
-                                        //   address: addressController.text,
-                                        //   services: selectedNames.toList(),
-                                        //   category: selectedCategories.toList(),
-                                        // );
+                                        // context.read<EventsBloc>().add(
+                                        //       EventsEvent.createEventsEvent(
+                                        //         Event_name:
+                                        //             eventNameController.text,
+                                        //         place: placeController.text,
+                                        //         desc: descController.text,
+                                        //         address: addressController.text,
+                                        //         services:
+                                        //             selectedNames.toList(),
+                                        //         category:
+                                        //             selectedCategories.toList(),
+                                        //       ),
+                                        //     );
+                                        EventCreationData eventData =
+                                            EventCreationData(
+                                          Event_name: eventNameController.text,
+                                          place: placeController.text,
+                                          desc: descController.text,
+                                          address: addressController.text,
+                                          services: selectedNames.toList(),
+                                          category: selectedCategories.toList(),
+                                        );
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                const EventImages(),
+                                            builder: (context) => EventImages(
+                                                eventData: eventData),
                                           ),
                                         );
                                       }
@@ -242,21 +243,3 @@ class _CreateEventState extends State<CreateEvent> {
     );
   }
 }
-
-// class EventCreationData {
-//   final String Event_name;
-//   final String place;
-//   final String address;
-//   final String desc;
-//   final List<String> services;
-//   final List<String> category;
-
-//   EventCreationData({
-//     required this.Event_name,
-//     required this.place,
-//     required this.address,
-//     required this.desc,
-//     required this.services,
-//     required this.category,
-//   });
-// }

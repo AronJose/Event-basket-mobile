@@ -14,6 +14,8 @@ part 'events_state.dart';
 part 'events_bloc.freezed.dart';
 
 class EventsBloc extends Bloc<EventsEvent, EventsState> {
+  List<dynamic>? imageNames;
+
   final EventService eventService =
       EventService(Dio(BaseOptions(baseUrl: ApiEnpoints.baseURL)));
   EventsBloc() : super(EventsState.initial()) {
@@ -47,6 +49,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           'address': event.address,
           'category': event.category,
           'services': event.services,
+          'image': imageNames
         });
         emit(state.copyWith(loading: false, error: null));
       } catch (e) {
@@ -58,7 +61,8 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
     on<MultipleImgUpload>((event, emit) async {
       emit(state.copyWith(loading: true, error: null));
       try {
-        await eventService.multipleImageUpload(event.filepaths);
+        imageNames = await eventService.multipleImageUpload(event.filepaths);
+        print(imageNames.toString());
         emit(state.copyWith(loading: false, error: null));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));

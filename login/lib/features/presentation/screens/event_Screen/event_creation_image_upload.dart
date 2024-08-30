@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
 import 'package:login/common/helper/elevated_button_form.dart';
+import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
 
 class EventImages extends StatefulWidget {
-  // final EventCreationData eventData;
-  const EventImages({super.key});
+  final EventCreationData eventData;
+  const EventImages({super.key, required this.eventData});
 
   @override
   State<EventImages> createState() => _EventImagesState();
@@ -33,7 +34,7 @@ class _EventImagesState extends State<EventImages> {
               ),
             ),
           ),
-          backgroundColor:const Color.fromARGB(255, 54, 54, 54),
+          backgroundColor: const Color.fromARGB(255, 54, 54, 54),
         ),
         body: Padding(
           padding: EdgeInsets.all(10.w),
@@ -177,8 +178,16 @@ class _EventImagesState extends State<EventImages> {
                     child: ElevatedButtonForms(
                       onPressed: () {
                         context.read<EventsBloc>().add(
-                            EventsEvent.multipleImgUpload(
-                                filepaths: filepaths));
+                              CreateEventsEvent(
+                                Event_name: widget.eventData.Event_name,
+                                place: widget.eventData.place,
+                                desc: widget.eventData.desc,
+                                address: widget.eventData.address,
+                                services: widget.eventData.services,
+                                category: widget.eventData.category,
+
+                              ),
+                            );
                         Navigator.pop(context, '/home');
                       },
                       buttonText: "Save",
