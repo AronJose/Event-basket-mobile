@@ -13,8 +13,8 @@ class SecondAppBarScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _buildSearchBox(),
-          _buildIconButton(Icons.filter_alt_rounded, Colors.green),
-          _buildIconButton(Icons.location_on, Colors.green),
+          _buildIconButton(Icons.filter_alt_rounded, Colors.black),
+          _buildIconButton(Icons.location_on,  Colors.black),
         ],
       ),
     );

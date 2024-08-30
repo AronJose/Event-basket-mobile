@@ -86,7 +86,7 @@ class _CreateEventState extends State<CreateEvent> {
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w900),
                 ),
-                backgroundColor: const Color.fromARGB(255, 0, 56, 2),
+                backgroundColor:  const Color.fromARGB(255, 54, 54, 54),
               ),
               body: Padding(
                 padding: EdgeInsets.all(10.dm),

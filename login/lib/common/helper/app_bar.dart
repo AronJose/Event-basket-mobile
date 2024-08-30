@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/helper/icon_button.dart';
+import 'package:login/common/helper/three_dotes_button_box.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_creation.dart';
 
 class MyAppBarCommon extends StatelessWidget implements PreferredSizeWidget {
@@ -17,7 +18,7 @@ class MyAppBarCommon extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
             fontSize: 25.sp, fontWeight: FontWeight.w900, color: Colors.white),
       ),
-      backgroundColor: const Color.fromARGB(255, 1, 46, 2),
+      backgroundColor: const Color.fromARGB(255, 54, 54, 54),
       actions: [
         Row(
           children: [
@@ -38,11 +39,14 @@ class MyAppBarCommon extends StatelessWidget implements PreferredSizeWidget {
                 );
               },
             ),
-            IconsButtonsCommon(
-              iconModel: const Icon(Icons.more_vert),
-              iconColor: Colors.white,
-              onPressed: () {},
-            ),
+            // IconsButtonsCommon(
+            //   iconModel: const Icon(Icons.more_vert),
+            //   iconColor: Colors.white,
+            //   onPressed: () {
+            //    const MoreButtonCommon();
+            //   },
+            // ),
+            const MoreButtonCommon()
           ],
         )
       ],

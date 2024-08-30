@@ -20,7 +20,7 @@ class BottomBodyScreen extends StatelessWidget {
               appBar: const MyAppBarCommon(),
               body: Column(
                 children: [
-                 const SecondAppBarScreen(),
+                  if (index != 3) const SecondAppBarScreen(),
                   Expanded(
                       child: [
                     const HomeScreen(),

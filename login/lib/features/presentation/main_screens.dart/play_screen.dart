@@ -132,7 +132,7 @@ class PlayScreenState extends State<PlayScreen> {
                       width: 25,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50.r),
-                          color: const Color.fromARGB(255, 78, 235, 112)),
+                          color: const Color.fromARGB(255, 43, 61, 223)),
                     ),
                     SizedBox(
                       width: 5.w,
@@ -151,7 +151,9 @@ class PlayScreenState extends State<PlayScreen> {
                   children: [
                     IconsButtonsCommon(
                       iconModel: const Icon(Icons.favorite),
-                      iconColor: isLiked ? Colors.red : Colors.green,
+                      iconColor: isLiked
+                          ? Colors.red
+                          : Colors.black,
                       onPressed: () {
                         setState(
                           () {
@@ -162,7 +164,7 @@ class PlayScreenState extends State<PlayScreen> {
                     ),
                     IconsButtonsCommon(
                       iconModel: const Icon(Icons.share),
-                      iconColor: Colors.green,
+                      iconColor: Colors.black,
                       onPressed: () {},
                     ),
                   ],

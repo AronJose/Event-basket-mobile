@@ -27,8 +27,8 @@ class _BottomAppbarCommonState extends State<BottomAppbarCommon> {
       currentIndex: selectedIndex,
       onTap: onItemTapped,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: const Color.fromARGB(255, 0, 61, 10),
-      selectedItemColor: const Color.fromARGB(255, 3, 177, 61),
+      backgroundColor:  const Color.fromARGB(255, 54, 54, 54),
+      selectedItemColor:const Color.fromARGB(118, 213, 233, 245),
       unselectedItemColor: Colors.white,
       selectedLabelStyle:
           const TextStyle(fontSize: 12, fontWeight: FontWeight.w900),
