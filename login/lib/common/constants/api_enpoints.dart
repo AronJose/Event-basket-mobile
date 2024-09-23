@@ -1,3 +1,3 @@
-class ApiEnpoints{
-static String baseURL ="http://192.168.1.212:8000";
-} 
+class ApiEnpoints {
+  static String baseURL = "http://192.168.2.10:8000";
+}
