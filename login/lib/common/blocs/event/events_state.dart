@@ -7,6 +7,8 @@ class EventsState with _$EventsState {
     required String? error,
     required List<CaterogyModel> categoryData,
     required List<Services> servicesData,
+    required List<Providermodel> providerData,
+    required List<Providingmodel> providingData,
     required List<MultipleImageUploadModal> multipleImgData,
   }) = _Initial;
   factory EventsState.initial() => const EventsState(
@@ -14,6 +16,8 @@ class EventsState with _$EventsState {
         error: null,
         categoryData: [],
         servicesData: [],
+        providerData: [],
+        providingData: [],
         multipleImgData: [],
       );
 }

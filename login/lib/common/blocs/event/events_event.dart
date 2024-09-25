@@ -4,6 +4,8 @@ part of 'events_bloc.dart';
 class EventsEvent with _$EventsEvent {
   const factory EventsEvent.categoryList() = CategoryList;
   const factory EventsEvent.servicesLIst() = ServicesList;
+  const factory EventsEvent.providerList() = ProviderList;
+  const factory EventsEvent.providingList() =ProvidingList;
   const factory EventsEvent.createEventsEvent({
     required String Event_name,
     required String place,
@@ -11,6 +13,8 @@ class EventsEvent with _$EventsEvent {
     required String address,
     required List<String> services,
     required List<String> category,
+     required List<String> provider,
+    required List<String> providing,
   }) = CreateEventsEvent;
   const factory EventsEvent.multipleImgUpload({required List<String?> filepaths}) =
       MultipleImgUpload;

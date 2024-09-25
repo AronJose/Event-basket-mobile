@@ -39,6 +39,8 @@ class _CreateEventState extends State<CreateEvent> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<EventsBloc>().add(const CategoryList());
       context.read<EventsBloc>().add(const ServicesList());
+      context.read<EventsBloc>().add(const ProviderList());
+      context.read<EventsBloc>().add(const ProvidingList());
     });
   }
 
@@ -66,6 +68,21 @@ class _CreateEventState extends State<CreateEvent> {
             state.servicesData.map((e) => e.services),
           );
         }
+
+        if (state.providerData.isNotEmpty) {
+          providerOptions.clear();
+          providerOptions.addAll(
+            state.providerData.map((e) => e.providers),
+          );
+        }
+
+        if (state.providingData.isNotEmpty) {
+          providingsOptions.clear();
+          providingsOptions.addAll(
+            state.providingData.map((e) => e.providing),
+          );
+        }
+
         return SafeArea(
           child: ScreenUtilInit(
             child: Scaffold(
@@ -176,6 +193,19 @@ class _CreateEventState extends State<CreateEvent> {
                               SizedBox(
                                 height: 10.h,
                               ),
+                              MultiSelectCheckBox(
+                                title: 'Providing',
+                                options: providingsOptions,
+                                selectedValues: selectedProvidings.toList(),
+                                onChanged: (List<String> value) {
+                                  setState(() {
+                                    selectedProvidings = value.toSet();
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -198,13 +228,19 @@ class _CreateEventState extends State<CreateEvent> {
                                       if (_eventKey.currentState!.validate()) {
                                         EventCreationData eventData =
                                             EventCreationData(
-                                          Event_name: eventNameController.text,
-                                          place: placeController.text,
-                                          desc: descController.text,
-                                          address: addressController.text,
-                                          services: selectedNames.toList(),
-                                          category: selectedCategories.toList(),
-                                        );
+                                                Event_name:
+                                                    eventNameController.text,
+                                                place: placeController.text,
+                                                desc: descController.text,
+                                                address: addressController.text,
+                                                services:
+                                                    selectedNames.toList(),
+                                                category:
+                                                    selectedCategories.toList(),
+                                                provider:
+                                                    selectedProvider.toList(),
+                                                providing: selectedProvidings
+                                                    .toList());
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(

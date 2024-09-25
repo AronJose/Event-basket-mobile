@@ -6,6 +6,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/common/constants/api_enpoints.dart';
 import 'package:login/core/models/category_modal.dart';
 import 'package:login/core/models/multiple_image_upload_modal.dart';
+import 'package:login/core/models/provider_modal.dart';
+import 'package:login/core/models/providing_model.dart';
 import 'package:login/core/models/services.dart';
 import 'package:login/core/services/event_service.dart';
 
@@ -34,6 +36,26 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
         emit(state.copyWith(loading: true, error: null));
         final data = await eventService.getServices();
         emit(state.copyWith(loading: false, servicesData: data));
+      } catch (e) {
+        emit(state.copyWith(loading: false, error: e.toString()));
+      }
+    });
+
+     on<ProviderList>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true, error: null));
+        final data = await eventService.getProviders();
+        emit(state.copyWith(loading: false, providerData: data));
+      } catch (e) {
+        emit(state.copyWith(loading: false, error: e.toString()));
+      }
+    });
+
+     on<ProvidingList>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true, error: null));
+        final data = await eventService.getProviding();
+        emit(state.copyWith(loading: false, providingData: data));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));
       }
