@@ -186,6 +186,8 @@ class _EventImagesState extends State<EventImages> {
                                 address: widget.eventData.address,
                                 services: widget.eventData.services,
                                 category: widget.eventData.category,
+                                provider: widget.eventData.provider,
+                                providing: widget.eventData.providing,
                               ),
                             );
                         Navigator.push(

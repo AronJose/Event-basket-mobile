@@ -6,7 +6,6 @@ import 'package:login/common/helper/check_box.dart';
 import 'package:login/common/helper/elevated_button_form.dart';
 import 'package:login/common/helper/input_text_field.dart';
 import 'package:login/common/helper/multiline_text_field.dart';
-import 'package:login/common/helper/rounded_check_box.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_creation_image_upload.dart';
 import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
 
@@ -23,6 +22,10 @@ class _CreateEventState extends State<CreateEvent> {
   final TextEditingController addressController = TextEditingController();
   final TextEditingController descController = TextEditingController();
 
+  final List<String> providerOptions = [];
+  Set<String> selectedProvider = {};
+  final List<String> providingsOptions = [];
+  Set<String> selectedProvidings = {};
   final List<String> categoryOptions = [];
   Set<String> selectedCategories = {};
   final List<String> namesOptions = [];
@@ -36,6 +39,8 @@ class _CreateEventState extends State<CreateEvent> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<EventsBloc>().add(const CategoryList());
       context.read<EventsBloc>().add(const ServicesList());
+      context.read<EventsBloc>().add(const ProviderList());
+      context.read<EventsBloc>().add(const ProvidingList());
     });
   }
 
@@ -63,6 +68,21 @@ class _CreateEventState extends State<CreateEvent> {
             state.servicesData.map((e) => e.services),
           );
         }
+
+        if (state.providerData.isNotEmpty) {
+          providerOptions.clear();
+          providerOptions.addAll(
+            state.providerData.map((e) => e.providers),
+          );
+        }
+
+        if (state.providingData.isNotEmpty) {
+          providingsOptions.clear();
+          providingsOptions.addAll(
+            state.providingData.map((e) => e.providing),
+          );
+        }
+
         return SafeArea(
           child: ScreenUtilInit(
             child: Scaffold(
@@ -101,6 +121,19 @@ class _CreateEventState extends State<CreateEvent> {
                           key: _eventKey,
                           child: Column(
                             children: [
+                              MultiSelectCheckBox(
+                                title: 'Provder',
+                                options: providerOptions,
+                                selectedValues: selectedProvider.toList(),
+                                onChanged: (List<String> value) {
+                                  setState(() {
+                                    selectedProvider = value.toSet();
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
                               InputFieldTexts(
                                 controller: eventNameController,
                                 placeholderValue: "Enter the Event name",
@@ -134,25 +167,15 @@ class _CreateEventState extends State<CreateEvent> {
                               SizedBox(
                                 height: 10.h,
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: categoryOptions.map((name) {
-                                  return RoundedCheckbox(
-                                    label: name,
-                                    isSelected:
-                                        selectedCategories.contains(name),
-                                    onChanged: (bool isSelected) {
-                                      setState(() {
-                                        if (isSelected) {
-                                          selectedCategories.add(name);
-                                        } else {
-                                          selectedCategories.remove(name);
-                                        }
-                                      });
-                                    },
-                                  );
-                                }).toList(),
+                              MultiSelectCheckBox(
+                                title: 'Categories',
+                                options: categoryOptions,
+                                selectedValues: selectedCategories.toList(),
+                                onChanged: (List<String> value) {
+                                  setState(() {
+                                    selectedCategories = value.toSet();
+                                  });
+                                },
                               ),
                               SizedBox(
                                 height: 10.h,
@@ -164,6 +187,19 @@ class _CreateEventState extends State<CreateEvent> {
                                 onChanged: (List<String> value) {
                                   setState(() {
                                     selectedNames = value.toSet();
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              MultiSelectCheckBox(
+                                title: 'Providing',
+                                options: providingsOptions,
+                                selectedValues: selectedProvidings.toList(),
+                                onChanged: (List<String> value) {
+                                  setState(() {
+                                    selectedProvidings = value.toSet();
                                   });
                                 },
                               ),
@@ -190,28 +226,21 @@ class _CreateEventState extends State<CreateEvent> {
                                     formKey: _eventKey,
                                     onPressed: () {
                                       if (_eventKey.currentState!.validate()) {
-                                        // context.read<EventsBloc>().add(
-                                        //       EventsEvent.createEventsEvent(
-                                        //         Event_name:
-                                        //             eventNameController.text,
-                                        //         place: placeController.text,
-                                        //         desc: descController.text,
-                                        //         address: addressController.text,
-                                        //         services:
-                                        //             selectedNames.toList(),
-                                        //         category:
-                                        //             selectedCategories.toList(),
-                                        //       ),
-                                        //     );
                                         EventCreationData eventData =
                                             EventCreationData(
-                                          Event_name: eventNameController.text,
-                                          place: placeController.text,
-                                          desc: descController.text,
-                                          address: addressController.text,
-                                          services: selectedNames.toList(),
-                                          category: selectedCategories.toList(),
-                                        );
+                                                Event_name:
+                                                    eventNameController.text,
+                                                place: placeController.text,
+                                                desc: descController.text,
+                                                address: addressController.text,
+                                                services:
+                                                    selectedNames.toList(),
+                                                category:
+                                                    selectedCategories.toList(),
+                                                provider:
+                                                    selectedProvider.toList(),
+                                                providing: selectedProvidings
+                                                    .toList());
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(

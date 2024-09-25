@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:login/core/models/category_modal.dart';
+import 'package:login/core/models/provider_modal.dart';
+import 'package:login/core/models/providing_model.dart';
 import 'package:login/core/models/services.dart';
 
 class EventService {
@@ -29,6 +31,34 @@ class EventService {
         serviceList.add(Services.fromJson(service));
       }
       return serviceList;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Providermodel>> getProviders() async {
+    try {
+      final res = await dio.get("/api/events/provider");
+      final data = res.data;
+      final List<Providermodel> providerList = [];
+      for (var provider in data) {
+        providerList.add(Providermodel.fromJson(provider));
+      }
+      return providerList;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<Providingmodel>> getProviding() async {
+    try {
+      final res = await dio.get("/api/events/providing");
+      final data = res.data;
+      final List<Providingmodel> providingList = [];
+      for (var providing in data) {
+        providingList.add(Providingmodel.fromJson(providing));
+      }
+      return providingList;
     } catch (e) {
       rethrow;
     }
@@ -66,7 +96,7 @@ class EventService {
       }
 
       final res = await dio.post('/api/events/imgM', data: formData);
-      final imageNames = res.data['filepaths'] ;
+      final imageNames = res.data['filepaths'];
       return imageNames;
     } catch (e) {
       rethrow;
