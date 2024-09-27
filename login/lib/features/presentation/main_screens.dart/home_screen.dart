@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/common/blocs/event/events_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +15,11 @@ class HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        context.read<EventsBloc>().add(const EventList());
+      },
+    );
     double screenWidth = ScreenUtil().screenWidth;
 
     double imageWidth;
@@ -31,108 +38,123 @@ class HomeScreenState extends State<HomeScreen> {
       'images/photo3.jpg',
     ];
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.w),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                width: imageWidth,
-                height: 200.h,
-                child: Stack(
+    return BlocBuilder<EventsBloc, EventsState>(
+      builder: (context, state) {
+        if (state.eventsData.isEmpty) {
+          return const Center(
+            child: Text("No Event Data Available!"),
+          );
+        }
+
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.w),
+          child: ListView.builder(
+            itemCount: state.eventsData.length,
+            itemBuilder: (context, index) {
+              final event = state.eventsData[index];
+              print(event);
+              return Card(
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Image.asset(
-                      images[imgSelectorIndex],
-                      fit: BoxFit.cover,
+                    SizedBox(
                       width: imageWidth,
                       height: 200.h,
-                    ),
-                    Positioned(
-                      left: 8.0,
-                      top: 90.h,
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (imgSelectorIndex > 0) {
-                              imgSelectorIndex--;
-                            }
-                          });
-                        },
-                        icon: const Icon(Icons.arrow_left),
-                        color: Colors.white,
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            images[imgSelectorIndex],
+                            fit: BoxFit.cover,
+                            width: imageWidth,
+                            height: 200.h,
+                          ),
+                          Positioned(
+                            left: 8.0,
+                            top: 90.h,
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  if (imgSelectorIndex > 0) {
+                                    imgSelectorIndex--;
+                                  }
+                                });
+                              },
+                              icon: const Icon(Icons.arrow_left),
+                              color: Colors.white,
+                            ),
+                          ),
+                          Positioned(
+                            right: 8.0,
+                            top: 90.h,
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  if (imgSelectorIndex < images.length - 1) {
+                                    imgSelectorIndex++;
+                                  }
+                                });
+                              },
+                              icon: const Icon(Icons.arrow_right),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Positioned(
-                      right: 8.0,
-                      top: 90.h,
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (imgSelectorIndex < images.length - 1) {
-                              imgSelectorIndex++;
-                            }
-                          });
-                        },
-                        icon: const Icon(Icons.arrow_right),
-                        color: Colors.white,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              mainAxisSpacing: 2,
+                              crossAxisSpacing: 2,
+                            ),
+                            itemCount: images.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              if (index < images.length) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      imgSelectorIndex = index;
+                                    });
+                                  },
+                                  child: Card(
+                                    clipBehavior: Clip.antiAlias,
+                                    child: Image.asset(
+                                      images[index],
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.w),
+                      child: Text(
+                        "Aron Jose",
+                        style: TextStyle(
+                          fontSize: 30.sp,
+                          fontWeight: FontWeight.w900,
+                          color: const Color(0xFF3A3A3A),
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        mainAxisSpacing: 2,
-                        crossAxisSpacing: 2,
-                      ),
-                      itemCount: images.length,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        if (index < images.length) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                imgSelectorIndex = index;
-                              });
-                            },
-                            child: Card(
-                              clipBehavior: Clip.antiAlias,
-                              child: Image.asset(
-                                images[index],
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.w),
-                child: Text(
-                  "Aron Jose",
-                  style: TextStyle(
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w900,
-                    color: const Color(0xFF3A3A3A),
-                  ),
-                ),
-              ),
-            ],
+              );
+            },
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -21,6 +21,8 @@ class _CreateEventState extends State<CreateEvent> {
   final TextEditingController placeController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController descController = TextEditingController();
+  final TextEditingController emailController =TextEditingController();
+  final TextEditingController contactController = TextEditingController();
 
   final List<String> providerOptions = [];
   Set<String> selectedProvider = {};
@@ -147,6 +149,22 @@ class _CreateEventState extends State<CreateEvent> {
                                 placeholderValue: "Enter the Place",
                                 errorvalue: 'Please enter the Place ',
                               ),
+                               SizedBox(
+                                height: 10.h,
+                              ),
+                               InputFieldTexts(
+                                controller: emailController,
+                                placeholderValue: "Enter the email",
+                                errorvalue: 'Please enter a Valid Email ',
+                              ),
+                               SizedBox(
+                                height: 10.h,
+                              ),
+                               InputFieldTexts(
+                                controller: contactController,
+                                placeholderValue: "Enter the contact number",
+                                errorvalue: 'Please enter a Valid Contact Number ',
+                              ),
                               SizedBox(
                                 height: 10.h,
                               ),
@@ -233,6 +251,8 @@ class _CreateEventState extends State<CreateEvent> {
                                                 place: placeController.text,
                                                 desc: descController.text,
                                                 address: addressController.text,
+                                                email:emailController.text,
+                                                contact:contactController.text,
                                                 services:
                                                     selectedNames.toList(),
                                                 category:

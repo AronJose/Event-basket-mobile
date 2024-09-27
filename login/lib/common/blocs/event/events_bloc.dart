@@ -1,3 +1,4 @@
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/common/constants/api_enpoints.dart';
 import 'package:login/core/models/category_modal.dart';
+import 'package:login/core/models/event_modal.dart';
 import 'package:login/core/models/multiple_image_upload_modal.dart';
 import 'package:login/core/models/provider_modal.dart';
 import 'package:login/core/models/providing_model.dart';
@@ -41,7 +43,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       }
     });
 
-     on<ProviderList>((event, emit) async {
+    on<ProviderList>((event, emit) async {
       try {
         emit(state.copyWith(loading: true, error: null));
         final data = await eventService.getProviders();
@@ -51,11 +53,21 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       }
     });
 
-     on<ProvidingList>((event, emit) async {
+    on<ProvidingList>((event, emit) async {
       try {
         emit(state.copyWith(loading: true, error: null));
         final data = await eventService.getProviding();
         emit(state.copyWith(loading: false, providingData: data));
+      } catch (e) {
+        emit(state.copyWith(loading: false, error: e.toString()));
+      }
+    });
+
+    on<EventList>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true, error: null));
+        final data = await eventService.getEvents();
+        emit(state.copyWith(loading: false, eventsData: data));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));
       }
@@ -68,9 +80,13 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           'Event_name': event.Event_name,
           'place': event.place,
           'desc': event.desc,
+          'email':event.email,
+          'contact':event.contact,
           'address': event.address,
           'category': event.category,
           'services': event.services,
+          'provider': event.provider,
+          'providing': event.providing,
           'image': imageNames
         });
         emit(state.copyWith(loading: false, error: null));

@@ -188,6 +188,8 @@ class _EventImagesState extends State<EventImages> {
                                 category: widget.eventData.category,
                                 provider: widget.eventData.provider,
                                 providing: widget.eventData.providing,
+                                email:widget.eventData.email,
+                                contact: widget.eventData.contact,
                               ),
                             );
                         Navigator.push(

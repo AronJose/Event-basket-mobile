@@ -10,6 +10,7 @@ class EventsState with _$EventsState {
     required List<Providermodel> providerData,
     required List<Providingmodel> providingData,
     required List<MultipleImageUploadModal> multipleImgData,
+    required List<EventModal>eventsData,
   }) = _Initial;
   factory EventsState.initial() => const EventsState(
         loading: false,
@@ -19,5 +20,6 @@ class EventsState with _$EventsState {
         providerData: [],
         providingData: [],
         multipleImgData: [],
+        eventsData: []
       );
 }

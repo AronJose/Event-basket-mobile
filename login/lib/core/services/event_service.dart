@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:login/core/models/category_modal.dart';
+import 'package:login/core/models/event_modal.dart';
 import 'package:login/core/models/provider_modal.dart';
 import 'package:login/core/models/providing_model.dart';
 import 'package:login/core/models/services.dart';
@@ -71,6 +72,22 @@ class EventService {
         "/api/events/addEvent",
         data: body,
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+// Event Listing
+  Future<List<EventModal>> getEvents() async {
+    try {
+      final res = await dio.get("/api/events/getevents");
+      final data = res.data;
+      print(data);
+      final List<EventModal>eventList = [];
+      for (var events in data) {
+        eventList.add(EventModal.fromJson(events));
+      }
+      return eventList;
     } catch (e) {
       rethrow;
     }
