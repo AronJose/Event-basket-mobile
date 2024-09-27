@@ -1,24 +1,16 @@
+// To parse this JSON data, do
+//
+//     final eventModal = eventModalFromJson(jsonString);
+
+import 'dart:convert';
+
+List<EventModal> eventModalFromJson(String str) =>
+    List<EventModal>.from(json.decode(str).map((x) => EventModal.fromJson(x)));
+
+String eventModalToJson(List<EventModal> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class EventModal {
-  String message;
-  Saved saved;
-
-  EventModal({
-    required this.message,
-    required this.saved,
-  });
-
-  factory EventModal.fromJson(Map<String, dynamic> json) => EventModal(
-        message: json["message"],
-        saved: Saved.fromJson(json["saved"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "message": message,
-        "saved": saved.toJson(),
-      };
-}
-
-class Saved {
   String id;
   String eventName;
   List<String> image;
@@ -27,14 +19,14 @@ class Saved {
   String address;
   List<String> services;
   List<String> category;
-  List<String> providing;
+  List<dynamic> providing;
   String providers;
   String email;
   String contact;
   String status;
   int v;
 
-  Saved({
+  EventModal({
     required this.id,
     required this.eventName,
     required this.image,
@@ -51,7 +43,7 @@ class Saved {
     required this.v,
   });
 
-  factory Saved.fromJson(Map<String, dynamic> json) => Saved(
+  factory EventModal.fromJson(Map<String, dynamic> json) => EventModal(
         id: json["_id"],
         eventName: json["Event_name"],
         image: List<String>.from(json["image"].map((x) => x)),
@@ -60,7 +52,7 @@ class Saved {
         address: json["address"],
         services: List<String>.from(json["services"].map((x) => x)),
         category: List<String>.from(json["category"].map((x) => x)),
-        providing: List<String>.from(json["providing"].map((x) => x)),
+        providing: List<dynamic>.from(json["providing"].map((x) => x)),
         providers: json["providers"],
         email: json["email"],
         contact: json["contact"],

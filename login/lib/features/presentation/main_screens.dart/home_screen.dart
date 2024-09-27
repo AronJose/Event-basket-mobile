@@ -31,13 +31,6 @@ class HomeScreenState extends State<HomeScreen> {
       imageWidth = screenWidth * 0.5;
     }
 
-    List<String> images = [
-      'images/wedding1.jpg',
-      'images/photo1.jpg',
-      'images/photo2.jpg',
-      'images/photo3.jpg',
-    ];
-
     return BlocBuilder<EventsBloc, EventsState>(
       builder: (context, state) {
         if (state.eventsData.isEmpty) {
@@ -52,7 +45,6 @@ class HomeScreenState extends State<HomeScreen> {
             itemCount: state.eventsData.length,
             itemBuilder: (context, index) {
               final event = state.eventsData[index];
-              print(event);
               return Card(
                 clipBehavior: Clip.antiAlias,
                 child: Column(
@@ -64,7 +56,7 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Stack(
                         children: [
                           Image.asset(
-                            images[imgSelectorIndex],
+                            event.image[imgSelectorIndex],
                             fit: BoxFit.cover,
                             width: imageWidth,
                             height: 200.h,
@@ -90,7 +82,8 @@ class HomeScreenState extends State<HomeScreen> {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if (imgSelectorIndex < images.length - 1) {
+                                  if (imgSelectorIndex <
+                                      event.image.length - 1) {
                                     imgSelectorIndex++;
                                   }
                                 });
@@ -112,10 +105,10 @@ class HomeScreenState extends State<HomeScreen> {
                               mainAxisSpacing: 2,
                               crossAxisSpacing: 2,
                             ),
-                            itemCount: images.length,
+                            itemCount: event.image.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              if (index < images.length) {
+                              if (index < event.image.length) {
                                 return GestureDetector(
                                   onTap: () {
                                     setState(() {
@@ -125,7 +118,7 @@ class HomeScreenState extends State<HomeScreen> {
                                   child: Card(
                                     clipBehavior: Clip.antiAlias,
                                     child: Image.asset(
-                                      images[index],
+                                      event.image[index],
                                       fit: BoxFit.cover,
                                     ),
                                   ),

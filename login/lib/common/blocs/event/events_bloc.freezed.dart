@@ -32,7 +32,7 @@ mixin _$EventsEvent {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -54,7 +54,7 @@ mixin _$EventsEvent {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -76,7 +76,7 @@ mixin _$EventsEvent {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -195,7 +195,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -220,7 +220,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -245,7 +245,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -366,7 +366,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -391,7 +391,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -416,7 +416,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -537,7 +537,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -562,7 +562,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -587,7 +587,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -710,7 +710,7 @@ class _$ProvidingListImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -735,7 +735,7 @@ class _$ProvidingListImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -760,7 +760,7 @@ class _$ProvidingListImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -881,7 +881,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -906,7 +906,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -931,7 +931,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -1009,7 +1009,7 @@ abstract class _$$CreateEventsEventImplCopyWith<$Res> {
       String contact,
       List<String> services,
       List<String> category,
-      List<String> provider,
+      List<String> providers,
       List<String> providing});
 }
 
@@ -1032,7 +1032,7 @@ class __$$CreateEventsEventImplCopyWithImpl<$Res>
     Object? contact = null,
     Object? services = null,
     Object? category = null,
-    Object? provider = null,
+    Object? providers = null,
     Object? providing = null,
   }) {
     return _then(_$CreateEventsEventImpl(
@@ -1068,9 +1068,9 @@ class __$$CreateEventsEventImplCopyWithImpl<$Res>
           ? _value._category
           : category // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      provider: null == provider
-          ? _value._provider
-          : provider // ignore: cast_nullable_to_non_nullable
+      providers: null == providers
+          ? _value._providers
+          : providers // ignore: cast_nullable_to_non_nullable
               as List<String>,
       providing: null == providing
           ? _value._providing
@@ -1094,11 +1094,11 @@ class _$CreateEventsEventImpl
       required this.contact,
       required final List<String> services,
       required final List<String> category,
-      required final List<String> provider,
+      required final List<String> providers,
       required final List<String> providing})
       : _services = services,
         _category = category,
-        _provider = provider,
+        _providers = providers,
         _providing = providing;
 
   @override
@@ -1129,12 +1129,12 @@ class _$CreateEventsEventImpl
     return EqualUnmodifiableListView(_category);
   }
 
-  final List<String> _provider;
+  final List<String> _providers;
   @override
-  List<String> get provider {
-    if (_provider is EqualUnmodifiableListView) return _provider;
+  List<String> get providers {
+    if (_providers is EqualUnmodifiableListView) return _providers;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_provider);
+    return EqualUnmodifiableListView(_providers);
   }
 
   final List<String> _providing;
@@ -1147,7 +1147,7 @@ class _$CreateEventsEventImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EventsEvent.createEventsEvent(Event_name: $Event_name, place: $place, desc: $desc, address: $address, email: $email, contact: $contact, services: $services, category: $category, provider: $provider, providing: $providing)';
+    return 'EventsEvent.createEventsEvent(Event_name: $Event_name, place: $place, desc: $desc, address: $address, email: $email, contact: $contact, services: $services, category: $category, providers: $providers, providing: $providing)';
   }
 
   @override
@@ -1163,7 +1163,7 @@ class _$CreateEventsEventImpl
       ..add(DiagnosticsProperty('contact', contact))
       ..add(DiagnosticsProperty('services', services))
       ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('provider', provider))
+      ..add(DiagnosticsProperty('providers', providers))
       ..add(DiagnosticsProperty('providing', providing));
   }
 
@@ -1181,7 +1181,8 @@ class _$CreateEventsEventImpl
             (identical(other.contact, contact) || other.contact == contact) &&
             const DeepCollectionEquality().equals(other._services, _services) &&
             const DeepCollectionEquality().equals(other._category, _category) &&
-            const DeepCollectionEquality().equals(other._provider, _provider) &&
+            const DeepCollectionEquality()
+                .equals(other._providers, _providers) &&
             const DeepCollectionEquality()
                 .equals(other._providing, _providing));
   }
@@ -1197,7 +1198,7 @@ class _$CreateEventsEventImpl
       contact,
       const DeepCollectionEquality().hash(_services),
       const DeepCollectionEquality().hash(_category),
-      const DeepCollectionEquality().hash(_provider),
+      const DeepCollectionEquality().hash(_providers),
       const DeepCollectionEquality().hash(_providing));
 
   @JsonKey(ignore: true)
@@ -1224,13 +1225,13 @@ class _$CreateEventsEventImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
   }) {
     return createEventsEvent(Event_name, place, desc, address, email, contact,
-        services, category, provider, providing);
+        services, category, providers, providing);
   }
 
   @override
@@ -1250,13 +1251,13 @@ class _$CreateEventsEventImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
   }) {
     return createEventsEvent?.call(Event_name, place, desc, address, email,
-        contact, services, category, provider, providing);
+        contact, services, category, providers, providing);
   }
 
   @override
@@ -1276,7 +1277,7 @@ class _$CreateEventsEventImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,
@@ -1284,7 +1285,7 @@ class _$CreateEventsEventImpl
   }) {
     if (createEventsEvent != null) {
       return createEventsEvent(Event_name, place, desc, address, email, contact,
-          services, category, provider, providing);
+          services, category, providers, providing);
     }
     return orElse();
   }
@@ -1346,7 +1347,7 @@ abstract class CreateEventsEvent implements EventsEvent {
       required final String contact,
       required final List<String> services,
       required final List<String> category,
-      required final List<String> provider,
+      required final List<String> providers,
       required final List<String> providing}) = _$CreateEventsEventImpl;
 
   String get Event_name;
@@ -1357,7 +1358,7 @@ abstract class CreateEventsEvent implements EventsEvent {
   String get contact;
   List<String> get services;
   List<String> get category;
-  List<String> get provider;
+  List<String> get providers;
   List<String> get providing;
   @JsonKey(ignore: true)
   _$$CreateEventsEventImplCopyWith<_$CreateEventsEventImpl> get copyWith =>
@@ -1461,7 +1462,7 @@ class _$MultipleImgUploadImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)
         createEventsEvent,
     required TResult Function(List<String?> filepaths) multipleImgUpload,
@@ -1486,7 +1487,7 @@ class _$MultipleImgUploadImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult? Function(List<String?> filepaths)? multipleImgUpload,
@@ -1511,7 +1512,7 @@ class _$MultipleImgUploadImpl
             String contact,
             List<String> services,
             List<String> category,
-            List<String> provider,
+            List<String> providers,
             List<String> providing)?
         createEventsEvent,
     TResult Function(List<String?> filepaths)? multipleImgUpload,

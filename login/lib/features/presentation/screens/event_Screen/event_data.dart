@@ -7,7 +7,7 @@ class EventCreationData {
   final String contact;
   final List<String> services;
   final List<String> category;
-  final List<String> provider;
+  final List<String> providers;
   final List<String> providing;
 
   EventCreationData(
@@ -19,6 +19,6 @@ class EventCreationData {
       required this.desc,
       required this.services,
       required this.category,
-      required this.provider,
+      required this.providers,
      required this.providing});
 }
