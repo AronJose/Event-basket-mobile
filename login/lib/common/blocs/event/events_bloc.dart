@@ -85,7 +85,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           'address': event.address,
           'category': event.category,
           'services': event.services,
-          'provider': event.provider,
+          'providers': event.providers,
           'providing': event.providing,
           'image': imageNames
         });

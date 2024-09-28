@@ -67,12 +67,14 @@ class EventService {
 
 // Event Creation
   Future<void> createEvent(Map<String, dynamic> body) async {
+    print(body);
     try {
       await dio.post(
         "/api/events/addEvent",
         data: body,
       );
     } catch (e) {
+      print(e);
       rethrow;
     }
   }

@@ -16,7 +16,7 @@ class EventsEvent with _$EventsEvent {
     required String contact,
     required List<String> services,
     required List<String> category,
-     required List<String> provider,
+     required List<String> providers,
     required List<String> providing,
   }) = CreateEventsEvent;
   const factory EventsEvent.multipleImgUpload({required List<String?> filepaths}) =

@@ -186,7 +186,7 @@ class _EventImagesState extends State<EventImages> {
                                 address: widget.eventData.address,
                                 services: widget.eventData.services,
                                 category: widget.eventData.category,
-                                provider: widget.eventData.provider,
+                                providers: widget.eventData.providers,
                                 providing: widget.eventData.providing,
                                 email:widget.eventData.email,
                                 contact: widget.eventData.contact,

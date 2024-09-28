@@ -28,7 +28,7 @@ class Saved {
   List<String> services;
   List<String> category;
   List<String> providing;
-  String providers;
+  String? providers;
   String email;
   String contact;
   String status;
