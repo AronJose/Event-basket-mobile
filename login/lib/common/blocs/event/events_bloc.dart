@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -67,6 +65,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       try {
         emit(state.copyWith(loading: true, error: null));
         final data = await eventService.getEvents();
+        // print(data);
         emit(state.copyWith(loading: false, eventsData: data));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));
@@ -80,8 +79,8 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
           'Event_name': event.Event_name,
           'place': event.place,
           'desc': event.desc,
-          'email':event.email,
-          'contact':event.contact,
+          'email': event.email,
+          'contact': event.contact,
           'address': event.address,
           'category': event.category,
           'services': event.services,
@@ -100,7 +99,7 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
       emit(state.copyWith(loading: true, error: null));
       try {
         imageNames = await eventService.multipleImageUpload(event.filepaths);
-        print(imageNames.toString());
+        // print(imageNames.toString());
         emit(state.copyWith(loading: false, error: null));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));

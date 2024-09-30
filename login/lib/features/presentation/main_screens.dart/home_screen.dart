@@ -31,28 +31,20 @@ class HomeScreenState extends State<HomeScreen> {
       imageWidth = screenWidth * 0.5;
     }
 
-    List<String> images = [
-      'images/wedding1.jpg',
-      'images/photo1.jpg',
-      'images/photo2.jpg',
-      'images/photo3.jpg',
-    ];
-
     return BlocBuilder<EventsBloc, EventsState>(
       builder: (context, state) {
-        if (state.eventsData.isEmpty) {
-          return const Center(
-            child: Text("No Event Data Available!"),
-          );
+        if (state.eventsData == null || state.eventsData.isEmpty) {
+          return const Center(child: Text("No Event Data Available!"));
         }
+
+        print(state.eventsData);
 
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.w),
           child: ListView.builder(
             itemCount: state.eventsData.length,
             itemBuilder: (context, index) {
-              final event = state.eventsData[index];
-              print(event);
+              // final event = state.eventsData[index];
               return Card(
                 clipBehavior: Clip.antiAlias,
                 child: Column(
@@ -64,7 +56,7 @@ class HomeScreenState extends State<HomeScreen> {
                       child: Stack(
                         children: [
                           Image.asset(
-                            images[imgSelectorIndex],
+                            state.eventsData[index].image[imgSelectorIndex],
                             fit: BoxFit.cover,
                             width: imageWidth,
                             height: 200.h,
@@ -90,7 +82,9 @@ class HomeScreenState extends State<HomeScreen> {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  if (imgSelectorIndex < images.length - 1) {
+                                  if (imgSelectorIndex <
+                                      state.eventsData[index].image.length -
+                                          1) {
                                     imgSelectorIndex++;
                                   }
                                 });
@@ -112,10 +106,11 @@ class HomeScreenState extends State<HomeScreen> {
                               mainAxisSpacing: 2,
                               crossAxisSpacing: 2,
                             ),
-                            itemCount: images.length,
+                            itemCount: state.eventsData[index].image.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              if (index < images.length) {
+                              if (index <
+                                  state.eventsData[index].image.length) {
                                 return GestureDetector(
                                   onTap: () {
                                     setState(() {
@@ -125,7 +120,7 @@ class HomeScreenState extends State<HomeScreen> {
                                   child: Card(
                                     clipBehavior: Clip.antiAlias,
                                     child: Image.asset(
-                                      images[index],
+                                      state.eventsData[index].image[index],
                                       fit: BoxFit.cover,
                                     ),
                                   ),

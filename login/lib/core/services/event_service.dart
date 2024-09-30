@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:login/core/models/category_modal.dart';
 import 'package:login/core/models/event_modal.dart';
@@ -84,13 +86,14 @@ class EventService {
     try {
       final res = await dio.get("/api/events/getevents");
       final data = res.data;
-      print(data);
-      final List<EventModal>eventList = [];
+      final List<EventModal> eventList = [];
       for (var events in data) {
         eventList.add(EventModal.fromJson(events));
       }
+      // print(eventList);
       return eventList;
     } catch (e) {
+      // print(e);
       rethrow;
     }
   }
@@ -116,8 +119,10 @@ class EventService {
 
       final res = await dio.post('/api/events/imgM', data: formData);
       final imageNames = res.data['filepaths'];
+      print(imageNames);
       return imageNames;
     } catch (e) {
+      print(e);
       rethrow;
     }
   }

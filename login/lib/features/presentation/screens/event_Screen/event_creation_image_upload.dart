@@ -188,7 +188,7 @@ class _EventImagesState extends State<EventImages> {
                                 category: widget.eventData.category,
                                 providers: widget.eventData.providers,
                                 providing: widget.eventData.providing,
-                                email:widget.eventData.email,
+                                email: widget.eventData.email,
                                 contact: widget.eventData.contact,
                               ),
                             );

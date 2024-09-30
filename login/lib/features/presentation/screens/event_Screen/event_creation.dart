@@ -124,7 +124,7 @@ class _CreateEventState extends State<CreateEvent> {
                           child: Column(
                             children: [
                               MultiSelectCheckBox(
-                                title: 'Provders',
+                                title: 'providers',
                                 options: providerOptions,
                                 selectedValues: selectedProvider.toList(),
                                 onChanged: (List<String> value) {
