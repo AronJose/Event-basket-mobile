@@ -85,15 +85,17 @@ class EventService {
   Future<List<EventModal>> getEvents() async {
     try {
       final res = await dio.get("/api/events/getevents");
+      
       final data = res.data;
       final List<EventModal> eventList = [];
       for (var events in data) {
+        print(events);
         eventList.add(EventModal.fromJson(events));
       }
-      // print(eventList);
+      print(eventList);
       return eventList;
     } catch (e) {
-      // print(e);
+      print(e);
       rethrow;
     }
   }

@@ -10,6 +10,7 @@ import 'package:login/features/presentation/auth_screen/signupscreen.dart';
 import 'package:login/features/presentation/main_screens.dart/favorite_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen.dart';
+import 'package:login/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
                 ),
             initialRoute: '/',
             routes: {
-              '/': (context) => const Loginscreen(),
+              '/':(context)=> const SplashScreen(),
+              '/login': (context) => const Loginscreen(),
               '/signup': (context) => const Signupscreen(),
               '/body': (context) => const BottomBodyScreen(),
               '/home': (context) => const HomeScreen(),
