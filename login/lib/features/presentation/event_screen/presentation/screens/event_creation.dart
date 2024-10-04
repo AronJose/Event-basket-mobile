@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
-import 'package:login/common/helper/check_box.dart';
-import 'package:login/common/helper/elevated_button_form.dart';
-import 'package:login/common/helper/input_text_field.dart';
-import 'package:login/common/helper/multiline_text_field.dart';
-import 'package:login/features/presentation/screens/event_Screen/event_creation_image_upload.dart';
-import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
+import 'package:login/common/widgets/check_box.dart';
+import 'package:login/common/widgets/elevated_button_form.dart';
+import 'package:login/common/widgets/input_text_field.dart';
+import 'package:login/common/widgets/multiline_text_field.dart';
+import 'package:login/features/presentation/event_screen/presentation/screens/event_creation_image_upload.dart';
+import 'package:login/features/presentation/event_screen/presentation/widgets/event_data.dart';
 
 class CreateEvent extends StatefulWidget {
   const CreateEvent({super.key});

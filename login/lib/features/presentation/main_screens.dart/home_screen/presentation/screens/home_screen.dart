@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
-import 'package:login/features/presentation/main_screens.dart/home_widgets/home_card.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/home_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

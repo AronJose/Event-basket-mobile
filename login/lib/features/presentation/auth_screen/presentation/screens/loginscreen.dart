@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/helper/elevated_button_form.dart';
-import 'package:login/features/presentation/auth_screen/signupscreen.dart';
+import 'package:login/common/widgets/elevated_button_form.dart';
+import 'package:login/features/presentation/auth_screen/presentation/screens/signupscreen.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});

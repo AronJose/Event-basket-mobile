@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:login/common/helper/app_bar.dart';
-import 'package:login/common/helper/bottom_app_bar.dart';
-import 'package:login/common/helper/second_app_bar_screen.dart';
-import 'package:login/features/presentation/main_screens.dart/favorite_screen.dart';
-import 'package:login/features/presentation/main_screens.dart/home_screen.dart';
-import 'package:login/features/presentation/main_screens.dart/multi_vedio.dart';
-import 'package:login/features/presentation/main_screens.dart/profile_screen.dart';
+import 'package:login/common/widgets/app_bar.dart';
+import 'package:login/common/widgets/bottom_app_bar.dart';
+import 'package:login/common/widgets/second_app_bar_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/favorite_screen/presentation/screens/favorite_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/screens/home_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/videos_screen/presentation/widgets/multi_vedio.dart';
+import 'package:login/features/presentation/main_screens.dart/profile_screen/presentation/screens/profile_screen.dart';
 
 class BottomBodyScreen extends StatelessWidget {
   const BottomBodyScreen({super.key});

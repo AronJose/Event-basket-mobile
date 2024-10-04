@@ -1,7 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/helper/icon_button.dart';
+import 'package:login/common/widgets/icon_button.dart';
 import 'package:video_player/video_player.dart';
 
 class PlayScreen extends StatefulWidget {

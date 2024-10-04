@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login/features/presentation/main_screens.dart/play_screen.dart';
+import 'package:login/features/presentation/main_screens.dart/videos_screen/presentation/screens/play_screen.dart';
 
 class MultipleVedio extends StatelessWidget {
   const MultipleVedio({super.key});

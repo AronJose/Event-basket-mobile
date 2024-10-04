@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/helper/elevated_button_form.dart';
-import 'package:login/common/helper/icon_button.dart';
+import 'package:login/common/widgets/elevated_button_form.dart';
+import 'package:login/common/widgets/icon_button.dart';
 import 'package:read_more_text/read_more_text.dart';
 
 class ProfileScreen extends StatelessWidget {

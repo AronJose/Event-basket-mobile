@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
-import 'package:login/common/helper/bottom_body_screen.dart';
-import 'package:login/common/helper/elevated_button_form.dart';
-import 'package:login/features/presentation/screens/event_Screen/event_data.dart';
+import 'package:login/common/widgets/bottom_body_screen.dart';
+import 'package:login/common/widgets/elevated_button_form.dart';
+import 'package:login/features/presentation/event_screen/presentation/widgets/event_data.dart';
 
 class EventImages extends StatefulWidget {
   final EventCreationData eventData;

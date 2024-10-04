@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/helper/icon_button.dart';
-import 'package:login/common/helper/three_dotes_button_box.dart';
-import 'package:login/features/presentation/screens/event_Screen/event_creation.dart';
+import 'package:login/common/widgets/icon_button.dart';
+import 'package:login/common/widgets/three_dotes_button_box.dart';
+import 'package:login/features/presentation/event_screen/presentation/screens/event_creation.dart';
 
 class MyAppBarCommon extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBarCommon({

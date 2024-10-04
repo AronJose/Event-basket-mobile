@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/core/models/event_modal.dart';
-import 'package:login/features/presentation/main_screens.dart/home_widgets/image_container_card.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/image_container_card.dart';
 
 class HomeCard extends StatefulWidget {
   const HomeCard({super.key, required this.eventModal});
