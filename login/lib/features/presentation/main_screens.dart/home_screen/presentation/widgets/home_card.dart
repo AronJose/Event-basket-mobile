@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/common/widgets/icon_button.dart';
 import 'package:login/core/models/event_modal.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/address_contact_email_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/image_container_card.dart';
+import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/service_providing_category_screen.dart';
 
 class HomeCard extends StatefulWidget {
   const HomeCard({super.key, required this.eventModal});
@@ -13,6 +16,12 @@ class HomeCard extends StatefulWidget {
 
 class _HomeCardState extends State<HomeCard> {
   int imgSelectorIndex = 0;
+  bool isExpanded = false;
+  void textExpand() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +106,8 @@ class _HomeCardState extends State<HomeCard> {
                         });
                       },
                       imagePath: widget.eventModal.image[index],
-                      index: index, count: widget.eventModal.image.length - 4,
+                      index: index,
+                      count: widget.eventModal.image.length - 4,
                     );
                   },
                 ),
@@ -106,13 +116,92 @@ class _HomeCardState extends State<HomeCard> {
           ),
           Padding(
             padding: EdgeInsets.all(8.w),
-            child: Text(
-              "Aron Jose",
-              style: TextStyle(
-                fontSize: 30.sp,
-                fontWeight: FontWeight.w900,
-                color: const Color(0xFF3A3A3A),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.eventModal.eventName,
+                  style: TextStyle(
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w900,
+                    color: const Color(0xFF3A3A3A),
+                  ),
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.location_on_outlined,
+                      size: 15,
+                      color: Colors.blue,
+                    ),
+                    Text(
+                      widget.eventModal.place,
+                      style: const TextStyle(
+                        color: Color.fromARGB(255, 108, 108, 108),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 18, top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.eventModal.desc,
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 108, 108, 108),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          textExpand();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ServiceProvidingCategoryScreen(
+                            widget: widget,
+                            isExpanded: isExpanded,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AdressContactEmailContainerScreen(
+                        icons: Icons.home,
+                        name: widget.eventModal.address,
+                        title:
+                            'Address: ${widget.eventModal.providers.join(', ')}',
+                        widget: widget,
+                      ),
+                      AdressContactEmailContainerScreen(
+                        icons: Icons.call,
+                        name: widget.eventModal.contact,
+                        title:
+                            'Contact: ${widget.eventModal.providers.join(', ')}',
+                        widget: widget,
+                      ),
+                      AdressContactEmailContainerScreen(
+                        icons: Icons.email,
+                        name: widget.eventModal.email,
+                        title:
+                            'Email: ${widget.eventModal.providers.join(', ')}',
+                        widget: widget,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -120,4 +209,3 @@ class _HomeCardState extends State<HomeCard> {
     );
   }
 }
-
