@@ -12,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
- 
-
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
@@ -21,15 +19,12 @@ class HomeScreenState extends State<HomeScreen> {
         context.read<EventsBloc>().add(const EventList());
       },
     );
-    
 
     return BlocBuilder<EventsBloc, EventsState>(
       builder: (context, state) {
-        if (state.eventsData == null || state.eventsData.isEmpty) {
+        if (state.eventsData.isEmpty) {
           return const Center(child: Text("No Event Data Available!"));
         }
-
-        print(state.eventsData);
 
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.w),
@@ -37,7 +32,9 @@ class HomeScreenState extends State<HomeScreen> {
             itemCount: state.eventsData.length,
             itemBuilder: (context, listIndex) {
               // final event = state.eventsData[index];
-              return HomeCard(eventModal: state.eventsData[listIndex],);
+              return HomeCard(
+                eventModal: state.eventsData[listIndex],
+              );
             },
           ),
         );

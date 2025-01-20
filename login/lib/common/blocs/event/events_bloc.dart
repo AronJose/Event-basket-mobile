@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/common/constants/api_enpoints.dart';
 import 'package:login/core/models/category_modal.dart';
 import 'package:login/core/models/event_modal.dart';
+import 'package:login/core/models/listing_common_model.dart';
 import 'package:login/core/models/multiple_image_upload_modal.dart';
 import 'package:login/core/models/provider_modal.dart';
 import 'package:login/core/models/providing_model.dart';
@@ -101,6 +102,18 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
         imageNames = await eventService.multipleImageUpload(event.filepaths);
         // print(imageNames.toString());
         emit(state.copyWith(loading: false, error: null));
+      } catch (e) {
+        emit(state.copyWith(loading: false, error: e.toString()));
+      }
+    });
+
+    // common API for service,category,provider,providing
+
+    on<GetAllApiCommon>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true, error: null));
+        final data = await eventService.getAllAPI();
+        emit(state.copyWith(loading: false, allApiValues: data));
       } catch (e) {
         emit(state.copyWith(loading: false, error: e.toString()));
       }

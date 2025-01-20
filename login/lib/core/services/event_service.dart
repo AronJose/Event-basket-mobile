@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:login/core/models/category_modal.dart';
 import 'package:login/core/models/event_modal.dart';
+import 'package:login/core/models/listing_common_model.dart';
 import 'package:login/core/models/provider_modal.dart';
 import 'package:login/core/models/providing_model.dart';
 import 'package:login/core/models/services.dart';
@@ -123,6 +124,22 @@ class EventService {
       final imageNames = res.data['filepaths'];
       print(imageNames);
       return imageNames;
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
+
+  // Common API LIsting Service ,provider,caterogy,providing
+  Future<List<ListingCommonModel>>getAllAPI()async {
+    try {
+      final res = await dio.get("/api/events/common");
+      final data = res.data;
+      final List<ListingCommonModel> allAPI = [];
+      for (var providing in data) {
+        allAPI.add(ListingCommonModel.fromJson(providing));
+      }
+      return allAPI;
     } catch (e) {
       print(e);
       rethrow;

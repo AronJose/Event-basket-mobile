@@ -6,5 +6,8 @@ class AuthState with _$AuthState {
     required bool loading,
     required String? error,
   }) = _Initial;
-  factory AuthState.initial() => const AuthState(loading: true, error: null);
+  factory AuthState.initial() => const AuthState(
+        loading: true,
+        error: null,
+      );
 }

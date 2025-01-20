@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login/common/widgets/app_bar.dart';
-import 'package:login/common/widgets/bottom_app_bar.dart';
-import 'package:login/common/widgets/second_app_bar_screen.dart';
+import 'package:login/features/presentation/app_bar.dart';
+import 'package:login/features/presentation/bottom_app_bar.dart';
+import 'package:login/features/presentation/second_app_bar_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/favorite_screen/presentation/screens/favorite_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/screens/home_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/videos_screen/presentation/widgets/multi_vedio.dart';

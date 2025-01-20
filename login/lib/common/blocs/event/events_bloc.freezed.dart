@@ -23,6 +23,7 @@ mixin _$EventsEvent {
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -45,6 +46,7 @@ mixin _$EventsEvent {
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -67,6 +69,7 @@ mixin _$EventsEvent {
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -90,6 +93,7 @@ mixin _$EventsEvent {
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) =>
@@ -101,6 +105,7 @@ mixin _$EventsEvent {
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) =>
@@ -112,6 +117,7 @@ mixin _$EventsEvent {
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -186,6 +192,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -211,6 +218,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -236,6 +244,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -265,6 +274,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -279,6 +289,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -293,6 +304,7 @@ class _$CategoryListImpl with DiagnosticableTreeMixin implements CategoryList {
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -357,6 +369,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -382,6 +395,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -407,6 +421,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -436,6 +451,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -450,6 +466,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -464,6 +481,7 @@ class _$ServicesListImpl with DiagnosticableTreeMixin implements ServicesList {
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -528,6 +546,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -553,6 +572,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -578,6 +598,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -607,6 +628,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -621,6 +643,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -635,6 +658,7 @@ class _$ProviderListImpl with DiagnosticableTreeMixin implements ProviderList {
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -701,6 +725,7 @@ class _$ProvidingListImpl
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -726,6 +751,7 @@ class _$ProvidingListImpl
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -751,6 +777,7 @@ class _$ProvidingListImpl
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -780,6 +807,7 @@ class _$ProvidingListImpl
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -794,6 +822,7 @@ class _$ProvidingListImpl
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -808,6 +837,7 @@ class _$ProvidingListImpl
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -872,6 +902,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -897,6 +928,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -922,6 +954,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -951,6 +984,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -965,6 +999,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -979,6 +1014,7 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -992,6 +1028,185 @@ class _$EventListImpl with DiagnosticableTreeMixin implements EventList {
 
 abstract class EventList implements EventsEvent {
   const factory EventList() = _$EventListImpl;
+}
+
+/// @nodoc
+abstract class _$$GetAllApiCommonImplCopyWith<$Res> {
+  factory _$$GetAllApiCommonImplCopyWith(_$GetAllApiCommonImpl value,
+          $Res Function(_$GetAllApiCommonImpl) then) =
+      __$$GetAllApiCommonImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetAllApiCommonImplCopyWithImpl<$Res>
+    extends _$EventsEventCopyWithImpl<$Res, _$GetAllApiCommonImpl>
+    implements _$$GetAllApiCommonImplCopyWith<$Res> {
+  __$$GetAllApiCommonImplCopyWithImpl(
+      _$GetAllApiCommonImpl _value, $Res Function(_$GetAllApiCommonImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetAllApiCommonImpl
+    with DiagnosticableTreeMixin
+    implements GetAllApiCommon {
+  const _$GetAllApiCommonImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'EventsEvent.getAllApiCommon()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'EventsEvent.getAllApiCommon'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetAllApiCommonImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() categoryList,
+    required TResult Function() servicesLIst,
+    required TResult Function() providerList,
+    required TResult Function() providingList,
+    required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
+    required TResult Function(
+            String Event_name,
+            String place,
+            String desc,
+            String address,
+            String email,
+            String contact,
+            List<String> services,
+            List<String> category,
+            List<String> providers,
+            List<String> providing)
+        createEventsEvent,
+    required TResult Function(List<String?> filepaths) multipleImgUpload,
+  }) {
+    return getAllApiCommon();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? categoryList,
+    TResult? Function()? servicesLIst,
+    TResult? Function()? providerList,
+    TResult? Function()? providingList,
+    TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
+    TResult? Function(
+            String Event_name,
+            String place,
+            String desc,
+            String address,
+            String email,
+            String contact,
+            List<String> services,
+            List<String> category,
+            List<String> providers,
+            List<String> providing)?
+        createEventsEvent,
+    TResult? Function(List<String?> filepaths)? multipleImgUpload,
+  }) {
+    return getAllApiCommon?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? categoryList,
+    TResult Function()? servicesLIst,
+    TResult Function()? providerList,
+    TResult Function()? providingList,
+    TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
+    TResult Function(
+            String Event_name,
+            String place,
+            String desc,
+            String address,
+            String email,
+            String contact,
+            List<String> services,
+            List<String> category,
+            List<String> providers,
+            List<String> providing)?
+        createEventsEvent,
+    TResult Function(List<String?> filepaths)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (getAllApiCommon != null) {
+      return getAllApiCommon();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CategoryList value) categoryList,
+    required TResult Function(ServicesList value) servicesLIst,
+    required TResult Function(ProviderList value) providerList,
+    required TResult Function(ProvidingList value) providingList,
+    required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
+    required TResult Function(CreateEventsEvent value) createEventsEvent,
+    required TResult Function(MultipleImgUpload value) multipleImgUpload,
+  }) {
+    return getAllApiCommon(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CategoryList value)? categoryList,
+    TResult? Function(ServicesList value)? servicesLIst,
+    TResult? Function(ProviderList value)? providerList,
+    TResult? Function(ProvidingList value)? providingList,
+    TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
+    TResult? Function(CreateEventsEvent value)? createEventsEvent,
+    TResult? Function(MultipleImgUpload value)? multipleImgUpload,
+  }) {
+    return getAllApiCommon?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CategoryList value)? categoryList,
+    TResult Function(ServicesList value)? servicesLIst,
+    TResult Function(ProviderList value)? providerList,
+    TResult Function(ProvidingList value)? providingList,
+    TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
+    TResult Function(CreateEventsEvent value)? createEventsEvent,
+    TResult Function(MultipleImgUpload value)? multipleImgUpload,
+    required TResult orElse(),
+  }) {
+    if (getAllApiCommon != null) {
+      return getAllApiCommon(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetAllApiCommon implements EventsEvent {
+  const factory GetAllApiCommon() = _$GetAllApiCommonImpl;
 }
 
 /// @nodoc
@@ -1216,6 +1431,7 @@ class _$CreateEventsEventImpl
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -1242,6 +1458,7 @@ class _$CreateEventsEventImpl
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -1268,6 +1485,7 @@ class _$CreateEventsEventImpl
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -1298,6 +1516,7 @@ class _$CreateEventsEventImpl
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -1312,6 +1531,7 @@ class _$CreateEventsEventImpl
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -1326,6 +1546,7 @@ class _$CreateEventsEventImpl
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -1453,6 +1674,7 @@ class _$MultipleImgUploadImpl
     required TResult Function() providerList,
     required TResult Function() providingList,
     required TResult Function() eventList,
+    required TResult Function() getAllApiCommon,
     required TResult Function(
             String Event_name,
             String place,
@@ -1478,6 +1700,7 @@ class _$MultipleImgUploadImpl
     TResult? Function()? providerList,
     TResult? Function()? providingList,
     TResult? Function()? eventList,
+    TResult? Function()? getAllApiCommon,
     TResult? Function(
             String Event_name,
             String place,
@@ -1503,6 +1726,7 @@ class _$MultipleImgUploadImpl
     TResult Function()? providerList,
     TResult Function()? providingList,
     TResult Function()? eventList,
+    TResult Function()? getAllApiCommon,
     TResult Function(
             String Event_name,
             String place,
@@ -1532,6 +1756,7 @@ class _$MultipleImgUploadImpl
     required TResult Function(ProviderList value) providerList,
     required TResult Function(ProvidingList value) providingList,
     required TResult Function(EventList value) eventList,
+    required TResult Function(GetAllApiCommon value) getAllApiCommon,
     required TResult Function(CreateEventsEvent value) createEventsEvent,
     required TResult Function(MultipleImgUpload value) multipleImgUpload,
   }) {
@@ -1546,6 +1771,7 @@ class _$MultipleImgUploadImpl
     TResult? Function(ProviderList value)? providerList,
     TResult? Function(ProvidingList value)? providingList,
     TResult? Function(EventList value)? eventList,
+    TResult? Function(GetAllApiCommon value)? getAllApiCommon,
     TResult? Function(CreateEventsEvent value)? createEventsEvent,
     TResult? Function(MultipleImgUpload value)? multipleImgUpload,
   }) {
@@ -1560,6 +1786,7 @@ class _$MultipleImgUploadImpl
     TResult Function(ProviderList value)? providerList,
     TResult Function(ProvidingList value)? providingList,
     TResult Function(EventList value)? eventList,
+    TResult Function(GetAllApiCommon value)? getAllApiCommon,
     TResult Function(CreateEventsEvent value)? createEventsEvent,
     TResult Function(MultipleImgUpload value)? multipleImgUpload,
     required TResult orElse(),
@@ -1592,6 +1819,8 @@ mixin _$EventsState {
   List<MultipleImageUploadModal> get multipleImgData =>
       throw _privateConstructorUsedError;
   List<EventModal> get eventsData => throw _privateConstructorUsedError;
+  List<ListingCommonModel> get allApiValues =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EventsStateCopyWith<EventsState> get copyWith =>
@@ -1612,7 +1841,8 @@ abstract class $EventsStateCopyWith<$Res> {
       List<Providermodel> providerData,
       List<Providingmodel> providingData,
       List<MultipleImageUploadModal> multipleImgData,
-      List<EventModal> eventsData});
+      List<EventModal> eventsData,
+      List<ListingCommonModel> allApiValues});
 }
 
 /// @nodoc
@@ -1636,6 +1866,7 @@ class _$EventsStateCopyWithImpl<$Res, $Val extends EventsState>
     Object? providingData = null,
     Object? multipleImgData = null,
     Object? eventsData = null,
+    Object? allApiValues = null,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -1670,6 +1901,10 @@ class _$EventsStateCopyWithImpl<$Res, $Val extends EventsState>
           ? _value.eventsData
           : eventsData // ignore: cast_nullable_to_non_nullable
               as List<EventModal>,
+      allApiValues: null == allApiValues
+          ? _value.allApiValues
+          : allApiValues // ignore: cast_nullable_to_non_nullable
+              as List<ListingCommonModel>,
     ) as $Val);
   }
 }
@@ -1690,7 +1925,8 @@ abstract class _$$InitialImplCopyWith<$Res>
       List<Providermodel> providerData,
       List<Providingmodel> providingData,
       List<MultipleImageUploadModal> multipleImgData,
-      List<EventModal> eventsData});
+      List<EventModal> eventsData,
+      List<ListingCommonModel> allApiValues});
 }
 
 /// @nodoc
@@ -1712,6 +1948,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? providingData = null,
     Object? multipleImgData = null,
     Object? eventsData = null,
+    Object? allApiValues = null,
   }) {
     return _then(_$InitialImpl(
       loading: null == loading
@@ -1746,6 +1983,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value._eventsData
           : eventsData // ignore: cast_nullable_to_non_nullable
               as List<EventModal>,
+      allApiValues: null == allApiValues
+          ? _value._allApiValues
+          : allApiValues // ignore: cast_nullable_to_non_nullable
+              as List<ListingCommonModel>,
     ));
   }
 }
@@ -1761,13 +2002,15 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       required final List<Providermodel> providerData,
       required final List<Providingmodel> providingData,
       required final List<MultipleImageUploadModal> multipleImgData,
-      required final List<EventModal> eventsData})
+      required final List<EventModal> eventsData,
+      required final List<ListingCommonModel> allApiValues})
       : _categoryData = categoryData,
         _servicesData = servicesData,
         _providerData = providerData,
         _providingData = providingData,
         _multipleImgData = multipleImgData,
-        _eventsData = eventsData;
+        _eventsData = eventsData,
+        _allApiValues = allApiValues;
 
   @override
   final bool loading;
@@ -1821,9 +2064,17 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     return EqualUnmodifiableListView(_eventsData);
   }
 
+  final List<ListingCommonModel> _allApiValues;
+  @override
+  List<ListingCommonModel> get allApiValues {
+    if (_allApiValues is EqualUnmodifiableListView) return _allApiValues;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allApiValues);
+  }
+
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'EventsState(loading: $loading, error: $error, categoryData: $categoryData, servicesData: $servicesData, providerData: $providerData, providingData: $providingData, multipleImgData: $multipleImgData, eventsData: $eventsData)';
+    return 'EventsState(loading: $loading, error: $error, categoryData: $categoryData, servicesData: $servicesData, providerData: $providerData, providingData: $providingData, multipleImgData: $multipleImgData, eventsData: $eventsData, allApiValues: $allApiValues)';
   }
 
   @override
@@ -1838,7 +2089,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       ..add(DiagnosticsProperty('providerData', providerData))
       ..add(DiagnosticsProperty('providingData', providingData))
       ..add(DiagnosticsProperty('multipleImgData', multipleImgData))
-      ..add(DiagnosticsProperty('eventsData', eventsData));
+      ..add(DiagnosticsProperty('eventsData', eventsData))
+      ..add(DiagnosticsProperty('allApiValues', allApiValues));
   }
 
   @override
@@ -1859,7 +2111,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
             const DeepCollectionEquality()
                 .equals(other._multipleImgData, _multipleImgData) &&
             const DeepCollectionEquality()
-                .equals(other._eventsData, _eventsData));
+                .equals(other._eventsData, _eventsData) &&
+            const DeepCollectionEquality()
+                .equals(other._allApiValues, _allApiValues));
   }
 
   @override
@@ -1872,7 +2126,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
       const DeepCollectionEquality().hash(_providerData),
       const DeepCollectionEquality().hash(_providingData),
       const DeepCollectionEquality().hash(_multipleImgData),
-      const DeepCollectionEquality().hash(_eventsData));
+      const DeepCollectionEquality().hash(_eventsData),
+      const DeepCollectionEquality().hash(_allApiValues));
 
   @JsonKey(ignore: true)
   @override
@@ -1890,7 +2145,8 @@ abstract class _Initial implements EventsState {
       required final List<Providermodel> providerData,
       required final List<Providingmodel> providingData,
       required final List<MultipleImageUploadModal> multipleImgData,
-      required final List<EventModal> eventsData}) = _$InitialImpl;
+      required final List<EventModal> eventsData,
+      required final List<ListingCommonModel> allApiValues}) = _$InitialImpl;
 
   @override
   bool get loading;
@@ -1908,6 +2164,8 @@ abstract class _Initial implements EventsState {
   List<MultipleImageUploadModal> get multipleImgData;
   @override
   List<EventModal> get eventsData;
+  @override
+  List<ListingCommonModel> get allApiValues;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

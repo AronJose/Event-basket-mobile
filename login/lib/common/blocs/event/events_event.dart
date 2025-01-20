@@ -7,6 +7,7 @@ class EventsEvent with _$EventsEvent {
   const factory EventsEvent.providerList() = ProviderList;
   const factory EventsEvent.providingList() = ProvidingList;
   const factory EventsEvent.eventList() = EventList;
+  const factory EventsEvent.getAllApiCommon()=GetAllApiCommon;
   const factory EventsEvent.createEventsEvent({
     required String Event_name,
     required String place,
