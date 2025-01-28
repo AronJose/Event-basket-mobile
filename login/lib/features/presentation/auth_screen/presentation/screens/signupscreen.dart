@@ -48,7 +48,7 @@ class _SignupscreenState extends State<Signupscreen> {
           child: Scaffold(
             backgroundColor: Colors.white,
             body: Padding(
-              padding: EdgeInsets.all(15.dg),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -86,7 +86,7 @@ class _SignupscreenState extends State<Signupscreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 40.h),
+                            SizedBox(height: 20.h),
                             SignUpForm(
                               firstNameController: firstNameController,
                               lastNameController: lastNameController,
@@ -119,7 +119,7 @@ class _SignupscreenState extends State<Signupscreen> {
                                 }
                               },
                               buttonText: "Sign Up",
-                              sizeButton: Size(130.w, 55.h),
+                              sizeButton: const Size(double.infinity, 50),
                               colorButton:
                                   const Color.fromARGB(255, 0, 105, 202),
                             ),
@@ -136,7 +136,8 @@ class _SignupscreenState extends State<Signupscreen> {
                                 "Already have an account? Log in",
                                 style: TextStyle(
                                     color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal),
                               ),
                             ),
                           ],

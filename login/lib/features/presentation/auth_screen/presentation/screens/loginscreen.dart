@@ -13,7 +13,7 @@ class Loginscreen extends StatefulWidget {
 class _LoginscreenState extends State<Loginscreen> {
   bool passwordVisible = false;
 
-  void passwordVisibleButton() {
+  void togglePasswordVisibility() {
     setState(() {
       passwordVisible = !passwordVisible;
     });
@@ -22,101 +22,101 @@ class _LoginscreenState extends State<Loginscreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.all(16.w),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(100.r),
-                  child: SizedBox(
-                      width: 150.w,
-                      height: 150.h,
-                      child: Image.asset('images/signUp.png')),
-                ),
-                SizedBox(height: 40.h),
-                Container(
-                  margin: EdgeInsets.only(bottom: 20.h),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Email",
-                      hintStyle: TextStyle(
-                        color: const Color.fromARGB(255, 163, 162, 162),
-                        fontSize: 20.spMin,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r)),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.r),
-                        borderSide: BorderSide(
-                            color: const Color.fromARGB(255, 108, 186, 250),
-                            width: 2.w),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.person_outline_rounded,
+                      size: 150,
+                      color: Color.fromARGB(255, 31, 103, 33),
+                    ),
+                    SizedBox(height: 30.h),
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        hintStyle: TextStyle(
+                          color: Color.fromARGB(255, 163, 162, 162),
+                          fontSize: 15,
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                TextField(
-                  obscureText: !passwordVisible,
-                  keyboardType: TextInputType.visiblePassword,
-                  decoration: InputDecoration(
-                      hintText: "Password",
-                      hintStyle: TextStyle(
-                          color: const Color.fromARGB(255, 163, 162, 162),
-                          fontSize: 20.spMin),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.r),
-                          borderSide: BorderSide(
-                              color: const Color.fromARGB(255, 106, 180, 240),
-                              width: 2.w)),
-                      suffixIcon: IconButton(
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: passwordVisibleButton,
-                      )),
-                ),
-                SizedBox(
-                  height: 50.h,
-                ),
-                ElevatedButtonForms(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/body');
-                    },
-                    buttonText: "Log In",
-                    sizeButton: Size(110.w, 55.h),
-                    colorButton:const Color.fromARGB(255, 0, 105, 202)),
-                SizedBox(height: 30.h),
-                Text(
-                  "Forgot  Password",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                      fontSize: 15.spMin),
-                ),
-                SizedBox(height: 10.h),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
+                    SizedBox(height: 20.h),
+                    TextField(
+                      obscureText: !passwordVisible,
+                      keyboardType: TextInputType.visiblePassword,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        hintStyle: const TextStyle(
+                          color: Color.fromARGB(255, 163, 162, 162),
+                          fontSize: 15,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                          onPressed: togglePasswordVisibility,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 30.h),
+                    ElevatedButtonForms(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/body');
+                      },
+                      buttonText: "Log In",
+                      sizeButton: Size(double.infinity, 50.h),
+                      colorButton: const Color.fromARGB(255, 0, 105, 202),
+                    ),
+                    SizedBox(height: 20.h),
+                    GestureDetector(
+                      onTap: () {
+                        // Navigate to Forgot Password Screen
+                      },
+                      child: const Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Signupscreen()));
-                    },
-                    child: Text("Not a member? Sign up now",
+                            builder: (context) => const Signupscreen(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Not a member? Sign up now",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey,
-                            fontSize: 15.spMin)))
-              ],
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
       ),
-    ));
+    );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/core/blocproviders/bloc_providers_screen.dart';
-import 'package:login/main.dart';
 
 class Apps extends StatelessWidget {
   const Apps({

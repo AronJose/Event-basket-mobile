@@ -6,11 +6,11 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Future.delayed(Duration(seconds: 3),() {
+      Future.delayed(const Duration(seconds: 3),() {
         Navigator.pushReplacementNamed(context,'/login');
       },);
     },);
-    return Scaffold(
+    return const Scaffold(
       body: Center(child: Text("Event Zone Connect"),),
     );
   }

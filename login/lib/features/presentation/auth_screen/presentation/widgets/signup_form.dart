@@ -30,15 +30,16 @@ class SignUpForm extends StatelessWidget {
           InputFieldTexts(
             controller: firstNameController,
             placeholderValue: "Enter your first name",
+            
             errorvalue: 'Please enter first text',
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
           InputFieldTexts(
             controller: lastNameController,
             placeholderValue: "Enter your last name",
             errorvalue: 'Please enter last text',
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
           InputFieldTexts(
             controller: emailController,
             placeholderValue: "Enter your Email",
@@ -52,7 +53,7 @@ class SignUpForm extends StatelessWidget {
               return null;
             },
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
           InputFieldTexts(
             controller: contactController,
             placeholderValue: "Enter your Phone Number",
@@ -63,7 +64,7 @@ class SignUpForm extends StatelessWidget {
               return null;
             },
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
           InputFieldTexts(
             controller: passwordController,
             placeholderValue: "Enter your Password",

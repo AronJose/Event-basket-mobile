@@ -36,23 +36,6 @@ class __MultiLineInputTextFiledStateState
       decoration: InputDecoration(
         hintText: widget.placeholderValue,
         hintStyle: const TextStyle(color: Colors.grey),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.r),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.r),
-          borderSide: const BorderSide(
-            color: Color.fromARGB(255, 117, 183, 236),
-            width: 2,
-          ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.r),
-          borderSide: BorderSide(
-            color: Colors.red.withOpacity(0.8),
-            width: 2,
-          ),
-        ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.r),
           borderSide: BorderSide(
