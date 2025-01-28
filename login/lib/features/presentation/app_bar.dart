@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/widgets/icon_button.dart';
 import 'package:login/common/widgets/three_dotes_button_box.dart';
 import 'package:login/features/presentation/event_screen/presentation/screens/event_creation.dart';
@@ -13,12 +12,35 @@ class MyAppBarCommon extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      title: Text(
-        "EventBasket",
-        style: TextStyle(
-            fontSize: 25.sp, fontWeight: FontWeight.w900, color: Colors.white),
+      title:  Row(
+        children: [
+        
+         Container(
+  width: 50, 
+  height: 50,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(30),
+    color: Colors.white, 
+    boxShadow: const [
+      BoxShadow(
+        color: Color.fromARGB(66, 253, 255, 255),
+        blurRadius: 6,
+        offset: Offset(0, 2),
       ),
-      backgroundColor: const Color.fromARGB(255, 54, 54, 54),
+    ],
+  ),
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(30),
+    child: Image.asset(
+      "images/logo.jpg",
+      fit: BoxFit.contain, 
+    ),
+  ),
+),
+
+        ],
+      ),
+      backgroundColor: const Color.fromARGB(255, 7, 179, 222),
       actions: [
         Row(
           children: [

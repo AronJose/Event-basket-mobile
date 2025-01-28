@@ -29,7 +29,7 @@ class ElevatedButtonForms extends StatelessWidget {
         buttonText,
         style: const TextStyle(
             color: Colors.white,
-            fontSize:16,
+            fontSize:15,
             fontWeight: FontWeight.bold),
       ),
     );

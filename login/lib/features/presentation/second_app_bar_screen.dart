@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/blocs/event/events_bloc.dart';
 
 class SecondAppBarScreen extends StatelessWidget {
@@ -16,7 +15,7 @@ class SecondAppBarScreen extends StatelessWidget {
     return BlocBuilder<EventsBloc, EventsState>(
       builder: (context, state) {
         return const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          padding: EdgeInsets.symmetric( vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,17 +28,6 @@ class SecondAppBarScreen extends StatelessWidget {
       },
     );
   }
-
-  Widget _buildIconButton(IconData icon, Color color) {
-    return Container(
-      width: 50,
-      height: 50,
-      child: Icon(
-        icon,
-        color: color,
-      ),
-    );
-  }
 }
 
 class SearchInputBox extends StatelessWidget {
@@ -50,28 +38,28 @@ class SearchInputBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200.w,
+      width: MediaQuery.of(context).size.width * 0.95,
       height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withAlpha(130),
             blurRadius: 4.0,
             offset: const Offset(0, 2),
           ),
         ],
       ),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(
             color: Colors.grey,
-            fontSize: 18.sp,
+            fontSize:15,
           ),
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.search,
             color: Colors.grey,
           ),

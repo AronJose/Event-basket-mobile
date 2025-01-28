@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/common/widgets/elevated_button_form.dart';
@@ -115,49 +117,58 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 ElevatedButtonForms(
                   onPressed: () {},
-                  sizeButton: Size(25.w, 30.h),
+                  sizeButton:Size(100.w, 30.h),
                   buttonText: 'Edit Profile',
-                  colorButton: const Color.fromARGB(255, 54, 54, 54),
+                  colorButton: const Color.fromARGB(255, 7, 179, 222),
                 ),
                 ElevatedButtonForms(
                   onPressed: () {},
-                  sizeButton: Size(25.w, 30.h),
+                  sizeButton: Size(100.w, 30.h),
                   buttonText: 'Edit Events',
-                  colorButton: const Color.fromARGB(255, 54, 54, 54),
+                  colorButton: const Color.fromARGB(255, 7, 179, 222),
                 ),
                 IconsButtonsCommon(
                   iconModel: const Icon(
                     Icons.control_point_duplicate_outlined,
                     size: 30,
                   ),
-                  iconColor: const Color.fromARGB(255, 54, 54, 54),
+                  iconColor:const Color.fromARGB(255, 7, 179, 222),
                   onPressed: () {},
                 )
               ],
             ),
+            const SizedBox(height: 10,),
             // ---------------------------------second row -----------------------------
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButtonCommon(
-                  colorText: const Color.fromARGB(255, 121, 120, 120),
-                  onPressed: () {},
-                  sizeButton: FontWeight.w900,
-                  textName: "Photos",
-                ),
-                TextButtonCommon(
-                  colorText: const Color.fromARGB(255, 121, 120, 120),
-                  onPressed: () {},
-                  sizeButton: FontWeight.w900,
-                  textName: 'Videos',
-                ),
-                TextButtonCommon(
-                  colorText: const Color.fromARGB(255, 121, 120, 120),
-                  onPressed: () {},
-                  sizeButton: FontWeight.w900,
-                  textName: 'Lives',
-                ),
-              ],
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 30.h,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
+            color: const Color.fromARGB(255, 29, 63, 91).withAlpha(10)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButtonCommon(
+                    colorText:  const Color.fromARGB(255, 82, 82, 82),
+                    onPressed: () {},
+                    sizeButton: FontWeight.w700,
+                    textName: "Photos",
+                  ),
+                  Transform.rotate(angle: 90 * pi/180,child: const Icon(Icons.minimize,color: Color.fromARGB(255, 82, 82, 82)),),
+                  TextButtonCommon(
+                    colorText:  const Color.fromARGB(255, 82, 82, 82),
+                    onPressed: () {},
+                    sizeButton: FontWeight.w700,
+                    textName: 'Videos',
+                  ),
+                  Transform.rotate(angle: 90 * pi/180,child: const Icon(Icons.minimize,color: Color.fromARGB(255, 82, 82, 82)),),
+                  TextButtonCommon(
+                    colorText: const Color.fromARGB(255, 82, 82, 82),
+                    onPressed: () {},
+                    sizeButton: FontWeight.w700,
+                    textName: 'Lives',
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -173,12 +184,15 @@ class TextButtonCommon extends StatelessWidget {
     required this.onPressed,
     required this.sizeButton,
     required this.textName,
+    this.fontsize,
   });
 
   final Color colorText;
   final VoidCallback onPressed;
   final FontWeight sizeButton;
   final String textName;
+  final double? fontsize;
+
 
   @override
   Widget build(BuildContext context) {
@@ -189,6 +203,7 @@ class TextButtonCommon extends StatelessWidget {
           style: TextStyle(
             fontWeight: sizeButton,
             color: colorText,
+            fontSize: fontsize
           ),
         ));
   }

@@ -65,21 +65,21 @@ class PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.0.w),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.white10, width: 2.w),
-                borderRadius: BorderRadius.circular(10.r),
-                boxShadow: [
-                  BoxShadow(
-                      color: const Color.fromARGB(255, 221, 218, 218),
-                      blurRadius: 5.r)
-                ],
-              ),
+              // decoration: BoxDecoration(
+              //   color: Colors.white,
+              //   border: Border.all(color: Colors.white10, width: 2.w),
+              //   borderRadius: BorderRadius.circular(10.r),
+              //   boxShadow: [
+              //     BoxShadow(
+              //         color: const Color.fromARGB(255, 221, 218, 218),
+              //         blurRadius: 5.r)
+              //   ],
+              // ),
               child: Card(
                 elevation: 2,
                 child: Stack(
