@@ -20,10 +20,11 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Services: ",
+                "Services  : ",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 41, 13, 228),
+                  color: Colors.black,
+                  fontSize: 12,
                 ),
               ),
               Flexible(
@@ -34,8 +35,8 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
                       isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
                   style: const TextStyle(
                     color: Color.fromARGB(255, 108, 108, 108),
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 11,
                   ),
                 ),
               ),
@@ -48,11 +49,12 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              "Providing : ",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 41, 13, 228),
-              ),
+              "Providing: ",
+               style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 12,
+                ),
             ),
             Flexible(
               child: Text(
@@ -62,8 +64,8 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Color.fromARGB(255, 108, 108, 108),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12,
                 ),
               ),
             ),
@@ -78,9 +80,10 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
             const Text(
               "Category : ",
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 41, 13, 228),
-              ),
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 12,
+                ),
             ),
             Flexible(
               child: Text(
@@ -90,8 +93,8 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
                 style: const TextStyle(
                   color: Color.fromARGB(255, 108, 108, 108),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 12,
                 ),
               ),
             ),

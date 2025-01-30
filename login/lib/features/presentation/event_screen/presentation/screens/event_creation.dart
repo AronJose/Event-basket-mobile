@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/blocs/event/events_bloc.dart';
+import 'package:login/core/blocs/event/events_bloc.dart';
 import 'package:login/common/widgets/check_box.dart';
 import 'package:login/common/widgets/elevated_button_form.dart';
 import 'package:login/common/widgets/input_text_field.dart';

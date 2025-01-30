@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum SampleItem { itemOne, itemTwo, itemThree }
 
@@ -44,9 +45,15 @@ class MoreButtonCommonState extends State<MoreButtonCommon> {
           value: SampleItem.itemTwo,
           child: Text('Settings'),
         ),
-        const PopupMenuItem<SampleItem>(
+        PopupMenuItem<SampleItem>(
           value: SampleItem.itemThree,
-          child: Text('Log Out'),
+          child: const Text('Log Out'),
+          onTap: () async {
+            final SharedPreferences prefs =
+                await SharedPreferences.getInstance();
+            prefs.remove('auth_token');
+            Navigator.pushReplacementNamed(context, '/login');
+          },
         ),
       ],
     );

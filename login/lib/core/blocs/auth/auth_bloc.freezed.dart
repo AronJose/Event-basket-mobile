@@ -22,6 +22,7 @@ mixin _$AuthEvent {
             String contact, String image, String password)
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
+    required TResult Function(String email, String password) signInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$AuthEvent {
             String contact, String image, String password)?
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
+    TResult? Function(String email, String password)? signInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$AuthEvent {
             String contact, String image, String password)?
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
+    TResult Function(String email, String password)? signInEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,18 +48,21 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(SignInEvent value) signInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(SignInEvent value)? signInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(SignInEvent value)? signInEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -216,6 +222,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
             String contact, String image, String password)
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
+    required TResult Function(String email, String password) signInEvent,
   }) {
     return signUpEvent(firstName, lastName, email, contact, image, password);
   }
@@ -227,6 +234,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
             String contact, String image, String password)?
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
+    TResult? Function(String email, String password)? signInEvent,
   }) {
     return signUpEvent?.call(
         firstName, lastName, email, contact, image, password);
@@ -239,6 +247,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
             String contact, String image, String password)?
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
+    TResult Function(String email, String password)? signInEvent,
     required TResult orElse(),
   }) {
     if (signUpEvent != null) {
@@ -252,6 +261,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(SignInEvent value) signInEvent,
   }) {
     return signUpEvent(this);
   }
@@ -261,6 +271,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(SignInEvent value)? signInEvent,
   }) {
     return signUpEvent?.call(this);
   }
@@ -270,6 +281,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(SignInEvent value)? signInEvent,
     required TResult orElse(),
   }) {
     if (signUpEvent != null) {
@@ -379,6 +391,7 @@ class _$UploadImageEventImpl
             String contact, String image, String password)
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
+    required TResult Function(String email, String password) signInEvent,
   }) {
     return uploadImageEvent(filepath);
   }
@@ -390,6 +403,7 @@ class _$UploadImageEventImpl
             String contact, String image, String password)?
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
+    TResult? Function(String email, String password)? signInEvent,
   }) {
     return uploadImageEvent?.call(filepath);
   }
@@ -401,6 +415,7 @@ class _$UploadImageEventImpl
             String contact, String image, String password)?
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
+    TResult Function(String email, String password)? signInEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -414,6 +429,7 @@ class _$UploadImageEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(SignInEvent value) signInEvent,
   }) {
     return uploadImageEvent(this);
   }
@@ -423,6 +439,7 @@ class _$UploadImageEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(SignInEvent value)? signInEvent,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -432,6 +449,7 @@ class _$UploadImageEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(SignInEvent value)? signInEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -451,9 +469,176 @@ abstract class UploadImageEvent implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$SignInEventImplCopyWith<$Res> {
+  factory _$$SignInEventImplCopyWith(
+          _$SignInEventImpl value, $Res Function(_$SignInEventImpl) then) =
+      __$$SignInEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$$SignInEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignInEventImpl>
+    implements _$$SignInEventImplCopyWith<$Res> {
+  __$$SignInEventImplCopyWithImpl(
+      _$SignInEventImpl _value, $Res Function(_$SignInEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_$SignInEventImpl(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
+  const _$SignInEventImpl({required this.email, required this.password});
+
+  @override
+  final String email;
+  @override
+  final String password;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.signInEvent(email: $email, password: $password)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signInEvent'))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('password', password));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignInEventImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignInEventImplCopyWith<_$SignInEventImpl> get copyWith =>
+      __$$SignInEventImplCopyWithImpl<_$SignInEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstName, String lastName, String email,
+            String contact, String image, String password)
+        signUpEvent,
+    required TResult Function(File filepath) uploadImageEvent,
+    required TResult Function(String email, String password) signInEvent,
+  }) {
+    return signInEvent(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String firstName, String lastName, String email,
+            String contact, String image, String password)?
+        signUpEvent,
+    TResult? Function(File filepath)? uploadImageEvent,
+    TResult? Function(String email, String password)? signInEvent,
+  }) {
+    return signInEvent?.call(email, password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstName, String lastName, String email,
+            String contact, String image, String password)?
+        signUpEvent,
+    TResult Function(File filepath)? uploadImageEvent,
+    TResult Function(String email, String password)? signInEvent,
+    required TResult orElse(),
+  }) {
+    if (signInEvent != null) {
+      return signInEvent(email, password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignUpEvent value) signUpEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(SignInEvent value) signInEvent,
+  }) {
+    return signInEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignUpEvent value)? signUpEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(SignInEvent value)? signInEvent,
+  }) {
+    return signInEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignUpEvent value)? signUpEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(SignInEvent value)? signInEvent,
+    required TResult orElse(),
+  }) {
+    if (signInEvent != null) {
+      return signInEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInEvent implements AuthEvent {
+  const factory SignInEvent(
+      {required final String email,
+      required final String password}) = _$SignInEventImpl;
+
+  String get email;
+  String get password;
+  @JsonKey(ignore: true)
+  _$$SignInEventImplCopyWith<_$SignInEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AuthState {
   bool get loading => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -465,7 +650,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool loading, String? error});
+  $Res call({bool loading, String? error, String? token});
 }
 
 /// @nodoc
@@ -483,6 +668,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   $Res call({
     Object? loading = null,
     Object? error = freezed,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       loading: null == loading
@@ -492,6 +678,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -505,7 +695,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool loading, String? error});
+  $Res call({bool loading, String? error, String? token});
 }
 
 /// @nodoc
@@ -521,6 +711,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? loading = null,
     Object? error = freezed,
+    Object? token = freezed,
   }) {
     return _then(_$InitialImpl(
       loading: null == loading
@@ -531,6 +722,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -538,16 +733,19 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
-  const _$InitialImpl({required this.loading, required this.error});
+  const _$InitialImpl(
+      {required this.loading, required this.error, required this.token});
 
   @override
   final bool loading;
   @override
   final String? error;
+  @override
+  final String? token;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState(loading: $loading, error: $error)';
+    return 'AuthState(loading: $loading, error: $error, token: $token)';
   }
 
   @override
@@ -556,7 +754,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     properties
       ..add(DiagnosticsProperty('type', 'AuthState'))
       ..add(DiagnosticsProperty('loading', loading))
-      ..add(DiagnosticsProperty('error', error));
+      ..add(DiagnosticsProperty('error', error))
+      ..add(DiagnosticsProperty('token', token));
   }
 
   @override
@@ -565,11 +764,12 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, loading, error);
+  int get hashCode => Object.hash(runtimeType, loading, error, token);
 
   @JsonKey(ignore: true)
   @override
@@ -581,12 +781,15 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
 abstract class _Initial implements AuthState {
   const factory _Initial(
       {required final bool loading,
-      required final String? error}) = _$InitialImpl;
+      required final String? error,
+      required final String? token}) = _$InitialImpl;
 
   @override
   bool get loading;
   @override
   String? get error;
+  @override
+  String? get token;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

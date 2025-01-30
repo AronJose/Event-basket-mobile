@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/common/blocs/event/events_bloc.dart';
+import 'package:login/core/blocs/event/events_bloc.dart';
 
 class SecondAppBarScreen extends StatelessWidget {
   const SecondAppBarScreen({super.key});

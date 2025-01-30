@@ -114,7 +114,7 @@ class _HomeCardState extends State<HomeCard> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.all(8.w),
+            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,6 +139,7 @@ class _HomeCardState extends State<HomeCard> {
                       style: const TextStyle(
                         color: Color.fromARGB(255, 108, 108, 108),
                         fontWeight: FontWeight.w500,
+                        fontSize: 10
                       ),
                     ),
                   ],
@@ -153,7 +154,7 @@ class _HomeCardState extends State<HomeCard> {
                         style: const TextStyle(
                           color: Color.fromARGB(255, 108, 108, 108),
                           fontWeight: FontWeight.w500,
-                          fontSize: 16,
+                          fontSize: 12,
                         ),
                       ),
                       GestureDetector(

@@ -1,12 +1,13 @@
 // import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:login/shared_prefs_helper.dart';
 
 class AuthService {
   final Dio dio;
 
   AuthService(this.dio);
-
+// --------------------Sign Up -----------------------------------
   Future<void> signUp(Map<String, dynamic> body) async {
     MultipartFile? img;
     try {
@@ -27,6 +28,21 @@ class AuthService {
     }
   }
 
+  // -------------------- Sign In -----------------------------------
+
+Future<void> signIn(Map<String, dynamic> body) async {
+  try {
+  final response=  await dio.post("/api/users/login", data: body);
+    if (response.data['message'] == "success") {
+      final token = response.data['userDetails']['token']; 
+    await SharedPrefsHelper.saveToken(token);
+    }
+  } catch (e) {
+    rethrow;
+  }
+}
+
+
   // Future<void> uploadProfileImage(File filepath) async {
   //   try {
   //     FormData formData = FormData.fromMap({
@@ -38,6 +54,4 @@ class AuthService {
   //     rethrow;
   //   }
   // }
-
-  
 }

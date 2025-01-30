@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/blocs/event/events_bloc.dart';
+import 'package:login/core/blocs/event/events_bloc.dart';
 import 'package:login/common/widgets/bottom_body_screen.dart';
 import 'package:login/common/widgets/elevated_button_form.dart';
 import 'package:login/features/presentation/event_screen/presentation/widgets/event_data.dart';

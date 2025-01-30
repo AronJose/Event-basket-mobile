@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login/common/blocs/auth/auth_bloc.dart';
+import 'package:login/core/blocs/auth/auth_bloc.dart';
 import 'package:login/common/widgets/elevated_button_form.dart';
 import 'package:login/features/presentation/auth_screen/presentation/screens/loginscreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

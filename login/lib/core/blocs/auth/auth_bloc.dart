@@ -33,6 +33,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     });
 
+    on<SignInEvent>(
+      (event, emit) async {
+        emit(state.copyWith(loading: false, error: null));
+        try {
+          await authService.signIn({
+            'email': event.email,
+            'password': event.password,
+          });
+          emit(state.copyWith(loading: false, error: null));
+        } catch (e) {
+          emit(state.copyWith(loading: false, error: e.toString()));
+        }
+      },
+    );
+
     //  on<UploadImageEvent>((event, emit) async {
     //     emit(state.copyWith(loading: true, error: null));
     //     try {
