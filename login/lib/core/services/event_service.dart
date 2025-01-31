@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:login/core/models/category_modal.dart';
 import 'package:login/core/models/event_modal.dart';
@@ -10,6 +9,8 @@ import 'package:login/core/models/services.dart';
 class EventService {
   final Dio dio;
   EventService(this.dio);
+
+// ---------- category list Fetching -----------------------------------
 
   Future<List<CaterogyModel>> getCategory() async {
     try {
@@ -25,6 +26,8 @@ class EventService {
     }
   }
 
+// -------------------- Services Listing Get API -----------------------------
+
   Future<List<Services>> getServices() async {
     try {
       final res = await dio.get("/api/events/service");
@@ -38,6 +41,8 @@ class EventService {
       rethrow;
     }
   }
+
+  // --------------------Provider Listing Get API -------------------------------
 
   Future<List<Providermodel>> getProviders() async {
     try {
@@ -53,6 +58,8 @@ class EventService {
     }
   }
 
+// -------------------- Providing Listing Get API ----------------------------------
+
   Future<List<Providingmodel>> getProviding() async {
     try {
       final res = await dio.get("/api/events/providing");
@@ -67,40 +74,38 @@ class EventService {
     }
   }
 
-// Event Creation
+// ------------------------- Event Creation Post API ----------------------------------
+
   Future<void> createEvent(Map<String, dynamic> body) async {
-    print(body);
     try {
       await dio.post(
         "/api/events/addEvent",
         data: body,
       );
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
 
-// Event Listing
+// -------------------------  Event Listing Get API ----------------------------------------
+
   Future<List<EventModal>> getEvents() async {
     try {
       final res = await dio.get("/api/events/getevents");
-      
+
       final data = res.data;
       final List<EventModal> eventList = [];
       for (var events in data) {
-        print(events);
         eventList.add(EventModal.fromJson(events));
       }
-      print(eventList);
       return eventList;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
 
-//Multiple Image Upload
+// ------------------------- Multiple Image Upload Post API ------------------------------------
+
   Future<List<dynamic>?> multipleImageUpload(List<String?> filepaths) async {
     try {
       FormData formData = FormData();
@@ -121,16 +126,15 @@ class EventService {
 
       final res = await dio.post('/api/events/imgM', data: formData);
       final imageNames = res.data['filepaths'];
-      print(imageNames);
       return imageNames;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
 
-  // Common API LIsting Service ,provider,caterogy,providing
-  Future<List<ListingCommonModel>>getAllAPI()async {
+//  ---------------------- Common API LIsting Services ,providers, caterogy, providing -----------------
+
+  Future<List<ListingCommonModel>> getAllAPI() async {
     try {
       final res = await dio.get("/api/events/common");
       final data = res.data;
@@ -140,8 +144,8 @@ class EventService {
       }
       return allAPI;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
+  
 }

@@ -7,7 +7,9 @@ class AuthService {
   final Dio dio;
 
   AuthService(this.dio);
+
 // --------------------Sign Up -----------------------------------
+
   Future<void> signUp(Map<String, dynamic> body) async {
     MultipartFile? img;
     try {
@@ -30,18 +32,19 @@ class AuthService {
 
   // -------------------- Sign In -----------------------------------
 
-Future<void> signIn(Map<String, dynamic> body) async {
-  try {
-  final response=  await dio.post("/api/users/login", data: body);
-    if (response.data['message'] == "success") {
-      final token = response.data['userDetails']['token']; 
-    await SharedPrefsHelper.saveToken(token);
+  Future<void> signIn(Map<String, dynamic> body) async {
+    try {
+      final response = await dio.post("/api/users/login", data: body);
+      if (response.data['message'] == "success") {
+        final token = response.data['userDetails']['token'];
+        await SharedPrefsHelper.saveToken(token);
+      }
+    } catch (e) {
+      rethrow;
     }
-  } catch (e) {
-    rethrow;
   }
-}
 
+// -------------------- Upload Profile Image Upload API ----------------
 
   // Future<void> uploadProfileImage(File filepath) async {
   //   try {
