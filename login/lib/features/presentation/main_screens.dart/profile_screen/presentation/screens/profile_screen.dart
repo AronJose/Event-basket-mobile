@@ -3,13 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:login/common/widgets/elevated_button_form.dart';
-import 'package:login/common/widgets/icon_button.dart';
 import 'package:login/core/blocs/profile/profile_bloc.dart';
-import 'package:read_more_text/read_more_text.dart';
+import 'package:login/core/models/profile_modal.dart';
+import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/edit_button_row.dart';
+import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/profile_image_grid_widget.dart';
+import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/top_name_bord_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  bool showPhotos = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +28,19 @@ class ProfileScreen extends StatelessWidget {
     );
     return BlocBuilder<ProfileBloc, ProfileState>(
       builder: (context, state) {
+        if (state.loading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (state.error != null) {
+          return Center(
+            child: Text(state.error!),
+          );
+        }
+        if (state.profileDetails == null) {
+          return const Center(child: Text("No profile information available."));
+        }
         return Padding(
           padding: const EdgeInsets.all(7.0),
           child: Container(
@@ -56,96 +77,25 @@ class ProfileScreen extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Image.asset(
-                          'images/logo.png',
+                          state.profileDetails?.profileData.first.image ??
+                              'images/logo.png',
                         ),
                       ),
                     ),
-                    const Expanded(
+                    Expanded(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 20,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 40,
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'ARON JOSE',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                fontSize: 20,
-                                color: Color.fromARGB(255, 88, 88, 88),
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on,
-                                  size: 15,
-                                  color: Color.fromARGB(255, 126, 125, 125),
-                                ),
-                                Text(
-                                  "Ayamkudy",
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      color: Color.fromARGB(255, 126, 125, 125),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              child: ReadMoreText(
-                                '''Event management includes planning,organizing, and executing events to ensure smooth operation and success. Key tasks involve budgeting, venue selection, vendor coordination, and marketing.''',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Color.fromARGB(255, 112, 111, 111),
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                numLines: 3,
-                                readMoreText: '',
-                                readLessText: '',
-                                readMoreIcon: Icon(
-                                  Icons.arrow_drop_down_sharp,
-                                  color: Colors.blue,
-                                ),
-                                readLessIcon: Icon(
-                                  Icons.arrow_drop_up,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                        child: TopNameBordWidget(
+                            profileData: state.profileDetails!),
                       ),
                     )
                   ],
                 ),
                 // --------------------------------------- first row-------------------------------
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButtonForms(
-                      onPressed: () {},
-                      sizeButton: Size(100.w, 30.h),
-                      buttonText: 'Edit Profile',
-                      colorButton: const Color.fromARGB(255, 7, 179, 222),
-                    ),
-                    ElevatedButtonForms(
-                      onPressed: () {},
-                      sizeButton: Size(100.w, 30.h),
-                      buttonText: 'Edit Events',
-                      colorButton: const Color.fromARGB(255, 7, 179, 222),
-                    ),
-                    IconsButtonsCommon(
-                      iconModel: const Icon(
-                        Icons.control_point_duplicate_outlined,
-                        size: 30,
-                      ),
-                      iconColor: const Color.fromARGB(255, 7, 179, 222),
-                      onPressed: () {},
-                    )
-                  ],
-                ),
+                const EditButtonRow(),
                 const SizedBox(
                   height: 10,
                 ),
@@ -162,7 +112,12 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       TextButtonCommon(
                         colorText: const Color.fromARGB(255, 82, 82, 82),
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            showPhotos = showPhotos == true ? true : false;
+                          });
+                          print(showPhotos);
+                        },
                         sizeButton: FontWeight.w700,
                         textName: "Photos",
                       ),
@@ -190,7 +145,11 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                // ---------------------------------third row -----------------------------
+                ProfileImagesGridWidget(
+                    showPhotos: showPhotos,
+                    profileDetails: state.profileDetails!)
               ],
             ),
           ),
@@ -219,7 +178,7 @@ class TextButtonCommon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           textName,
           style: TextStyle(
