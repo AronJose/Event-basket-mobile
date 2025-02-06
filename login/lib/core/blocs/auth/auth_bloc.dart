@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/common/constants/api_enpoints.dart';
 import 'package:login/core/services/auth_service.dart';
+import 'package:login/shared_prefs_helper.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -57,5 +58,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //       emit(state.copyWith(loading: false, error: e.toString()));
     //     }
     //   });
+
+    
+    on<SignOutEvent>((event, emit) async {
+      emit(state.copyWith(loading: true, error: null));
+      try {
+        final String? userId = await SharedPrefsHelper.getUserId();
+        if (userId != null) {
+          await authService.signOut({"user_id": userId}); // Pass userId
+          await SharedPrefsHelper.clearToken();
+          // await SharedPrefsHelper.clearUserId(); //Not needed here - called after successful signout
+          emit(state.copyWith(
+              loading: false,
+              error: null,
+              )); 
+        } else {
+          emit(state.copyWith(loading: false, error: "User ID not found"));
+        }
+      } catch (e) {
+        emit(state.copyWith(loading: false, error: e.toString()));
+      }
+    });
   }
 }

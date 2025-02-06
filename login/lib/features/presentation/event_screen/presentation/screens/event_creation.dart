@@ -57,28 +57,28 @@ class _CreateEventState extends State<CreateEvent> {
         }
       },
       builder: (context, state) {
-        if (state.categoryData !=null && state.categoryData.isNotEmpty) {
+        if (state.categoryData.isNotEmpty) {
           categoryOptions.clear();
           categoryOptions.addAll(
             state.categoryData.map((e) => e.categoryName),
           );
         }
 
-        if (state.servicesData !=null &&state.servicesData.isNotEmpty) {
+        if (state.servicesData.isNotEmpty) {
           namesOptions.clear();
           namesOptions.addAll(
             state.servicesData.map((e) => e.services),
           );
         }
 
-        if (state.providerData !=null &&state.providerData.isNotEmpty) {
+        if (state.providerData.isNotEmpty) {
           providerOptions.clear();
           providerOptions.addAll(
             state.providerData.map((e) => e.providers),
           );
         }
 
-        if (state.providingData !=null &&state.providingData.isNotEmpty) {
+        if (state.providingData.isNotEmpty) {
           providingsOptions.clear();
           providingsOptions.addAll(
             state.providingData.map((e) => e.providing),

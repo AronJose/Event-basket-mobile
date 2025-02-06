@@ -23,6 +23,7 @@ mixin _$AuthEvent {
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
     required TResult Function(String email, String password) signInEvent,
+    required TResult Function() signOutEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$AuthEvent {
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
     TResult? Function(String email, String password)? signInEvent,
+    TResult? Function()? signOutEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$AuthEvent {
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
     TResult Function(String email, String password)? signInEvent,
+    TResult Function()? signOutEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +52,7 @@ mixin _$AuthEvent {
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
     required TResult Function(SignInEvent value) signInEvent,
+    required TResult Function(SignOutEvent value) signOutEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$AuthEvent {
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
     TResult? Function(SignInEvent value)? signInEvent,
+    TResult? Function(SignOutEvent value)? signOutEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$AuthEvent {
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
     TResult Function(SignInEvent value)? signInEvent,
+    TResult Function(SignOutEvent value)? signOutEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -223,6 +229,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
     required TResult Function(String email, String password) signInEvent,
+    required TResult Function() signOutEvent,
   }) {
     return signUpEvent(firstName, lastName, email, contact, image, password);
   }
@@ -235,6 +242,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
     TResult? Function(String email, String password)? signInEvent,
+    TResult? Function()? signOutEvent,
   }) {
     return signUpEvent?.call(
         firstName, lastName, email, contact, image, password);
@@ -248,6 +256,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
     TResult Function(String email, String password)? signInEvent,
+    TResult Function()? signOutEvent,
     required TResult orElse(),
   }) {
     if (signUpEvent != null) {
@@ -262,6 +271,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
     required TResult Function(SignInEvent value) signInEvent,
+    required TResult Function(SignOutEvent value) signOutEvent,
   }) {
     return signUpEvent(this);
   }
@@ -272,6 +282,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
     TResult? Function(SignInEvent value)? signInEvent,
+    TResult? Function(SignOutEvent value)? signOutEvent,
   }) {
     return signUpEvent?.call(this);
   }
@@ -282,6 +293,7 @@ class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
     TResult Function(SignInEvent value)? signInEvent,
+    TResult Function(SignOutEvent value)? signOutEvent,
     required TResult orElse(),
   }) {
     if (signUpEvent != null) {
@@ -392,6 +404,7 @@ class _$UploadImageEventImpl
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
     required TResult Function(String email, String password) signInEvent,
+    required TResult Function() signOutEvent,
   }) {
     return uploadImageEvent(filepath);
   }
@@ -404,6 +417,7 @@ class _$UploadImageEventImpl
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
     TResult? Function(String email, String password)? signInEvent,
+    TResult? Function()? signOutEvent,
   }) {
     return uploadImageEvent?.call(filepath);
   }
@@ -416,6 +430,7 @@ class _$UploadImageEventImpl
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
     TResult Function(String email, String password)? signInEvent,
+    TResult Function()? signOutEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -430,6 +445,7 @@ class _$UploadImageEventImpl
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
     required TResult Function(SignInEvent value) signInEvent,
+    required TResult Function(SignOutEvent value) signOutEvent,
   }) {
     return uploadImageEvent(this);
   }
@@ -440,6 +456,7 @@ class _$UploadImageEventImpl
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
     TResult? Function(SignInEvent value)? signInEvent,
+    TResult? Function(SignOutEvent value)? signOutEvent,
   }) {
     return uploadImageEvent?.call(this);
   }
@@ -450,6 +467,7 @@ class _$UploadImageEventImpl
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
     TResult Function(SignInEvent value)? signInEvent,
+    TResult Function(SignOutEvent value)? signOutEvent,
     required TResult orElse(),
   }) {
     if (uploadImageEvent != null) {
@@ -555,6 +573,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
         signUpEvent,
     required TResult Function(File filepath) uploadImageEvent,
     required TResult Function(String email, String password) signInEvent,
+    required TResult Function() signOutEvent,
   }) {
     return signInEvent(email, password);
   }
@@ -567,6 +586,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
         signUpEvent,
     TResult? Function(File filepath)? uploadImageEvent,
     TResult? Function(String email, String password)? signInEvent,
+    TResult? Function()? signOutEvent,
   }) {
     return signInEvent?.call(email, password);
   }
@@ -579,6 +599,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
         signUpEvent,
     TResult Function(File filepath)? uploadImageEvent,
     TResult Function(String email, String password)? signInEvent,
+    TResult Function()? signOutEvent,
     required TResult orElse(),
   }) {
     if (signInEvent != null) {
@@ -593,6 +614,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
     required TResult Function(SignUpEvent value) signUpEvent,
     required TResult Function(UploadImageEvent value) uploadImageEvent,
     required TResult Function(SignInEvent value) signInEvent,
+    required TResult Function(SignOutEvent value) signOutEvent,
   }) {
     return signInEvent(this);
   }
@@ -603,6 +625,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
     TResult? Function(SignUpEvent value)? signUpEvent,
     TResult? Function(UploadImageEvent value)? uploadImageEvent,
     TResult? Function(SignInEvent value)? signInEvent,
+    TResult? Function(SignOutEvent value)? signOutEvent,
   }) {
     return signInEvent?.call(this);
   }
@@ -613,6 +636,7 @@ class _$SignInEventImpl with DiagnosticableTreeMixin implements SignInEvent {
     TResult Function(SignUpEvent value)? signUpEvent,
     TResult Function(UploadImageEvent value)? uploadImageEvent,
     TResult Function(SignInEvent value)? signInEvent,
+    TResult Function(SignOutEvent value)? signOutEvent,
     required TResult orElse(),
   }) {
     if (signInEvent != null) {
@@ -632,6 +656,132 @@ abstract class SignInEvent implements AuthEvent {
   @JsonKey(ignore: true)
   _$$SignInEventImplCopyWith<_$SignInEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignOutEventImplCopyWith<$Res> {
+  factory _$$SignOutEventImplCopyWith(
+          _$SignOutEventImpl value, $Res Function(_$SignOutEventImpl) then) =
+      __$$SignOutEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignOutEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignOutEventImpl>
+    implements _$$SignOutEventImplCopyWith<$Res> {
+  __$$SignOutEventImplCopyWithImpl(
+      _$SignOutEventImpl _value, $Res Function(_$SignOutEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignOutEventImpl with DiagnosticableTreeMixin implements SignOutEvent {
+  const _$SignOutEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.signOutEvent()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.signOutEvent'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignOutEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstName, String lastName, String email,
+            String contact, String image, String password)
+        signUpEvent,
+    required TResult Function(File filepath) uploadImageEvent,
+    required TResult Function(String email, String password) signInEvent,
+    required TResult Function() signOutEvent,
+  }) {
+    return signOutEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String firstName, String lastName, String email,
+            String contact, String image, String password)?
+        signUpEvent,
+    TResult? Function(File filepath)? uploadImageEvent,
+    TResult? Function(String email, String password)? signInEvent,
+    TResult? Function()? signOutEvent,
+  }) {
+    return signOutEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstName, String lastName, String email,
+            String contact, String image, String password)?
+        signUpEvent,
+    TResult Function(File filepath)? uploadImageEvent,
+    TResult Function(String email, String password)? signInEvent,
+    TResult Function()? signOutEvent,
+    required TResult orElse(),
+  }) {
+    if (signOutEvent != null) {
+      return signOutEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignUpEvent value) signUpEvent,
+    required TResult Function(UploadImageEvent value) uploadImageEvent,
+    required TResult Function(SignInEvent value) signInEvent,
+    required TResult Function(SignOutEvent value) signOutEvent,
+  }) {
+    return signOutEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignUpEvent value)? signUpEvent,
+    TResult? Function(UploadImageEvent value)? uploadImageEvent,
+    TResult? Function(SignInEvent value)? signInEvent,
+    TResult? Function(SignOutEvent value)? signOutEvent,
+  }) {
+    return signOutEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignUpEvent value)? signUpEvent,
+    TResult Function(UploadImageEvent value)? uploadImageEvent,
+    TResult Function(SignInEvent value)? signInEvent,
+    TResult Function(SignOutEvent value)? signOutEvent,
+    required TResult orElse(),
+  }) {
+    if (signOutEvent != null) {
+      return signOutEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutEvent implements AuthEvent {
+  const factory SignOutEvent() = _$SignOutEventImpl;
 }
 
 /// @nodoc

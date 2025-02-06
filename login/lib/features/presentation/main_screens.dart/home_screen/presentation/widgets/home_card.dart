@@ -114,7 +114,7 @@ class _HomeCardState extends State<HomeCard> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

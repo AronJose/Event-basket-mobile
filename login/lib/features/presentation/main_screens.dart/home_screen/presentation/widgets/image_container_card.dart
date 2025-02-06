@@ -36,7 +36,7 @@ class ImageContainerCard extends StatelessWidget {
           if(index ==3 )   Container(height: double.maxFinite,width: double.maxFinite,
             decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),),
           if(index ==3 )  Align(alignment: Alignment.center,
-            child: Text("+ $count",style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),),)
+            child: Text("+ $count",style: const TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.w900),),)
           ],
         ),
     

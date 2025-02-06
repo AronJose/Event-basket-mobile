@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login/core/blocs/auth/auth_bloc.dart';
+
 
 enum SampleItem { itemOne, itemTwo, itemThree }
 
@@ -49,10 +51,11 @@ class MoreButtonCommonState extends State<MoreButtonCommon> {
           value: SampleItem.itemThree,
           child: const Text('Log Out'),
           onTap: () async {
-            final SharedPreferences prefs =
-                await SharedPreferences.getInstance();
-            prefs.remove('auth_token');
+          context.read<AuthBloc>().add(const SignOutEvent());
+            await Future.delayed(const Duration(milliseconds: 300));
+            if (context.mounted) {
             Navigator.pushReplacementNamed(context, '/login');
+            }
           },
         ),
       ],

@@ -14,9 +14,7 @@ class TopNameBordWidget extends StatelessWidget {
       children: [
         Text(
          profileData.profileData.isNotEmpty ==
-                      true &&
-                 profileData. profileData.first !=
-                      null
+                      true
               ? "${profileData.profileData.first.firstName.toUpperCase()} ${profileData.profileData.first.lastName.toUpperCase()}"
               : "Name not available",
           style: const TextStyle(
@@ -37,10 +35,7 @@ class TopNameBordWidget extends StatelessWidget {
             Text(
               profileData.profileData
                               .isNotEmpty ==
-                          true &&
-                      profileData.profileData
-                              .first !=
-                          null
+                          true
                   ? profileData.profileData.first
                       .email
                   : "Email not available",
@@ -60,10 +55,7 @@ class TopNameBordWidget extends StatelessWidget {
             Text(
               profileData.profileData
                               .isNotEmpty ==
-                          true &&
-                     profileData.profileData
-                              .first !=
-                          null
+                          true
                   ? profileData.profileData.first
                       .contact
                   : "Phone not available",

@@ -37,7 +37,9 @@ class AuthService {
       final response = await dio.post("/api/users/login", data: body);
       if (response.data['message'] == "success") {
         final token = response.data['userDetails']['token'];
+        final userId = response.data['userDetails']['_id'];
         await SharedPrefsHelper.saveToken(token);
+        await SharedPrefsHelper.saveUserId(userId);
       }
     } catch (e) {
       rethrow;
@@ -57,4 +59,23 @@ class AuthService {
   //     rethrow;
   //   }
   // }
+
+// ---------------- LogOut API Call session table token Removed ----------
+
+  Future<void> signOut(Map<String, dynamic> body) async {
+    try {
+      final String? token = await SharedPrefsHelper.getToken();
+      await dio.post(
+        "/api/users/logout",
+        data: body,
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

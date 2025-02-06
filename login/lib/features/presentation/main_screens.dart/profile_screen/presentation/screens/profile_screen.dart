@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/core/blocs/profile/profile_bloc.dart';
-import 'package:login/core/models/profile_modal.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/edit_button_row.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/profile_image_grid_widget.dart';
 import 'package:login/features/presentation/main_screens.dart/profile_screen/widgets/top_name_bord_widget.dart';
@@ -116,7 +115,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           setState(() {
                             showPhotos = showPhotos == true ? true : false;
                           });
-                          print(showPhotos);
                         },
                         sizeButton: FontWeight.w700,
                         textName: "Photos",
