@@ -50,6 +50,7 @@ class _HomeCardState extends State<HomeCard> {
                   width: imageWidth,
                   height: 200.h,
                 ),
+                // ------ Image moving icon left and right -----------
                 Positioned(
                   left: 8.0,
                   top: 90.h,
@@ -114,11 +115,12 @@ class _HomeCardState extends State<HomeCard> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // --------- Event Name ----------------
                 Text(
                   widget.eventModal.eventName,
                   style: TextStyle(
@@ -127,23 +129,44 @@ class _HomeCardState extends State<HomeCard> {
                     color: const Color(0xFF3A3A3A),
                   ),
                 ),
+                // ----- Event Location ----------------------
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(
-                      Icons.location_on_outlined,
-                      size: 15,
-                      color: Colors.blue,
+                    SizedBox(
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on_outlined,
+                            size: 15,
+                            color: Colors.blue,
+                          ),
+                          Text(
+                            widget.eventModal.place,
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 108, 108, 108),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 10),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      widget.eventModal.place,
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 108, 108, 108),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 10
+                    // -------- favorite and share icons -------------
+                    SizedBox(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          const Icon(Icons.favorite_outline_sharp),
+                          SizedBox(width: 5.w),
+                          const Icon(Icons.share_outlined),
+                          SizedBox(width: 10.w)
+                        ],
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: 10.h),
+                // --------- Description ---------------------------------
                 Padding(
                   padding: const EdgeInsets.only(left: 18, top: 10),
                   child: Column(
@@ -161,6 +184,7 @@ class _HomeCardState extends State<HomeCard> {
                         onTap: () {
                           textExpand();
                         },
+                        // ----- Services ,Providing and Category Listing ------------
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ServiceProvidingCategoryScreen(
@@ -172,6 +196,7 @@ class _HomeCardState extends State<HomeCard> {
                     ],
                   ),
                 ),
+                // ------  Bottom icons Home Card -----------
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Row(
