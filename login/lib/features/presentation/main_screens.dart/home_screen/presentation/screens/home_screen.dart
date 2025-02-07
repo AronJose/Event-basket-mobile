@@ -25,7 +25,8 @@ class HomeScreenState extends State<HomeScreen> {
         if (state.eventsData.isEmpty) {
           return const Center(child: Text("No Event Data Available!"));
         }
-
+     
+        if(state.loading) return const Center(child: CircularProgressIndicator());
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.w),
           child: ListView.builder(

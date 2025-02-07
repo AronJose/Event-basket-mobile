@@ -52,7 +52,7 @@ class MoreButtonCommonState extends State<MoreButtonCommon> {
           child: const Text('Log Out'),
           onTap: () async {
           context.read<AuthBloc>().add(const SignOutEvent());
-            await Future.delayed(const Duration(milliseconds: 300));
+            await Future.delayed(const Duration(milliseconds: 500));
             if (context.mounted) {
             Navigator.pushReplacementNamed(context, '/login');
             }
