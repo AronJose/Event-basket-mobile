@@ -65,16 +65,15 @@ class AuthService {
   Future<void> signOut(Map<String, dynamic> body) async {
     try {
       final String? token = await SharedPrefsHelper.getToken();
-      final res= await dio.post(
+      await dio.post(
         "/api/users/logout",
         data: body,
         options: Options(
           headers: {
-            "Authorization": "Bearer $token",
+            "Authorization": token,
           },
         ),
       );
-      print(res.data);
       await SharedPrefsHelper.clearToken();
     } catch (e) {
       rethrow;
