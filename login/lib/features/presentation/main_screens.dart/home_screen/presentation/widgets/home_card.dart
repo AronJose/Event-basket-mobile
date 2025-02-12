@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login/core/blocs/favorite/favorite_bloc.dart';
 import 'package:login/core/models/event_modal.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/address_contact_email_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/image_container_card.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/service_providing_category_screen.dart';
+import 'package:login/shared_prefs_helper.dart';
 
 class HomeCard extends StatefulWidget {
   const HomeCard({super.key, required this.eventModal});
@@ -14,11 +17,27 @@ class HomeCard extends StatefulWidget {
 }
 
 class _HomeCardState extends State<HomeCard> {
+  bool isfavorite = false;
   int imgSelectorIndex = 0;
   bool isExpanded = false;
+  String? userId;
+
   void textExpand() {
     setState(() {
       isExpanded = !isExpanded;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserId(); // Load userId when the widget initializes
+  }
+
+  Future<void> _loadUserId() async {
+    final loadedUserId = await SharedPrefsHelper.getUserId();
+    setState(() {
+      userId = loadedUserId; // Update userId in state
     });
   }
 
@@ -152,16 +171,35 @@ class _HomeCardState extends State<HomeCard> {
                       ),
                     ),
                     // -------- favorite and share icons -------------
-                    SizedBox(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          const Icon(Icons.favorite_outline_sharp),
-                          SizedBox(width: 5.w),
-                          const Icon(Icons.share_outlined),
-                          SizedBox(width: 10.w)
-                        ],
-                      ),
+                    BlocBuilder<FavoriteBloc, FavoriteState>(
+                      builder: (context, state) {
+                        return SizedBox(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              InkWell(
+                                child: Icon(
+                                  isfavorite
+                                      ? Icons.favorite
+                                      : Icons.favorite_border_outlined,
+                                  color: isfavorite ? Colors.red : Colors.black,
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    isfavorite = !isfavorite;
+                                  });
+                                  context.read<FavoriteBloc>().add(AddFavorites(
+                                      userId: userId,
+                                      eventId: widget.eventModal.id));
+                                },
+                              ),
+                              SizedBox(width: 5.w),
+                              const Icon(Icons.share_outlined),
+                              SizedBox(width: 10.w)
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
