@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:login/core/models/favorite_list_model.dart';
 import 'package:login/core/models/favorite_model.dart';
+import 'package:login/shared_prefs_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoriteService {
   final Dio dio;
   FavoriteService(this.dio);
 
+// -------------------------- Adding favorite to the favorite table ------------------------------
   Future<FavoriteModel> addFavorite(Map<String, dynamic> body) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -19,7 +22,26 @@ class FavoriteService {
           },
         ),
       );
-     return response.data;
+      return response.data;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  // --------------------------- Listing All Favorite based on the User ------------------------------
+
+  Future<FavoriteListModel> getFavorite() async {
+    try {
+      final token = SharedPrefsHelper.getToken();
+      final userId = SharedPrefsHelper.getUserId();
+      final response = await dio.get('api/events/favorite',
+          queryParameters: {"user_id": userId},
+          options: Options(
+            headers: {
+              "Authorization": "Bearer $token",
+            },
+          ));
+      return FavoriteListModel.fromJson(response.data);
     } catch (e) {
       rethrow;
     }

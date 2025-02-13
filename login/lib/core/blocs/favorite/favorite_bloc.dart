@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:login/common/constants/api_enpoints.dart';
+import 'package:login/core/models/favorite_list_model.dart';
 import 'package:login/core/models/favorite_model.dart';
 import 'package:login/core/services/favorite_service.dart';
 
@@ -13,6 +14,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final FavoriteService favoriteService =
       FavoriteService(Dio(BaseOptions(baseUrl: ApiEnpoints.baseURL)));
   FavoriteBloc() : super(FavoriteState.initial()) {
+    // ------------------ Favorite Adding ------------------------------
     on<AddFavorites>((event, emit) async {
       emit(state.copyWith(
         loading: true,
@@ -27,8 +29,20 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       } catch (e) {
          emit(state.copyWith(loading: false, error: e.toString()));
       }
-      
-      
+    });
+
+    // ------------------ Favorite Listing ------------------------------
+    on<GetFavorites> ((event, emit)async{
+      emit(state.copyWith(
+        loading: true,
+        error: null,
+      ));
+      try {
+        final data = await favoriteService.getFavorite();
+        emit(state.copyWith(loading: false, favoriteList: data));
+      } catch (e) {
+         emit(state.copyWith(loading: false, error: e.toString()));
+      }
     });
   }
 }
