@@ -15,7 +15,7 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (widget.eventModal.services.isNotEmpty)
+        if (widget.eventModal!.services.isNotEmpty)
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,7 +29,7 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
               ),
               Flexible(
                 child: Text(
-                  widget.eventModal.services.join(', '),
+                  widget.eventModal!.services.join(', '),
                   maxLines: isExpanded ? null : 2,
                   overflow:
                       isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
@@ -58,7 +58,7 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                widget.eventModal.providing.join(', '),
+                widget.eventModal!.providing.join(', '),
                 maxLines: isExpanded ? null : 2,
                 overflow:
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
@@ -87,7 +87,7 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                widget.eventModal.category.join(', '),
+                widget.eventModal!.category.join(', '),
                 maxLines: isExpanded ? null : 2,
                 overflow:
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,

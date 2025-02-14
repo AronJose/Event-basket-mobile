@@ -22,26 +22,27 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       ));
       try {
         await favoriteService.addFavorite({
-        "user_id":event.userId,
-        "event_id": event.eventId,
-      });
-      emit(state.copyWith(loading: false, error: null));
+          "user_id": event.userId,
+          "event_id": event.eventId,
+        });
+        emit(state.copyWith(loading: false, error: null));
       } catch (e) {
-         emit(state.copyWith(loading: false, error: e.toString()));
+        emit(state.copyWith(loading: false, error: e.toString()));
       }
     });
 
     // ------------------ Favorite Listing ------------------------------
-    on<GetFavorites> ((event, emit)async{
+    on<GetFavorites>((event, emit) async {
       emit(state.copyWith(
         loading: true,
         error: null,
+        favoriteList: null, 
       ));
       try {
-        final data = await favoriteService.getFavorite();
+        final data = await favoriteService.getFavorites();
         emit(state.copyWith(loading: false, favoriteList: data));
       } catch (e) {
-         emit(state.copyWith(loading: false, error: e.toString()));
+        emit(state.copyWith(loading: false, error: e.toString()));
       }
     });
   }

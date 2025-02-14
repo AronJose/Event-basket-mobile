@@ -3,14 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:login/core/blocs/favorite/favorite_bloc.dart';
 import 'package:login/core/models/event_modal.dart';
+import 'package:login/core/models/favorite_list_model.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/address_contact_email_screen.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/image_container_card.dart';
 import 'package:login/features/presentation/main_screens.dart/home_screen/presentation/widgets/service_providing_category_screen.dart';
 import 'package:login/shared_prefs_helper.dart';
 
 class HomeCard extends StatefulWidget {
-  const HomeCard({super.key, required this.eventModal});
-  final EventModal eventModal;
+  const HomeCard(
+      {super.key,
+      this.eventModal,
+      this.favoriteEvent,
+      this.isHome,
+      this.isFavorite});
+  final EventModal? eventModal;
+  final FavoriteListModel? favoriteEvent;
+  final bool? isHome;
+  final bool? isFavorite;
 
   @override
   State<HomeCard> createState() => _HomeCardState();
@@ -53,6 +62,7 @@ class _HomeCardState extends State<HomeCard> {
     } else {
       imageWidth = screenWidth * 0.5;
     }
+                print(widget.isHome);
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Column(
@@ -64,7 +74,10 @@ class _HomeCardState extends State<HomeCard> {
             child: Stack(
               children: [
                 Image.network(
-                  widget.eventModal.image[imgSelectorIndex],
+               widget.isHome == true  
+                      ? widget.eventModal!.image[imgSelectorIndex]
+                      : widget
+                          .favoriteEvent!.eventId.first.image[imgSelectorIndex],
                   fit: BoxFit.cover,
                   width: imageWidth,
                   height: 200.h,
@@ -92,7 +105,7 @@ class _HomeCardState extends State<HomeCard> {
                     onPressed: () {
                       setState(() {
                         if (imgSelectorIndex <
-                            widget.eventModal.image.length - 1) {
+                            widget.eventModal!.image.length - 1) {
                           imgSelectorIndex++;
                         }
                       });
@@ -113,8 +126,8 @@ class _HomeCardState extends State<HomeCard> {
                     mainAxisSpacing: 2,
                     crossAxisSpacing: 2,
                   ),
-                  itemCount: widget.eventModal.image.length < 4
-                      ? widget.eventModal.image.length
+                  itemCount: widget.eventModal!.image.length < 4
+                      ? widget.eventModal!.image.length
                       : 4,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
@@ -124,9 +137,9 @@ class _HomeCardState extends State<HomeCard> {
                           imgSelectorIndex = index;
                         });
                       },
-                      imagePath: widget.eventModal.image[index],
+                      imagePath: widget.eventModal!.image[index],
                       index: index,
-                      count: widget.eventModal.image.length - 4,
+                      count: widget.eventModal!.image.length - 4,
                     );
                   },
                 ),
@@ -141,7 +154,7 @@ class _HomeCardState extends State<HomeCard> {
               children: [
                 // --------- Event Name ----------------
                 Text(
-                  widget.eventModal.eventName,
+                  widget.eventModal!.eventName,
                   style: TextStyle(
                     fontSize: 25.sp,
                     fontWeight: FontWeight.w900,
@@ -161,7 +174,7 @@ class _HomeCardState extends State<HomeCard> {
                             color: Colors.blue,
                           ),
                           Text(
-                            widget.eventModal.place,
+                            widget.eventModal!.place,
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 108, 108, 108),
                                 fontWeight: FontWeight.w500,
@@ -190,7 +203,7 @@ class _HomeCardState extends State<HomeCard> {
                                   });
                                   context.read<FavoriteBloc>().add(AddFavorites(
                                       userId: userId,
-                                      eventId: widget.eventModal.id));
+                                      eventId: widget.eventModal!.id));
                                 },
                               ),
                               SizedBox(width: 5.w),
@@ -211,7 +224,7 @@ class _HomeCardState extends State<HomeCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.eventModal.desc,
+                        widget.eventModal!.desc,
                         style: const TextStyle(
                           color: Color.fromARGB(255, 108, 108, 108),
                           fontWeight: FontWeight.w500,
@@ -242,23 +255,23 @@ class _HomeCardState extends State<HomeCard> {
                     children: [
                       AdressContactEmailContainerScreen(
                         icons: Icons.home,
-                        name: widget.eventModal.address,
+                        name: widget.eventModal!.address,
                         title:
-                            'Address: ${widget.eventModal.providers.join(', ')}',
+                            'Address: ${widget.eventModal!.providers.join(', ')}',
                         widget: widget,
                       ),
                       AdressContactEmailContainerScreen(
                         icons: Icons.call,
-                        name: widget.eventModal.contact,
+                        name: widget.eventModal!.contact,
                         title:
-                            'Contact: ${widget.eventModal.providers.join(', ')}',
+                            'Contact: ${widget.eventModal!.providers.join(', ')}',
                         widget: widget,
                       ),
                       AdressContactEmailContainerScreen(
                         icons: Icons.email,
-                        name: widget.eventModal.email,
+                        name: widget.eventModal!.email,
                         title:
-                            'Email: ${widget.eventModal.providers.join(', ')}',
+                            'Email: ${widget.eventModal!.providers.join(', ')}',
                         widget: widget,
                       ),
                     ],

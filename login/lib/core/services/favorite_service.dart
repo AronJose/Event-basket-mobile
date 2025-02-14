@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:login/common/constants/api_enpoints.dart';
 import 'package:login/core/models/favorite_list_model.dart';
 import 'package:login/core/models/favorite_model.dart';
 import 'package:login/shared_prefs_helper.dart';
@@ -10,11 +11,11 @@ class FavoriteService {
 
 // -------------------------- Adding favorite to the favorite table ------------------------------
   Future<FavoriteModel> addFavorite(Map<String, dynamic> body) async {
-    try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String? token = prefs.getString('auth_token');
+    try {
       final response = await dio.post(
-        '/api/events/favorite',
+       ApiEnpoints.addFavorite,
         data: body,
         options: Options(
           headers: {
@@ -30,15 +31,16 @@ class FavoriteService {
 
   // --------------------------- Listing All Favorite based on the User ------------------------------
 
-  Future<FavoriteListModel> getFavorite() async {
+  Future<FavoriteListModel> getFavorites() async {
     try {
-      final token = SharedPrefsHelper.getToken();
-      final userId = SharedPrefsHelper.getUserId();
-      final response = await dio.get('api/events/favorite',
+     final SharedPreferences prefs = await SharedPreferences.getInstance();
+       final String? token = prefs.getString('auth_token');
+       final String? userId = prefs.getString('user_id');                                   
+      final response = await dio.get(ApiEnpoints.getFavorite,
           queryParameters: {"user_id": userId},
           options: Options(
             headers: {
-              "Authorization": "Bearer $token",
+              "Authorization": token,
             },
           ));
       return FavoriteListModel.fromJson(response.data);

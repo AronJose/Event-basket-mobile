@@ -34,6 +34,7 @@ class HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, listIndex) {
               // final event = state.eventsData[index];
               return HomeCard(
+                isHome: true,
                 eventModal: state.eventsData[listIndex],
               );
             },
