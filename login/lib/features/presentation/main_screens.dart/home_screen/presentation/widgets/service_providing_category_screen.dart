@@ -13,9 +13,21 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isFavorite = widget.favoriteEvent != null;
+
+    final services = isFavorite
+        ? widget.favoriteEvent!.eventId.first.services
+        : widget.eventModal!.services;
+    final providing = isFavorite
+        ? widget.favoriteEvent!.eventId.first.providing
+        : widget.eventModal!.providing;
+    final category = isFavorite
+        ? widget.favoriteEvent!.eventId.first.category
+        : widget.eventModal!.category;
+
     return Column(
       children: [
-        if (widget.eventModal!.services.isNotEmpty)
+        if (services.isNotEmpty)
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -29,7 +41,7 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
               ),
               Flexible(
                 child: Text(
-                  widget.eventModal!.services.join(', '),
+                  services.join(', '),
                   maxLines: isExpanded ? null : 2,
                   overflow:
                       isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
@@ -42,23 +54,23 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
               ),
             ],
           ),
-        const SizedBox(
+        if (services.isNotEmpty) const SizedBox(
           height: 5,
         ),
-        Row(
+        if(providing.isNotEmpty) Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "Providing: ",
-               style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 12,
-                ),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 12,
+              ),
             ),
             Flexible(
               child: Text(
-                widget.eventModal!.providing.join(', '),
+                providing.join(', '),
                 maxLines: isExpanded ? null : 2,
                 overflow:
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
@@ -71,23 +83,23 @@ class ServiceProvidingCategoryScreen extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
+        if(providing.isNotEmpty) const SizedBox(
           height: 5,
         ),
-        Row(
+       if (category.isNotEmpty) Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "Category : ",
               style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 12,
-                ),
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 12,
+              ),
             ),
             Flexible(
               child: Text(
-                widget.eventModal!.category.join(', '),
+                category.join(', '),
                 maxLines: isExpanded ? null : 2,
                 overflow:
                     isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,

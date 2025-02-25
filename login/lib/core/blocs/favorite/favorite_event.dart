@@ -7,5 +7,5 @@ class FavoriteEvent with _$FavoriteEvent {
     required String? userId,
   }) = AddFavorites;
 
-  const factory FavoriteEvent.getFavorites() = GetFavorites;
+  const factory FavoriteEvent.getFavoriteList() = GetFavoritesList;
 }

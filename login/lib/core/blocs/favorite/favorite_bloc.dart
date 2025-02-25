@@ -32,17 +32,20 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     });
 
     // ------------------ Favorite Listing ------------------------------
-    on<GetFavorites>((event, emit) async {
-      emit(state.copyWith(
-        loading: true,
-        error: null,
-        favoriteList: null, 
-      ));
+    on<GetFavoritesList>((event, emit) async {
+      emit(state.copyWith(loading: true, error: null));
       try {
         final data = await favoriteService.getFavorites();
-        emit(state.copyWith(loading: false, favoriteList: data));
+        emit(state.copyWith(
+          loading: false,
+          error: null,
+          favoriteList: data,
+        ));
       } catch (e) {
-        emit(state.copyWith(loading: false, error: e.toString()));
+        emit(state.copyWith(
+          loading: false,
+          error: "An unexpected error occurred: ${e.toString()}",
+        ));
       }
     });
   }

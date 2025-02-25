@@ -69,54 +69,42 @@ class PlayScreenState extends State<PlayScreen> {
       child: Column(
         children: [
           Expanded(
-            child: Container(
-              // decoration: BoxDecoration(
-              //   color: Colors.white,
-              //   border: Border.all(color: Colors.white10, width: 2.w),
-              //   borderRadius: BorderRadius.circular(10.r),
-              //   boxShadow: [
-              //     BoxShadow(
-              //         color: const Color.fromARGB(255, 221, 218, 218),
-              //         blurRadius: 5.r)
-              //   ],
-              // ),
-              child: Card(
-                elevation: 2,
-                child: Stack(
-                  fit: StackFit.loose,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.sizeOf(context).height,
-                      width: MediaQuery.sizeOf(context).width,
-                      child: chewieController != null &&
-                              chewieController!
-                                  .videoPlayerController.value.isInitialized
-                          ? FittedBox(
-                              fit: BoxFit.fill,
-                              child: SizedBox(
-                                height: chewieController!
-                                    .videoPlayerController.value.size.height,
-                                width: chewieController!
-                                    .videoPlayerController.value.size.width,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Chewie(
-                                    controller: chewieController!,
-                                  ),
+            child: Card(
+              elevation: 2,
+              child: Stack(
+                fit: StackFit.loose,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height,
+                    width: MediaQuery.sizeOf(context).width,
+                    child: chewieController != null &&
+                            chewieController!
+                                .videoPlayerController.value.isInitialized
+                        ? FittedBox(
+                            fit: BoxFit.fill,
+                            child: SizedBox(
+                              height: chewieController!
+                                  .videoPlayerController.value.size.height,
+                              width: chewieController!
+                                  .videoPlayerController.value.size.width,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Chewie(
+                                  controller: chewieController!,
                                 ),
                               ),
-                            )
-                          : Center(
-                              child: hasError
-                                  ? const Text(
-                                      'Error loading video',
-                                      style: TextStyle(color: Colors.red),
-                                    )
-                                  : const CircularProgressIndicator(),
                             ),
-                    ),
-                  ],
-                ),
+                          )
+                        : Center(
+                            child: hasError
+                                ? const Text(
+                                    'Error loading video',
+                                    style: TextStyle(color: Colors.red),
+                                  )
+                                : const CircularProgressIndicator(),
+                          ),
+                  ),
+                ],
               ),
             ),
           ),

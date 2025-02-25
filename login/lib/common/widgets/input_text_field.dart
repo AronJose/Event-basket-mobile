@@ -36,7 +36,7 @@ class _InputFieldTextsState extends State<InputFieldTexts> {
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.r),
           borderSide: BorderSide(
-            color: Colors.red.withOpacity(0.8),
+            color: Colors.red.withValues(alpha:0.8),
             width: 2,
           ),
         ),

@@ -22,8 +22,10 @@ class _SplashScreenState extends State<SplashScreen> {
     final String? token = prefs.getString('auth_token');
 
     if (token != null && token.isNotEmpty) {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context,'/body');
     } else {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, '/login');
     }
   }

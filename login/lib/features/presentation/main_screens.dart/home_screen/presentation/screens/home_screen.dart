@@ -32,9 +32,7 @@ class HomeScreenState extends State<HomeScreen> {
           child: ListView.builder(
             itemCount: state.eventsData.length,
             itemBuilder: (context, listIndex) {
-              // final event = state.eventsData[index];
               return HomeCard(
-                isHome: true,
                 eventModal: state.eventsData[listIndex],
               );
             },

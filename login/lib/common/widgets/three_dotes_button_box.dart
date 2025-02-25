@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login/core/blocs/auth/auth_bloc.dart';
 import 'package:login/shared_prefs_helper.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 enum SampleItem { itemOne, itemTwo, itemThree }

@@ -6,12 +6,12 @@ class FavoriteState with _$FavoriteState {
     required bool? loading,
     required String? error,
     required FavoriteModel? favorites,
-    required FavoriteListModel? favoriteList,
+    required List<FavoriteListModel>? favoriteList,
   }) = _Initial;
   factory FavoriteState.initial() => const FavoriteState(
         loading: false,
         error: null,
         favorites: null,
-        favoriteList: null,
+        favoriteList: [],
       );
 }
